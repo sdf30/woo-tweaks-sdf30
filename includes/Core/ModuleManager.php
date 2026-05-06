@@ -52,6 +52,7 @@ class ModuleManager
             \WooTweaksTools\Modules\BulkPrice\BulkPriceModule::class,
             \WooTweaksTools\Modules\DirectCheckout\DirectCheckoutModule::class,
             \WooTweaksTools\Modules\StockStatus\StockStatusModule::class,
+            \WooTweaksTools\Modules\SmartStock\SmartStockModule::class,
         ];
 
         foreach ($module_classes as $module_class) {

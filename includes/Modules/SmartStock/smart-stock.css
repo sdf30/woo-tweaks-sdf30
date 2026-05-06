@@ -1,0 +1,39 @@
+/**
+ * Smart Stock Messaging Styles
+ */
+
+/* Target the availability container when our module is active */
+.stock.wt-smart-stock-active {
+    color: #d63638 !important; /* Premium Red */
+    font-weight: 700 !important;
+    background: rgba(214, 54, 56, 0.05);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(214, 54, 56, 0.15);
+    display: inline-block;
+    margin: 15px 0;
+    font-size: 0.95em;
+    animation: wt-pulse 2.5s infinite ease-in-out;
+    box-shadow: 0 2px 10px rgba(214, 54, 56, 0.08);
+}
+
+/* Pulse animation to attract attention */
+@keyframes wt-pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 2px 10px rgba(214, 54, 56, 0.08);
+    }
+    50% {
+        transform: scale(1.015);
+        box-shadow: 0 4px 15px rgba(214, 54, 56, 0.12);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 2px 10px rgba(214, 54, 56, 0.08);
+    }
+}
+
+/* Ensure it looks good in block-based themes (FSE) */
+.wp-block-woocommerce-product-stock-indicator.wt-smart-stock-active {
+    color: #d63638 !important;
+}
