@@ -1,0 +1,15 @@
+{
+  "intelephense.stubs": [
+    "wordpress",
+    "woocommerce",
+    "Core",
+    "date",
+    "standard",
+    "json",
+    "SPL"
+  ],
+  "intelephense.environment.includePaths": [
+    "vendor/php-stubs/wordpress-stubs",
+    "vendor/php-stubs/woocommerce-stubs"
+  ]
+}
