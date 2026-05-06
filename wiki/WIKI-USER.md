@@ -83,6 +83,7 @@ Améliorez l'expérience utilisateur sur la page "Mon Compte > Détails du compt
 Activez cette option pour booster vos ventes :
 - **Badge de remise** : Affiche automatiquement le pourcentage de réduction (ex: -20%) à côté du prix.
 - **Date de fin** : Affiche un message d'urgence si une date de fin de promotion est définie ("L'offre se termine dans X jours...").
+- **Support FSE** : Un bloc "Promo Urgency (Woo Tweaks)" est disponible pour placer le message d'urgence n'importe où dans vos templates de produits.
 - **Design Premium** : Des badges stylisés et des messages avec animations fluides pour maximiser les conversions.
 
 ---

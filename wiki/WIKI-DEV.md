@@ -84,11 +84,12 @@ Approche axée sur le "Clean UI" via JavaScript :
 - **JS Toggle** : Le script `account-ux.js` enveloppe les sections Email et Mot de passe dynamiquement au chargement de la page pour éviter de casser la structure HTML native générée par WooCommerce ou d'autres plugins.
 - **Persistance** : La date de naissance est traitée lors du hook `woocommerce_save_account_details` et stockée comme `user_meta`.
 
-## Étude de Cas : Promo Urgency Badges (Dynamic Injection)
+## Étude de Cas : Promo Urgency Badges (Dynamic Injection & FSE)
 Optimisation des conversions par l'urgence :
 - **Calcul de %** : Gère les produits simples et variables (prend le prix min pour les variables).
 - **Formatage Date** : Utilise `date_i18n` pour respecter la locale du site.
-- **Injection HTML** : Utilise `woocommerce_get_price_html` pour insérer le badge de réduction proprement sans casser les styles du thème.
+- **Injection HTML** : Utilise `woocommerce_get_price_html` pour insérer le badge de réduction proprement.
+- **Support FSE** : Le module enregistre un bloc Gutenberg dynamique (`block.json` + `render.php`). La méthode `get_urgency_message_html` est partagée entre le hook classique et le rendu du bloc pour une maintenance simplifiée.
 
 ---
 

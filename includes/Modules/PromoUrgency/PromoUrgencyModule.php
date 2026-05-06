@@ -34,22 +34,82 @@ class PromoUrgencyModule extends AbstractModule
      */
     public function init(): void
     {
-        \add_filter('woocommerce_get_price_html', [$this, 'add_percentage_badge'], 20, 2);
-        \add_action('woocommerce_single_product_summary', [$this, 'display_sale_expiry_message'], 15);
+        // Badges in lists and single product
+        \add_filter('woocommerce_get_price_html', [$this, 'add_percentage_badge'], 10, 2);
+
+        // Sale expiry message via hook (Legacy / Default FSE Summary)
+        \add_action('woocommerce_single_product_summary', [$this, 'display_sale_expiry_message'], 25);
+
+        // Enqueue styles
         \add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
+
+        // Register FSE Block
+        $this->register_fse_block();
     }
 
     /**
-     * Enqueue module styles.
+     * Registers the FSE Block for Promo Urgency.
+     */
+    public function register_fse_block(): void
+    {
+        $dir = \plugin_dir_path(__FILE__);
+        if (\file_exists($dir . 'block.json')) {
+            \register_block_type($dir, [
+                'render_callback' => [$this, 'render_fse_block'],
+            ]);
+        }
+        
+        // Ensure CSS is available in the editor
+        \add_action('enqueue_block_editor_assets', [$this, 'enqueue_editor_assets']);
+    }
+
+    /**
+     * Render callback for the FSE block.
+     *
+     * @param array    $attributes Block attributes.
+     * @param string   $content    Block content.
+     * @param \WP_Block $block     Block instance.
+     * @return string
+     */
+    public function render_fse_block(array $attributes, string $content, \WP_Block $block): string
+    {
+        global $product;
+
+        if (!$product && isset($block->context['postId'])) {
+            $product = \wc_get_product($block->context['postId']);
+        }
+
+        if (!$product) {
+            return '';
+        }
+
+        return $this->get_urgency_message_html($product);
+    }
+
+    /**
+     * Enqueue assets for block editor.
+     */
+    public function enqueue_editor_assets(): void
+    {
+        \wp_enqueue_style(
+            'woo-tweaks-promo-urgency-editor',
+            \plugin_dir_url(\dirname(\dirname(\dirname(__FILE__)))) . 'assets/css/index.css',
+            [],
+            \WooTweaksTools\Plugin::VERSION
+        );
+    }
+
+    /**
+     * Enqueue module assets.
      */
     public function enqueue_assets(): void
     {
-        if (\is_product()) {
+        if (\is_product() || \is_shop() || \is_product_category()) {
             \wp_enqueue_style(
                 'woo-tweaks-promo-urgency',
                 \plugins_url('promo-urgency.css', __FILE__),
                 [],
-                '1.0.0'
+                '1.3.0'
             );
         }
     }
@@ -102,50 +162,53 @@ class PromoUrgencyModule extends AbstractModule
     }
 
     /**
-     * Display a message if the sale has an expiry date.
+     * Display the sale expiry message.
      */
     public function display_sale_expiry_message(): void
     {
-        if (\get_option('woo_tweaks_promo_urgency_show_date', 'no') !== 'yes') {
+        global $product;
+        if (!$product) {
             return;
         }
 
-        global $product;
-        if (!$product || !$product->is_on_sale()) {
-            return;
+        echo $this->get_urgency_message_html($product);
+    }
+
+    /**
+     * Get the urgency message HTML.
+     *
+     * @param \WC_Product $product
+     * @return string
+     */
+    public function get_urgency_message_html($product): string
+    {
+        if (\get_option('woo_tweaks_promo_urgency_show_date', 'no') !== 'yes' || !$product->is_on_sale()) {
+            return '';
         }
 
         $date_to = $product->get_date_on_sale_to();
         if (!$date_to) {
-            return;
+            return '';
         }
 
-        $now = new \DateTime();
-        $diff = $now->diff($date_to->getTimestamp() > $now->getTimestamp() ? new \DateTime('@' . $date_to->getTimestamp()) : $now);
-        
-        if ($date_to->getTimestamp() <= $now->getTimestamp()) {
-            return;
+        $remaining_time = $date_to->getTimestamp() - time();
+        if ($remaining_time <= 0) {
+            return '';
         }
 
-        $days = (int) $diff->format('%a');
-        $hours = (int) $diff->format('%h');
+        $days = floor($remaining_time / (24 * 3600));
+        $hours = floor(($remaining_time % (24 * 3600)) / 3600);
 
-        echo '<div class="wt-promo-urgency-msg">';
-        echo '<span class="wt-icon">⏳</span> ';
-        
+        $message = '';
         if ($days > 0) {
-            \printf(
-                \__('L\'offre se termine dans %d jours et %d heures', 'woo-tweaks-tools'),
-                $days,
-                $hours
-            );
+            $message = \sprintf(\_n('Plus que %s jour restant !', 'Plus que %s jours restants !', (int) $days, 'woo-tweaks-tools'), $days);
         } else {
-            \printf(
-                \__('L\'offre se termine dans %d heures et %d minutes', 'woo-tweaks-tools'),
-                $hours,
-                (int) $diff->format('%i')
-            );
+            $message = \sprintf(\__('Plus que %s heures restantes !', 'woo-tweaks-tools'), $hours);
         }
-        echo '</div>';
+
+        return \sprintf(
+            '<div class="wt-promo-urgency-msg"><span>⏱️</span> %s</div>',
+            \esc_html($message)
+        );
     }
 }

@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "woo-tweaks/promo-urgency",
+    "title": "Promo Urgency (Woo Tweaks)",
+    "category": "text",
+    "description": "Affiche le message d'urgence pour les promotions en cours.",
+    "keywords": [ "promo", "urgency", "sales", "woocommerce", "antigravity" ],
+    "textdomain": "woo-tweaks-tools",
+    "icon": "clock",
+    "supports": {
+        "html": false,
+        "align": [ "wide", "full" ]
+    }
+}
