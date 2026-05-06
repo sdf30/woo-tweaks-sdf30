@@ -18,6 +18,9 @@ Modifiez le texte "Ajouter au panier" sur vos fiches produits selon le type de p
 Ajoute un bouton de redirection vers la page produit complète depuis les archives de la boutique.
 - **Thèmes Legacy** : Ajouté automatiquement.
 - **Thèmes FSE (Full Site Editing)** : Utilisez le bloc natif "Read More (by WooTweaks)" directement dans l'éditeur de site (Gutenberg).
+- **Options avancées** :
+    - Ouverture dans un nouvel onglet (`target="_blank"`).
+    - Affichage sur la fiche produit (Single Product) pour faciliter la navigation transversale.
 
 ### 3. Redirection Panier Vide (Empty Cart Redirect)
 Redirige automatiquement un visiteur accédant à la page Panier si celui-ci est vide. Il sera redirigé vers la page principale de la boutique.
@@ -30,6 +33,17 @@ Allège le formulaire de commande en masquant les champs non essentiels.
 Une interface dédiée à droite de vos réglages vous permet d'ajouter du code CSS personnalisé.
 - Pratique pour surcharger le design d'un module sans toucher aux fichiers du thème.
 - Un mini-glossaire des classes est inclus sous l'éditeur pour vous guider (ex: `a.woo-tweaks-read-more`).
+
+### 6. Masquage des Éléments (Hide Components)
+Masquez sélectivement le SKU, les catégories ou les produits apparentés sur les thèmes classiques.
+- **Note** : Inactif sur les thèmes FSE pour laisser le plein contrôle à l'éditeur de site.
+
+### 7. Ajustement de Prix (Bulk Price Manager)
+Modifiez vos prix en masse directement depuis la liste des produits WooCommerce.
+1. Filtrez vos produits (par catégorie par exemple).
+2. Sélectionnez les produits à modifier.
+3. Allez dans **Actions groupées** > **Ajuster les prix (+/-)** > **Appliquer**.
+4. Saisissez votre hausse ou baisse (fixe ou %), avec option d'arrondi à .99.
 
 ---
 

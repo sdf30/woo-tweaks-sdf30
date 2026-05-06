@@ -8,6 +8,8 @@ Woo Tweaks Tools est un plugin WooCommerce modulaire et ultra-léger conçu pour
 - **Bouton En Savoir Plus** : Bouton supplémentaire entièrement compatible Full Site Editing (FSE).
 - **Empty Cart Redirect** : Redirection automatique des paniers vides vers la boutique.
 - **Checkout Fields Cleaner** : Nettoyage des champs superflus lors de la validation de commande.
+- **Hide Components** : Masquage sélectif du SKU, des catégories et produits apparentés.
+- **Bulk Price Manager** : Ajustement massif des prix via les actions groupées natives.
 - **Custom CSS Engine** : Injection de styles personnalisés via un éditeur intégré (CodeMirror).
 - **Module Manager** : Architecture modulaire permettant d'activer/désactiver chaque option indépendamment.
 
