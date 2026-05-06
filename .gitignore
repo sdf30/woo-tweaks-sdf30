@@ -5,3 +5,5 @@ vendor/
 dist/
 phpstan.neon
 composer.lock
+.DS_Store
+*.zip
