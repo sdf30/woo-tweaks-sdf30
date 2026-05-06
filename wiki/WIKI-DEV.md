@@ -66,4 +66,24 @@ Le plugin est conçu pour être compatible avec les thèmes classiques et les th
 
 ---
 
+## Étude de Cas : Stock Status Shortcuts (AJAX)
+Ce module utilise une approche réactive pour le backend :
+- **Hooks** : Utilise `manage_product_posts_columns` pour s'injecter et `manage_product_posts_custom_column` pour remplacer l'affichage natif du stock.
+- **AJAX** : Enregistre une action `wp_ajax_woo_tweaks_toggle_stock`. La sécurité est assurée par un contrôle de capacité `edit_products` et une vérification de nonce.
+- **Frontend Admin** : Un script léger `stock-status.js` gère le clic, affiche un état de chargement visuel (opacité) et met à jour la couleur/texte de la pastille en fonction du retour JSON.
+
+## Étude de Cas : Smart Stock Messaging (Filtre dynamique)
+Démontre l'utilisation des filtres de données WooCommerce :
+- **Filtre** : `woocommerce_get_availability`. Ce filtre est idéal car il est appelé partout où WooCommerce affiche le stock (Fiche produit, archives, widgets).
+- **Logique** : Vérifie si le produit gère le stock et si la quantité est inférieure ou égale au seuil défini. Si oui, il injecte le template HTML dans la clé `availability` du tableau de retour.
+- **Styling** : Utilise des variables CSS pour permettre une personnalisation facile via le module `Custom CSS`.
+
+## Étude de Cas : Enhanced Account UX (DOM Manipulation)
+Approche axée sur le "Clean UI" via JavaScript :
+- **Account Details** : Utilise `woocommerce_edit_account_form` pour injecter le champ "Date de naissance" et les boutons de toggle.
+- **JS Toggle** : Le script `account-ux.js` enveloppe les sections Email et Mot de passe dynamiquement au chargement de la page pour éviter de casser la structure HTML native générée par WooCommerce ou d'autres plugins.
+- **Persistance** : La date de naissance est traitée lors du hook `woocommerce_save_account_details` et stockée comme `user_meta`.
+
+---
+
 *Document de référence pour le maintien des standards de qualité OPEN-SDF.*
