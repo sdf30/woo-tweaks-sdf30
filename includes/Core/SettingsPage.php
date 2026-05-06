@@ -354,6 +354,23 @@ class SettingsPage extends \WC_Settings_Page
                 'id'   => 'woo_tweaks_general_section',
             ],
             [
+                'title' => \__('Gestion Administrative', 'woo-tweaks-tools'),
+                'type'  => 'title',
+                'desc'  => \__('Outils pour accélérer la gestion de votre boutique.', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_admin_section',
+            ],
+            [
+                'title'    => \__('Raccourcis Stock Status', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_stock_status_shortcuts',
+                'type'     => 'checkbox',
+                'default'  => 'no',
+                'desc'     => \__('Ajoute des liens rapides "En Stock" / "Hors Stock" dans la liste des produits.', 'woo-tweaks-tools'),
+            ],
+            [
+                'type' => 'sectionend',
+                'id'   => 'woo_tweaks_admin_section',
+            ],
+            [
                 'title' => \__('Apparence & Custom CSS', 'woo-tweaks-tools'),
                 'type'  => 'title',
                 'desc'  => \__('Ajoutez votre CSS personnalisé ici pour styliser les éléments du plugin sans surcharger le CSS global de votre site. <br><br><b>Glossaire des classes :</b><br><code>a.woo-tweaks-read-more</code> : Le bouton "Read More" (Feat 2).', 'woo-tweaks-tools'),

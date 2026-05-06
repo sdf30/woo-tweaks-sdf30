@@ -51,6 +51,7 @@ class ModuleManager
             \WooTweaksTools\Modules\HideComponents\HideComponentsModule::class,
             \WooTweaksTools\Modules\BulkPrice\BulkPriceModule::class,
             \WooTweaksTools\Modules\DirectCheckout\DirectCheckoutModule::class,
+            \WooTweaksTools\Modules\StockStatus\StockStatusModule::class,
         ];
 
         foreach ($module_classes as $module_class) {

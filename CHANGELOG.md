@@ -4,6 +4,11 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.2.1] - 2026-05-06
+### ADD
+- **Stock Status Shortcuts** : Ajout d'actions rapides (AJAX) dans la liste des produits pour basculer l'état du stock sans rechargement.
+- **Gestion Administrative** : Nouvelle section dans les réglages pour les outils de productivité backend.
+
 ## [1.2.0] - 2026-05-06
 
 ### Ajouté
