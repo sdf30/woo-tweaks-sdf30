@@ -251,7 +251,35 @@ class SettingsPage extends \WC_Settings_Page
                 'id'    => 'woo_tweaks_general_section',
             ],
             [
-                'title' => __('Checkout Tweaks', 'woo-tweaks-tools'),
+                'title' => \__('Hide Components (Thèmes Classiques uniquement)', 'woo-tweaks-tools'),
+                'type'  => 'title',
+                'desc'  => \__('Masquez certains éléments natifs de la fiche produit. Inactif sur les thèmes FSE.', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_hide_components_section',
+            ],
+            [
+                'title' => \__('Masquer le SKU', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_hide_sku',
+                'type'  => 'checkbox',
+                'default' => 'no',
+            ],
+            [
+                'title' => \__('Masquer les Catégories', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_hide_categories',
+                'type'  => 'checkbox',
+                'default' => 'no',
+            ],
+            [
+                'title' => \__('Masquer les Produits Apparentés', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_hide_related_products',
+                'type'  => 'checkbox',
+                'default' => 'no',
+            ],
+            [
+                'type' => 'sectionend',
+                'id'   => 'woo_tweaks_hide_components_section',
+            ],
+            [
+                'title' => \__('Checkout Tweaks', 'woo-tweaks-tools'),
                 'type'  => 'title',
                 'desc'  => __('Simplifiez votre tunnel de commande.', 'woo-tweaks-tools'),
                 'id'    => 'woo_tweaks_checkout_section',

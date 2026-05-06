@@ -48,6 +48,7 @@ class ModuleManager
             \WooTweaksTools\Modules\EmptyCartRedirect\EmptyCartRedirectModule::class,
             \WooTweaksTools\Modules\CheckoutFields\CheckoutFieldsModule::class,
             \WooTweaksTools\Modules\CustomCss\CustomCssModule::class,
+            \WooTweaksTools\Modules\HideComponents\HideComponentsModule::class,
         ];
 
         foreach ($module_classes as $module_class) {
