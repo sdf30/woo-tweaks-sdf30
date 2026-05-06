@@ -1,0 +1,27 @@
+{
+    "name": "sdf30/woo-tweaks",
+    "description": "WooCommerce Tweaks Plugin",
+    "require": {
+        "php": ">=8.1"
+    },
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Elk",
+            "email": "elk@example.com"
+        }
+    ],
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.13",
+        "wp-coding-standards/wpcs": "^3.3",
+        "phpstan/phpstan": "^2.1",
+        "szepeviktor/phpstan-wordpress": "^2.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+        "php-stubs/woocommerce-stubs": "^10.7"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

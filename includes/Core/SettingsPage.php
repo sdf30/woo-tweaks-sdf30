@@ -1,0 +1,147 @@
+<?php
+/**
+ * WooCommerce Settings Page Integration.
+ *
+ * @package WooTweaksTools
+ */
+
+declare(strict_types=1);
+
+namespace WooTweaksTools\Core;
+
+// Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/**
+ * Adds a new settings tab to WooCommerce.
+ */
+class SettingsPage extends \WC_Settings_Page
+{
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->id    = 'woo_tweaks_tools';
+        $this->label = \__('Woo Tweaks', 'woo-tweaks-tools');
+
+        \add_filter('woocommerce_settings_tabs_array', [$this, 'add_settings_page'], 20);
+        \add_action('woocommerce_settings_' . $this->id, [$this, 'output']);
+        \add_action('woocommerce_settings_save_' . $this->id, [$this, 'save']);
+        \add_action('woocommerce_sections_' . $this->id, [$this, 'output_sections']);
+
+        // Add direct submenu under WooCommerce.
+        \add_action('admin_menu', [$this, 'add_admin_submenu'], 20);
+    }
+
+    /**
+     * Add submenu page under WooCommerce.
+     */
+    public function add_admin_submenu(): void
+    {
+        \add_submenu_page(
+            'woocommerce',
+            \__('Tweaks Tools', 'woo-tweaks-tools'),
+            \__('Tweaks Tools', 'woo-tweaks-tools'),
+            'manage_woocommerce',
+            'admin.php?page=wc-settings&tab=' . $this->id,
+            null,
+            null
+        );
+    }
+
+    /**
+     * Get settings array.
+     *
+     * @return array
+     */
+    public function get_settings(): array
+    {
+        $settings = \apply_filters('woo_tweaks_tools_settings', [
+            [
+                'title' => \__('Global Custom Labels', 'woo-tweaks-tools'),
+                'type'  => 'title',
+                'desc'  => \__('These labels will apply globally unless overridden per product.', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_labels_section',
+            ],
+            [
+                'title'    => \__('Add to Cart Text', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_add_to_cart_text',
+                'type'     => 'text',
+                'default'  => '',
+                'desc'     => \__('Leave empty to use WooCommerce default.', 'woo-tweaks-tools'),
+                'desc_tip' => true,
+            ],
+            [
+                'title'    => \__('Sale Badge Text', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_sale_badge_text',
+                'type'     => 'text',
+                'default'  => '',
+                'placeholder' => \__('Sale!', 'woocommerce'),
+                'desc'     => \__('Text for the "Sale" badge (Promo).', 'woo-tweaks-tools'),
+                'desc_tip' => true,
+            ],
+            [
+                'title'    => \__('Out of Stock Text', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_out_of_stock_text',
+                'type'     => 'text',
+                'default'  => '',
+                'placeholder' => \__('Out of stock', 'woocommerce'),
+                'desc'     => \__('Text for "Out of stock" availability.', 'woo-tweaks-tools'),
+                'desc_tip' => true,
+            ],
+            [
+                'title'    => \__('Read More Button Label', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_read_more_label',
+                'type'     => 'text',
+                'default'  => \__('Read More', 'woo-tweaks-tools'),
+                'desc'     => \__('Default label for the additional button (Feat2).', 'woo-tweaks-tools'),
+                'desc_tip' => true,
+            ],
+            [
+                'title'    => \__('SKU Prefix', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_sku_label',
+                'type'     => 'text',
+                'default'  => '',
+                'placeholder' => 'SKU:',
+                'desc'     => \__('Override the default "SKU:" text.', 'woo-tweaks-tools'),
+                'desc_tip' => true,
+            ],
+            [
+                'title'    => \__('Category Prefix', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_category_label',
+                'type'     => 'text',
+                'default'  => '',
+                'placeholder' => 'Category:',
+                'desc'     => \__('Override the default "Category:" text.', 'woo-tweaks-tools'),
+                'desc_tip' => true,
+            ],
+            [
+                'type' => 'sectionend',
+                'id'   => 'woo_tweaks_labels_section',
+            ],
+            [
+                'title' => \__('General Tweaks', 'woo-tweaks-tools'),
+                'type'  => 'title',
+                'desc'  => \__('General utility features for WooCommerce.', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_general_section',
+            ],
+            [
+                'title'    => \__('Redirect Empty Cart', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_empty_cart_redirect',
+                'type'     => 'checkbox',
+                'default'  => 'no',
+                'desc'     => \__('Redirect users to the shop page if they access an empty cart page.', 'woo-tweaks-tools'),
+                'desc_tip' => true,
+            ],
+            [
+                'type' => 'sectionend',
+                'id'   => 'woo_tweaks_general_section',
+            ],
+        ]);
+
+        return $settings;
+    }
+}

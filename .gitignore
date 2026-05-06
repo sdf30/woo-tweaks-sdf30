@@ -1,3 +1,7 @@
 temp_/
 ba*.md
 BA*.md 
+vendor/
+dist/
+phpstan.neon
+composer.lock
