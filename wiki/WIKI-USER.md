@@ -39,11 +39,18 @@ Masquez sélectivement le SKU, les catégories ou les produits apparentés sur l
 - **Note** : Inactif sur les thèmes FSE pour laisser le plein contrôle à l'éditeur de site.
 
 ### 7. Ajustement de Prix (Bulk Price Manager)
-Modifiez vos prix en masse directement depuis la liste des produits WooCommerce.
-1. Filtrez vos produits (par catégorie par exemple).
-2. Sélectionnez les produits à modifier.
-3. Allez dans **Actions groupées** > **Ajuster les prix (+/-)** > **Appliquer**.
-4. Saisissez votre hausse ou baisse (fixe ou %), avec option d'arrondi à .99.
+Modifiez vos prix en masse directement depuis la liste des produits WooCommerce sans passer par des réglages complexes.
+- **Accès** : Liste des produits WooCommerce.
+- **Fonctionnement** :
+    1. Filtrez vos produits par catégorie, type ou état de stock.
+    2. Sélectionnez les produits concernés (case à cocher).
+    3. Choisissez **Actions groupées** > **Ajuster les prix (+/-)**.
+    4. Une fenêtre surgissante (modal) s'affiche pour configurer l'ajustement.
+- **Options disponibles** :
+    - **Opération** : Augmenter ou Diminuer le prix.
+    - **Type** : Valeur fixe (ex: +5€) ou Pourcentage (ex: -10%).
+    - **Arrondi Intelligent** : Option pour arrondir automatiquement tous les prix à `.99` (ex: 12.43€ devient 12.99€).
+- **Confirmation** : Un message de succès indique le nombre exact de produits mis à jour.
 
 ---
 

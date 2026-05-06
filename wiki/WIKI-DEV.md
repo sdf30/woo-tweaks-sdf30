@@ -28,6 +28,16 @@ Pour ajouter une fonctionnalité, suivez ces étapes :
 
 ---
 
+## Étude de Cas : Bulk Price Manager
+
+Le module `BulkPriceModule` sert d'exemple pour les manipulations complexes de données :
+- **Interception JS** : Le formulaire `posts-filter` est intercepté en JavaScript pour afficher le modal avant la soumission réelle.
+- **Passage de Paramètres** : Les réglages du modal sont injectés comme `hidden inputs` dans le formulaire natif juste avant l'envoi.
+- **Traitement Serveur** : Utilise le hook `handle_bulk_actions-edit-product`. Il boucle sur les IDs, charge les objets `WC_Product`, calcule les nouveaux prix (incluant la logique d'arrondi) et persiste via `$product->save()`.
+- **Feedback** : Utilise `add_query_arg` dans l'URL de redirection pour passer le nombre de modifications à `admin_notices`.
+
+---
+
 ## Conventions de Code
 
 - **Namespacing** : Utilisez `WooTweaksTools\Modules\[NomDuModule]`.
