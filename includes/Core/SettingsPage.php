@@ -81,72 +81,81 @@ class SettingsPage extends \WC_Settings_Page
                             editor.codemirror.save();
                         });
                     }
-
-                    // Layout Tweaks for the Settings Page
-                    var $form = $("form#mainform");
-                    var $submit = $form.find(".submit, p.submit");
-                    
-                    // Identify the CSS section elements explicitly by their generated IDs/structure
-                    var $cssTitle = $("#woo_tweaks_custom_css_section");
-                    var $cssDesc  = $cssTitle.next("p");
-                    var $cssTable = $("#woo_tweaks_custom_css").closest("table");
-                    
-                    var $sidebar = $("<div class=\'woo-tweaks-sidebar\'></div>");
-                    var $mainContent = $("<div class=\'woo-tweaks-main\'></div>");
-                    
-                    // Move all children except submit into mainContent initially
-                    $form.children().not($submit).appendTo($mainContent);
-                    
-                    // Move CSS elements from mainContent to sidebar
-                    $sidebar.append($cssTitle, $cssDesc, $cssTable);
-                    
-                    // Append wrappers back to form
-                    $form.prepend($sidebar);
-                    $form.prepend($mainContent);
-                    
-                    // Apply CSS Grid to the form
-                    $form.css({
-                        "display": "grid",
-                        "grid-template-columns": "1fr 400px",
-                        "gap": "30px",
-                        "align-items": "start"
-                    });
-                    
-                    // Make the submit button span full width
-                    if ($submit.length) {
-                        $submit.css({
-                            "grid-column": "1 / -1", 
-                            "margin-top": "20px", 
-                            "padding": "15px",
-                            "background": "#fff",
-                            "border": "1px solid #c3c4c7",
-                            "border-radius": "4px"
-                        });
-                    }
-                    
-                    // Style the sidebar
-                    $sidebar.css({
-                        "background": "#fff",
-                        "padding": "20px",
-                        "border": "1px solid #c3c4c7",
-                        "border-radius": "4px",
-                        "box-shadow": "0 1px 1px rgba(0,0,0,.04)"
-                    });
-                    
-                    // Adjust table inside sidebar to fit nicely
-                    $cssTable.css("width", "100%%");
-                    $cssTable.find("th").hide(); // Hide the label "CSS Personnalisé" since title is enough
-                    $cssTable.find("td").css({
-                        "padding": "0", 
-                        "width": "100%%"
-                    });
-                    
-                    // Ensure the code editor stretches nicely
-                    $(".CodeMirror").css("height", "400px");
                 });',
                 \wp_json_encode($settings)
             )
         );
+    }
+
+    /**
+     * Custom output for the settings page to create a 2-column layout natively.
+     */
+    public function output(): void
+    {
+        $settings = $this->get_settings();
+        
+        $main_settings = [];
+        $sidebar_settings = [];
+        $is_sidebar = false;
+        
+        foreach ($settings as $setting) {
+            if (isset($setting['id']) && $setting['id'] === 'woo_tweaks_custom_css_section' && $setting['type'] === 'title') {
+                $is_sidebar = true;
+            }
+            
+            if ($is_sidebar) {
+                $sidebar_settings[] = $setting;
+            } else {
+                $main_settings[] = $setting;
+            }
+            
+            if (isset($setting['id']) && $setting['id'] === 'woo_tweaks_custom_css_section' && $setting['type'] === 'sectionend') {
+                $is_sidebar = false;
+            }
+        }
+        
+        ?>
+        <style>
+            .woo-tweaks-layout {
+                display: grid;
+                grid-template-columns: 1fr 400px;
+                gap: 30px;
+                align-items: start;
+                margin-top: 20px;
+            }
+            .woo-tweaks-sidebar {
+                background: #fff;
+                padding: 20px;
+                border: 1px solid #c3c4c7;
+                border-radius: 4px;
+                box-shadow: 0 1px 1px rgba(0,0,0,.04);
+            }
+            .woo-tweaks-sidebar h2 {
+                margin-top: 0;
+            }
+            .woo-tweaks-sidebar table.form-table {
+                width: 100%;
+            }
+            .woo-tweaks-sidebar table.form-table th {
+                display: none;
+            }
+            .woo-tweaks-sidebar table.form-table td {
+                padding: 0;
+                width: 100%;
+            }
+            .CodeMirror {
+                height: 400px;
+            }
+        </style>
+        <div class="woo-tweaks-layout">
+            <div class="woo-tweaks-main">
+                <?php \WC_Admin_Settings::output_fields($main_settings); ?>
+            </div>
+            <div class="woo-tweaks-sidebar">
+                <?php \WC_Admin_Settings::output_fields($sidebar_settings); ?>
+            </div>
+        </div>
+        <?php
     }
 
     /**
