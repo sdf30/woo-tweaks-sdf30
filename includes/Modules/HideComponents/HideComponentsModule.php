@@ -22,6 +22,14 @@ if (!defined('ABSPATH')) {
 class HideComponentsModule extends AbstractModule
 {
     /**
+     * Determine if the module is active.
+     */
+    public function is_active(): bool
+    {
+        return true;
+    }
+
+    /**
      * Initialize module hooks.
      */
     public function init(): void
