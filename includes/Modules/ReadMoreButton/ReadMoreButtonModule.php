@@ -42,6 +42,11 @@ class ReadMoreButtonModule extends AbstractModule
         // We only add this if it is NOT a block theme, to prevent duplicates when using FSE.
         if (function_exists('wp_is_block_theme') && !\wp_is_block_theme()) {
             \add_action('woocommerce_after_shop_loop_item', [$this, 'display_legacy_button'], 5);
+            
+            // Show on single product if enabled
+            if (\get_option('woo_tweaks_read_more_show_on_single') === 'yes') {
+                \add_action('woocommerce_single_product_summary', [$this, 'display_legacy_button'], 35);
+            }
         }
 
         // FSE Block Registration
@@ -129,10 +134,18 @@ class ReadMoreButtonModule extends AbstractModule
             $label = \__('Read More', 'woo-tweaks-tools');
         }
         
+        
+        // 4. Target Blank.
+        $target = '';
+        if (\get_option('woo_tweaks_read_more_target_blank') === 'yes') {
+            $target = ' target="_blank" rel="noopener"';
+        }
+
         // Return standard WooCommerce button HTML
         return \sprintf(
-            '<a href="%s" class="button alt wp-element-button woo-tweaks-read-more" style="margin-right: 5px;">%s</a>',
+            '<a href="%s" class="button alt wp-element-button woo-tweaks-read-more" style="margin-right: 5px;"%s>%s</a>',
             \esc_url($url),
+            $target,
             \esc_html($label)
         );
     }
@@ -181,8 +194,15 @@ class ReadMoreButtonModule extends AbstractModule
                 $label = \__('Read More', 'woo-tweaks-tools');
             }
             
+            // 4. Target Blank.
+            $target = '';
+            if (\get_option('woo_tweaks_read_more_target_blank') === 'yes') {
+                $target = ' target="_blank" rel="noopener"';
+            }
+            
             return \sprintf(
-                '<a href="#" class="button alt wp-element-button woo-tweaks-read-more" style="margin-right: 5px; opacity: 0.5;">%s</a>',
+                '<a href="#" class="button alt wp-element-button woo-tweaks-read-more" style="margin-right: 5px; opacity: 0.5;"%s>%s</a>',
+                $target,
                 \esc_html($label)
             );
         }

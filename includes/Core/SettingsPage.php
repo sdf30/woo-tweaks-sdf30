@@ -223,6 +223,20 @@ class SettingsPage extends \WC_Settings_Page
                 'desc_tip' => true,
             ],
             [
+                'title'    => \__('Ouvrir dans un nouvel onglet', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_read_more_target_blank',
+                'type'     => 'checkbox',
+                'default'  => 'no',
+                'desc'     => \__('Appliquer target="_blank" au bouton "En Savoir Plus".', 'woo-tweaks-tools'),
+            ],
+            [
+                'title'    => \__('Afficher sur la fiche produit', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_read_more_show_on_single',
+                'type'     => 'checkbox',
+                'default'  => 'no',
+                'desc'     => \__('Afficher également le bouton sur les pages de produit seul.', 'woo-tweaks-tools'),
+            ],
+            [
                 'title'    => \__('SKU Prefix', 'woo-tweaks-tools'),
                 'id'       => 'woo_tweaks_sku_label',
                 'type'     => 'text',
