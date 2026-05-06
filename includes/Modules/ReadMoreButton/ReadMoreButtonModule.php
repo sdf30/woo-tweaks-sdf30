@@ -39,7 +39,10 @@ class ReadMoreButtonModule extends AbstractModule
         \add_action('woocommerce_process_product_meta', [$this, 'save_product_options']);
 
         // Frontend Legacy display (before Add to Cart button which is priority 10)
-        \add_action('woocommerce_after_shop_loop_item', [$this, 'display_legacy_button'], 5);
+        // We only add this if it is NOT a block theme, to prevent duplicates when using FSE.
+        if (function_exists('wp_is_block_theme') && !\wp_is_block_theme()) {
+            \add_action('woocommerce_after_shop_loop_item', [$this, 'display_legacy_button'], 5);
+        }
 
         // FSE Block Registration
         \add_action('init', [$this, 'register_fse_block']);
@@ -167,10 +170,23 @@ class ReadMoreButtonModule extends AbstractModule
      */
     public function render_fse_block(array $attributes, string $content, \WP_Block $block): string
     {
-        if (!isset($block->context['postId'])) {
-            return '';
+        $product_id = isset($block->context['postId']) ? (int) $block->context['postId'] : 0;
+        
+        $html = self::get_button_html($product_id);
+
+        // If HTML is empty but we are in the Site Editor context (REST API), show a preview button.
+        if (empty($html) && defined('REST_REQUEST') && REST_REQUEST) {
+            $label = \get_option('woo_tweaks_read_more_label', '');
+            if (empty($label)) {
+                $label = \__('Read More', 'woo-tweaks-tools');
+            }
+            
+            return \sprintf(
+                '<a href="#" class="button alt wp-element-button woo-tweaks-read-more" style="margin-right: 5px; opacity: 0.5;">%s</a>',
+                \esc_html($label)
+            );
         }
 
-        return self::get_button_html((int) $block->context['postId']);
+        return $html;
     }
 }
