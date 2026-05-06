@@ -68,8 +68,83 @@ class SettingsPage extends \WC_Settings_Page
                 'jQuery(document).ready(function($) {
                     var textarea = $("#woo_tweaks_custom_css");
                     if (textarea.length) {
-                        wp.codeEditor.initialize(textarea, %s);
+                        var editor = wp.codeEditor.initialize(textarea, %s);
+                        
+                        // Sync CodeMirror to textarea on change
+                        editor.codemirror.on("change", function(cm) {
+                            editor.codemirror.save();
+                            textarea.trigger("change");
+                        });
+                        
+                        // Also force sync on form submit
+                        $("form#mainform").on("submit", function() {
+                            editor.codemirror.save();
+                        });
                     }
+
+                    // Layout Tweaks for the Settings Page
+                    var $form = $("form#mainform");
+                    var $submit = $form.find(".submit, p.submit");
+                    
+                    // Identify the CSS section elements
+                    var $cssTable = $("#woo_tweaks_custom_css").closest("table");
+                    var $cssDesc = $cssTable.prev("p");
+                    var $cssTitle = $cssDesc.prev("h2");
+                    
+                    var $sidebar = $("<div class=\'woo-tweaks-sidebar\'></div>");
+                    var $mainContent = $("<div class=\'woo-tweaks-main\'></div>");
+                    
+                    // Move all children except submit into mainContent initially
+                    $form.children().not($submit).appendTo($mainContent);
+                    
+                    // Move CSS elements from mainContent to sidebar
+                    $cssTitle.appendTo($sidebar);
+                    $cssDesc.appendTo($sidebar);
+                    $cssTable.appendTo($sidebar);
+                    
+                    // Append wrappers back to form
+                    $form.prepend($sidebar);
+                    $form.prepend($mainContent);
+                    
+                    // Apply CSS Grid to the form
+                    $form.css({
+                        "display": "grid",
+                        "grid-template-columns": "1fr 400px",
+                        "gap": "30px",
+                        "align-items": "start"
+                    });
+                    
+                    // Make the submit button span full width
+                    if ($submit.length) {
+                        $submit.css({
+                            "grid-column": "1 / -1", 
+                            "margin-top": "20px", 
+                            "padding": "15px",
+                            "background": "#fff",
+                            "border": "1px solid #c3c4c7",
+                            "border-radius": "4px"
+                        });
+                    }
+                    
+                    // Style the sidebar
+                    $sidebar.css({
+                        "background": "#fff",
+                        "padding": "20px",
+                        "border": "1px solid #c3c4c7",
+                        "border-radius": "4px",
+                        "box-shadow": "0 1px 1px rgba(0,0,0,.04)"
+                    });
+                    
+                    // Adjust table inside sidebar to fit nicely
+                    $cssTable.css("width", "100%");
+                    $cssTable.find("th").hide(); // Hide the label "CSS Personnalisé" since title is enough
+                    $cssTable.find("td").css({
+                        "padding": "0", 
+                        "width": "100%"
+                    });
+                    
+                    // Ensure the code editor stretches nicely
+                    $(".CodeMirror").css("height", "400px");
                 });',
                 \wp_json_encode($settings)
             )
