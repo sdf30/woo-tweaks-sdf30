@@ -8,8 +8,8 @@ Le plugin suit une architecture Orientée Objet (OOP) et modulaire :
 - **Point d'entrée** : `woo-tweaks-sdf30.php` (Définition des constantes, chargement de l'autoloader et initialisation du plugin).
 - **Core** : Dossier `includes/Core/`. Contient l'infrastructure centrale.
   - `ModuleManager.php` : Registre central qui charge et active les modules.
-  - `SettingsPage.php` : Gère l'affichage natif HTML/CSS en 2 colonnes (Grid) de la page de configuration, l'intégration de CodeMirror et la sauvegarde des options.
-  - `AbstractModule.php` : Classe parente que **tous** les modules doivent étendre. Elle impose les méthodes `is_active()` et `init()`.
+  - `SettingsPage.php` : Gère l'affichage natif HTML/CSS en 2 colonnes (Grid) de la page de configuration, l'intégration de CodeMirror et la sauvegarde des options. Agit comme un conteneur pour les réglages décentralisés.
+  - `AbstractModule.php` : Classe parente que **tous** les modules doivent étendre. Elle impose les méthodes `register_settings()`, `is_active()` et `init()`.
 
 ---
 
@@ -20,6 +20,7 @@ Pour ajouter une fonctionnalité, suivez ces étapes :
 1. **Créer le dossier** : Créez un dossier dans `includes/Modules/[NomDuModule]/`.
 2. **Créer la classe** : Créez un fichier `[NomDuModule]Module.php` qui étend `AbstractModule`.
 3. **Implémenter la logique** :
+   - `register_settings()` : Déclarer vos réglages via un `add_filter('woo_tweaks_core_settings', [$this, 'add_settings'])` pour les injecter dans l'interface de SettingsPage.
    - `is_active()` : Retourne `true` ou une condition (ex: `get_option(...) === 'yes'`).
    - `init()` : Enregistrez vos hooks WordPress/WooCommerce ici.
    - **Hooks cibles** : Utilisez les filtres de WooCommerce/WP (ex: `woocommerce_product_bulk_edit_start`) ou interceptez les actions groupées via `bulk_actions-{screen}`.
