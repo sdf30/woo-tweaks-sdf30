@@ -9,5 +9,6 @@
   "keywords": ["checkout", "buy now", "woo"],
   "textdomain": "woo-tweaks-tools",
   "editorScript": "file:./block.js",
+  "viewScript": "file:./direct-checkout.js",
   "render": "file:./render.php"
 }

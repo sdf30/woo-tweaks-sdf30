@@ -57,8 +57,11 @@ Modifiez vos prix en masse directement depuis la liste des produits WooCommerce 
 ### 8. Achat Direct (Direct Checkout)
 Ajoute un bouton secondaire "Acheter maintenant" à côté du bouton "Ajouter au panier".
 - **Bénéfice** : Supprime l'étape intermédiaire du panier pour augmenter le taux de conversion sur des achats immédiats.
-- **Thèmes Legacy** : Le bouton s'ajoute automatiquement.
-- **Thèmes FSE** : Utilisez le bloc "Direct Checkout (Woo Tweaks)" depuis l'éditeur de site pour le positionner où vous le souhaitez.
+- **Personnalisation** : Vous pouvez modifier le texte du bouton (ex: "Commander", "Flash Buy") dans les réglages du module.
+- **Thèmes Legacy** : Le bouton s'ajoute automatiquement sur la fiche produit.
+- **Thèmes FSE** : 
+    - Utilisez le bloc "Direct Checkout (Woo Tweaks)" depuis l'éditeur de site.
+    - Fonctionne aussi bien sur la **fiche produit** que dans les **archives** (Boutique/Catégories) grâce à une détection automatique de l'article concerné.
 
 ---
 

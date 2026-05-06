@@ -38,6 +38,17 @@ Le module `BulkPriceModule` sert d'exemple pour les manipulations complexes de d
 
 ---
 
+## Étude de Cas : Direct Checkout (Hybride)
+
+Le module `DirectCheckoutModule` démontre une approche hybride pour assurer une compatibilité maximale :
+- **Thèmes Classiques** : Injection via le hook `woocommerce_after_add_to_cart_button`. Le bouton est un `<button type="submit">` natif, ce qui permet de soumettre le formulaire existant sans JavaScript additionnel.
+- **Thèmes FSE** : Utilisation d'un Bloc Gutenberg dynamique.
+  - **Asset Management** : Le script frontend `direct-checkout.js` est déclaré via `viewScript` dans `block.json`. Il n'est chargé que si le bloc est présent.
+  - **Logique JS** : Le script intercepte le clic, cherche le formulaire `form.cart` le plus proche pour injecter un flag `woo_tweaks_direct_checkout`. Si aucun formulaire n'est trouvé (Archives), il manipule l'URL pour ajouter `?add-to-cart=ID&woo_tweaks_direct_checkout=1`.
+- **Redirection** : Le plugin intercepte le hook `woocommerce_add_to_cart_redirect`. Si le flag `woo_tweaks_direct_checkout` est présent dans la requête, il redirige vers `wc_get_checkout_url()`.
+
+---
+
 ## Conventions de Code
 
 - **Namespacing** : Utilisez `WooTweaksTools\Modules\[NomDuModule]`.

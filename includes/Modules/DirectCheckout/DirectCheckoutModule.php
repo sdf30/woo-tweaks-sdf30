@@ -95,7 +95,6 @@ class DirectCheckoutModule extends AbstractModule
             \register_block_type($dir);
         }
         
-        \add_action('wp_enqueue_scripts', [$this, 'enqueue_fse_scripts']);
         \add_action('enqueue_block_editor_assets', [$this, 'enqueue_editor_assets']);
     }
     
@@ -112,14 +111,5 @@ class DirectCheckoutModule extends AbstractModule
         );
     }
     
-    /**
-     * Enqueue JS for FSE block handling.
-     */
-    public function enqueue_fse_scripts(): void
-    {
-        if (\is_product() && \wp_is_block_theme()) {
-            $script_path = \plugins_url('direct-checkout.js', __FILE__);
-            \wp_enqueue_script('woo-tweaks-direct-checkout', $script_path, ['jquery'], '1.0.0', true);
-        }
-    }
+
 }
