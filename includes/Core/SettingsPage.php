@@ -265,6 +265,13 @@ class SettingsPage extends \WC_Settings_Page
                 'id'    => 'woo_tweaks_general_section',
             ],
             [
+                'title'    => \__('Direct Checkout', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_direct_checkout',
+                'type'     => 'checkbox',
+                'default'  => 'no',
+                'desc'     => \__('Rediriger automatiquement vers la page de commande après l\'ajout au panier.', 'woo-tweaks-tools'),
+            ],
+            [
                 'title' => \__('Hide Components (Thèmes Classiques uniquement)', 'woo-tweaks-tools'),
                 'type'  => 'title',
                 'desc'  => \__('Masquez certains éléments natifs de la fiche produit. Inactif sur les thèmes FSE.', 'woo-tweaks-tools'),

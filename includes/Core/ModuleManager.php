@@ -50,6 +50,7 @@ class ModuleManager
             \WooTweaksTools\Modules\CustomCss\CustomCssModule::class,
             \WooTweaksTools\Modules\HideComponents\HideComponentsModule::class,
             \WooTweaksTools\Modules\BulkPrice\BulkPriceModule::class,
+            \WooTweaksTools\Modules\DirectCheckout\DirectCheckoutModule::class,
         ];
 
         foreach ($module_classes as $module_class) {
