@@ -367,6 +367,20 @@ class SettingsPage extends \WC_Settings_Page
                 'desc'     => \__('Rend les champs Email/Password rétractables et ajoute un champ Anniversaire dans "Mon Compte".', 'woo-tweaks-tools'),
             ],
             [
+                'title'    => \__('Promo Urgency Badges', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_promo_urgency',
+                'type'     => 'checkbox',
+                'default'  => 'no',
+                'desc'     => \__('Affiche le pourcentage de remise à côté du prix.', 'woo-tweaks-tools'),
+            ],
+            [
+                'title'    => \__('Afficher la date de fin', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_promo_urgency_show_date',
+                'type'     => 'checkbox',
+                'default'  => 'no',
+                'desc'     => \__('Affiche un message d\'urgence si une date de fin de promotion est définie.', 'woo-tweaks-tools'),
+            ],
+            [
                 'type' => 'sectionend',
                 'id'   => 'woo_tweaks_ux_section',
             ],
@@ -415,11 +429,14 @@ class SettingsPage extends \WC_Settings_Page
                 'type'  => 'title',
                 'desc'  => \__('Ajoutez votre CSS personnalisé ici pour styliser les éléments du plugin sans surcharger le CSS global de votre site. <br><br><b>Glossaire des classes :</b><br>
                 <code>a.woo-tweaks-read-more</code> : Le bouton "Read More" (Feat 2).<br>
-                <code>.button.alt.sdf-validatenow</code> : Le bouton "Acheter maintenant" (Direct Checkout).<br>
+                <code>.button.alt.woo-tweak-validatenow</code> : Le bouton "Acheter maintenant" (Direct Checkout).<br>
                 <code>.stock.wt-smart-stock-active</code> : Le message d\'urgence dynamique.<br>
                 <code>.wt-account-toggle-btn</code> : Les boutons de toggle (Mon Compte).<br>
                 <code>.wt-retractable-section</code> : Le conteneur des champs Email/Password rétractés.<br>
-                <code>#billing_birth_date_field</code> : Le champ Date de naissance.', 'woo-tweaks-tools'),
+                <code>#billing_birth_date_field</code> : Le champ Date de naissance.<br>
+                <code>.wt-toggle-stock</code> : Le lien de bascule de stock (Admin Product List).<br>
+                <code>.wt-promo-badge</code> : Le badge de pourcentage de remise.<br>
+                <code>.wt-promo-urgency-msg</code> : Le message de fin de promotion.', 'woo-tweaks-tools'),
                 'id'    => 'woo_tweaks_custom_css_section',
             ],
             [

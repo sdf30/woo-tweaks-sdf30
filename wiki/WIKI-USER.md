@@ -76,8 +76,14 @@ Affichez des messages persuasifs dynamiques sur vos fiches produits pour encoura
 
 ### 11. Optimisation Compte Client (Enhanced Account UX)
 Améliorez l'expérience utilisateur sur la page "Mon Compte > Détails du compte".
-- **Interface Épurée** : Les champs de modification de l'e-mail et du mot de passe sont masqués derrière des boutons d'action ("Modifier l'e-mail", "Changer le mot de passe"). Cela réduit la longueur de la page et la charge cognitive pour l'utilisateur.
+- **Interface Épurée** : Les champs de modification de l'e-mail et du mot de passe sont masqués derrière des boutons d'action. Cela réduit la longueur de la page.
 - **Champ Anniversaire** : Ajout automatique d'un champ "Date de naissance" permettant de collecter cette information précieuse pour vos campagnes marketing futures.
+
+### 12. Promo Urgency Badges
+Activez cette option pour booster vos ventes :
+- **Badge de remise** : Affiche automatiquement le pourcentage de réduction (ex: -20%) à côté du prix.
+- **Date de fin** : Affiche un message d'urgence si une date de fin de promotion est définie ("L'offre se termine dans X jours...").
+- **Design Premium** : Des badges stylisés et des messages avec animations fluides pour maximiser les conversions.
 
 ---
 

@@ -65,7 +65,7 @@ class DirectCheckoutModule extends AbstractModule
         $label = \get_option('woo_tweaks_direct_checkout_label', \__('Acheter maintenant', 'woo-tweaks-tools'));
         $button_text = \esc_html($label);
         
-        echo '<button type="submit" name="woo_tweaks_direct_checkout" value="1" class="button alt sdf-validatenow" style="background: none; color: #007b5f; font-weight: 600; border: solid 1px; padding: 10px; margin-left: 10px;">' . $button_text . '</button>';
+        echo '<button type="submit" name="woo_tweaks_direct_checkout" value="1" class="button alt woo-tweak-validatenow" style="background: none; color: #007b5f; font-weight: 600; border: solid 1px; padding: 10px; margin-left: 10px;">' . $button_text . '</button>';
     }
 
     /**

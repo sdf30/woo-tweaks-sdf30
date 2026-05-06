@@ -54,6 +54,7 @@ class ModuleManager
             \WooTweaksTools\Modules\StockStatus\StockStatusModule::class,
             \WooTweaksTools\Modules\SmartStock\SmartStockModule::class,
             \WooTweaksTools\Modules\AccountUX\AccountUXModule::class,
+            \WooTweaksTools\Modules\PromoUrgency\PromoUrgencyModule::class,
         ];
 
         foreach ($module_classes as $module_class) {
