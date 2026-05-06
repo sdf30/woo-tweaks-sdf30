@@ -86,10 +86,10 @@ class SettingsPage extends \WC_Settings_Page
                     var $form = $("form#mainform");
                     var $submit = $form.find(".submit, p.submit");
                     
-                    // Identify the CSS section elements
+                    // Identify the CSS section elements explicitly by their generated IDs/structure
+                    var $cssTitle = $("#woo_tweaks_custom_css_section");
+                    var $cssDesc  = $cssTitle.next("p");
                     var $cssTable = $("#woo_tweaks_custom_css").closest("table");
-                    var $cssDesc = $cssTable.prev("p");
-                    var $cssTitle = $cssDesc.prev("h2");
                     
                     var $sidebar = $("<div class=\'woo-tweaks-sidebar\'></div>");
                     var $mainContent = $("<div class=\'woo-tweaks-main\'></div>");
@@ -98,9 +98,7 @@ class SettingsPage extends \WC_Settings_Page
                     $form.children().not($submit).appendTo($mainContent);
                     
                     // Move CSS elements from mainContent to sidebar
-                    $cssTitle.appendTo($sidebar);
-                    $cssDesc.appendTo($sidebar);
-                    $cssTable.appendTo($sidebar);
+                    $sidebar.append($cssTitle, $cssDesc, $cssTable);
                     
                     // Append wrappers back to form
                     $form.prepend($sidebar);
@@ -136,11 +134,11 @@ class SettingsPage extends \WC_Settings_Page
                     });
                     
                     // Adjust table inside sidebar to fit nicely
-                    $cssTable.css("width", "100%");
+                    $cssTable.css("width", "100%%");
                     $cssTable.find("th").hide(); // Hide the label "CSS Personnalisé" since title is enough
                     $cssTable.find("td").css({
                         "padding": "0", 
-                        "width": "100%"
+                        "width": "100%%"
                     });
                     
                     // Ensure the code editor stretches nicely
