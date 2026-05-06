@@ -14,7 +14,7 @@
     registerBlockType('woo-tweaks/promo-urgency', {
         title: 'Promo Urgency (Woo Tweaks)',
         icon: 'clock',
-        category: 'text',
+        category: 'woocommerce',
         edit: function (props) {
             return el(ServerSideRender, {
                 block: 'woo-tweaks/promo-urgency',

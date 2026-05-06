@@ -12,9 +12,9 @@
     }
 
     registerBlockType('woo-tweaks-tools/read-more-button', {
-        title: 'Read More (by WooTweaks)',
+        title: 'Read More (Woo Tweaks)',
         icon: 'external',
-        category: 'widgets',
+        category: 'woocommerce',
         edit: function (props) {
             return el(ServerSideRender, {
                 block: 'woo-tweaks-tools/read-more-button',
