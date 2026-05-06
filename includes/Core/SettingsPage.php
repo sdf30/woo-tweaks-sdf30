@@ -34,6 +34,46 @@ class SettingsPage extends \WC_Settings_Page
 
         // Add direct submenu under WooCommerce.
         \add_action('admin_menu', [$this, 'add_admin_submenu'], 20);
+
+        // Enqueue CodeMirror for Custom CSS.
+        \add_action('admin_enqueue_scripts', [$this, 'enqueue_code_editor']);
+    }
+
+    /**
+     * Enqueue CodeMirror scripts and initialize editor.
+     *
+     * @param string $hook
+     */
+    public function enqueue_code_editor(string $hook): void
+    {
+        // Only load on WooCommerce settings page.
+        if (!isset($_GET['page']) || $_GET['page'] !== 'wc-settings') {
+            return;
+        }
+
+        // Only load on our specific tab.
+        if (!isset($_GET['tab']) || $_GET['tab'] !== $this->id) {
+            return;
+        }
+
+        $settings = \wp_enqueue_code_editor(['type' => 'text/css']);
+
+        if (false === $settings) {
+            return;
+        }
+
+        \wp_add_inline_script(
+            'code-editor',
+            sprintf(
+                'jQuery(document).ready(function($) {
+                    var textarea = $("#woo_tweaks_custom_css");
+                    if (textarea.length) {
+                        wp.codeEditor.initialize(textarea, %s);
+                    }
+                });',
+                \wp_json_encode($settings)
+            )
+        );
     }
 
     /**
@@ -173,6 +213,23 @@ class SettingsPage extends \WC_Settings_Page
             [
                 'type' => 'sectionend',
                 'id'   => 'woo_tweaks_general_section',
+            ],
+            [
+                'title' => \__('Apparence & Custom CSS', 'woo-tweaks-tools'),
+                'type'  => 'title',
+                'desc'  => \__('Ajoutez votre CSS personnalisé ici pour styliser les éléments du plugin sans surcharger le CSS global de votre site. <br><br><b>Glossaire des classes :</b><br><code>a.woo-tweaks-read-more</code> : Le bouton "Read More" (Feat 2).', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_custom_css_section',
+            ],
+            [
+                'title' => \__('CSS Personnalisé', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_custom_css',
+                'type'  => 'textarea',
+                'default' => '',
+                'css'   => 'width:100%; height: 300px;',
+            ],
+            [
+                'type' => 'sectionend',
+                'id'   => 'woo_tweaks_custom_css_section',
             ],
         ]);
 
