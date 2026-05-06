@@ -91,11 +91,24 @@ class PromoUrgencyModule extends AbstractModule
      */
     public function enqueue_editor_assets(): void
     {
+        // CSS
         \wp_enqueue_style(
             'woo-tweaks-promo-urgency-editor',
             \plugin_dir_url(\dirname(\dirname(\dirname(__FILE__)))) . 'assets/css/index.css',
             [],
             \WooTweaksTools\Plugin::VERSION
+        );
+
+        // JS
+        $script_path = 'includes/Modules/PromoUrgency/block.js';
+        $script_url  = \plugin_dir_url(\dirname(\dirname(\dirname(__FILE__)))) . $script_path;
+
+        \wp_enqueue_script(
+            'woo-tweaks-promo-urgency-block-editor',
+            $script_url,
+            ['wp-blocks', 'wp-element', 'wp-server-side-render', 'wp-editor'],
+            \WooTweaksTools\Plugin::VERSION,
+            true
         );
     }
 
