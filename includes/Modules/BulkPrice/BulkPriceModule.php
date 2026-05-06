@@ -85,7 +85,7 @@ class BulkPriceModule extends AbstractModule
                         <label><?php \_e('Type', 'woo-tweaks-tools'); ?></label>
                         <select id="wt-bulk-type">
                             <option value="percent"><?php \_e('Pourcentage (%)', 'woo-tweaks-tools'); ?></option>
-                            <option value="fixed"><?php \_e('Montant fixe (€)', 'woo-tweaks-tools'); ?></option>
+                            <option value="fixed"><?php \_e('Montant fixe (€,$,...)', 'woo-tweaks-tools'); ?></option>
                         </select>
                     </div>
 

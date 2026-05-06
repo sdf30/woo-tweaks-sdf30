@@ -45,7 +45,9 @@ Modifiez vos prix en masse directement depuis la liste des produits WooCommerce 
     1. Filtrez vos produits par catégorie, type ou état de stock.
     2. Sélectionnez les produits concernés (case à cocher).
     3. Choisissez **Actions groupées** > **Ajuster les prix (+/-)**.
+    ![Menu Actions Groupées](assets/bulk-price-1.png)
     4. Une fenêtre surgissante (modal) s'affiche pour configurer l'ajustement.
+    ![Fenêtre d'ajustement des prix](assets/bulk-price-2.png)
 - **Options disponibles** :
     - **Opération** : Augmenter ou Diminuer le prix.
     - **Type** : Valeur fixe (ex: +5€) ou Pourcentage (ex: -10%).
