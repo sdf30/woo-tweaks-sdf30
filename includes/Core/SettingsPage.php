@@ -129,7 +129,41 @@ class SettingsPage extends \WC_Settings_Page
                 'id'    => 'woo_tweaks_general_section',
             ],
             [
-                'title'    => \__('Redirect Empty Cart', 'woo-tweaks-tools'),
+                'title' => __('Checkout Tweaks', 'woo-tweaks-tools'),
+                'type'  => 'title',
+                'desc'  => __('Simplifiez votre tunnel de commande.', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_checkout_section',
+            ],
+            [
+                'title' => __('Masquer Société', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_hide_billing_company',
+                'type'  => 'checkbox',
+                'default' => 'no',
+            ],
+            [
+                'title' => __('Masquer Adresse (ligne 2)', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_hide_billing_address_2',
+                'type'  => 'checkbox',
+                'default' => 'no',
+            ],
+            [
+                'title' => __('Masquer Téléphone', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_hide_billing_phone',
+                'type'  => 'checkbox',
+                'default' => 'no',
+            ],
+            [
+                'title' => __('Masquer Notes de commande', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_hide_order_notes',
+                'type'  => 'checkbox',
+                'default' => 'no',
+            ],
+            [
+                'type' => 'sectionend',
+                'id'   => 'woo_tweaks_checkout_section',
+            ],
+            [
+                'title' => __('Redirection Panier Vide', 'woo-tweaks-tools'),
                 'id'       => 'woo_tweaks_empty_cart_redirect',
                 'type'     => 'checkbox',
                 'default'  => 'no',

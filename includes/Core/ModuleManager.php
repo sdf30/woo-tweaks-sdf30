@@ -46,6 +46,7 @@ class ModuleManager
             \WooTweaksTools\Modules\CustomLabels\CustomLabelsModule::class,
             \WooTweaksTools\Modules\ReadMoreButton\ReadMoreButtonModule::class,
             \WooTweaksTools\Modules\EmptyCartRedirect\EmptyCartRedirectModule::class,
+            \WooTweaksTools\Modules\CheckoutFields\CheckoutFieldsModule::class,
         ];
 
         foreach ($module_classes as $module_class) {

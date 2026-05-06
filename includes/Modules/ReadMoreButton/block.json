@@ -4,7 +4,8 @@
     "name": "woo-tweaks-tools/read-more-button",
     "version": "1.0.0",
     "title": "Woo Tweaks: Read More Button",
-    "category": "woocommerce",
+    "category": "widgets",
+    "textdomain": "woo-tweaks-tools",
     "icon": "external",
     "description": "Displays the 'Read More' button configured in the product data. Only works inside a Product Template or Query Loop.",
     "usesContext": ["postId", "postType"],
@@ -18,6 +19,13 @@
         "spacing": {
             "margin": true,
             "padding": true
+        },
+        "typography": {
+            "fontSize": true
         }
-    }
+    },
+    "example": {
+        "attributes": {}
+    },
+    "keywords": ["woocommerce", "read more", "button", "link", "external"]
 }

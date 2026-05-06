@@ -43,6 +43,24 @@ class ReadMoreButtonModule extends AbstractModule
 
         // FSE Block Registration
         \add_action('init', [$this, 'register_fse_block']);
+        \add_action('enqueue_block_editor_assets', [$this, 'enqueue_block_assets']);
+    }
+
+    /**
+     * Enqueue block editor assets.
+     */
+    public function enqueue_block_assets(): void
+    {
+        $script_path = 'includes/Modules/ReadMoreButton/block.js';
+        $script_url  = \plugin_dir_url(\dirname(\dirname(__DIR__))) . $script_path;
+
+        \wp_enqueue_script(
+            'woo-tweaks-read-more-block-editor',
+            $script_url,
+            ['wp-blocks', 'wp-element', 'wp-server-side-render', 'wp-editor'],
+            '1.0.0',
+            true
+        );
     }
 
     /**
@@ -134,7 +152,7 @@ class ReadMoreButtonModule extends AbstractModule
      */
     public function register_fse_block(): void
     {
-        \register_block_type(__DIR__ . '/block.json', [
+        \register_block_type(__DIR__, [
             'render_callback' => [$this, 'render_fse_block'],
         ]);
     }
