@@ -29,6 +29,48 @@ class HideComponentsModule extends AbstractModule
         return true;
     }
 
+    public function register_settings(): void
+    {
+        \add_filter('woo_tweaks_core_settings', [$this, 'add_settings']);
+    }
+
+    public function add_settings(array $settings): array
+    {
+        $settings[] = [
+            'title' => \__('Masquer des éléments', 'woo-tweaks-tools'),
+            'type'  => 'title',
+            'desc'  => \__('Masquer certains éléments par défaut de WooCommerce sur la page produit.', 'woo-tweaks-tools'),
+            'id'    => 'woo_tweaks_hide_components_section',
+        ];
+        $settings[] = [
+            'title'    => \__('Masquer le SKU (UGS)', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_hide_sku',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Cache la référence du produit.', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'title'    => \__('Masquer les Catégories/Étiquettes', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_hide_categories',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Cache les catégories et mots-clés dans les métadonnées du produit.', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'title'    => \__('Masquer les Produits Apparentés', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_hide_related_products',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Désactive l\'affichage des produits suggérés.', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'type' => 'sectionend',
+            'id'   => 'woo_tweaks_hide_components_section',
+        ];
+
+        return $settings;
+    }
+
     /**
      * Initialize module hooks.
      */

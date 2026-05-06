@@ -27,6 +27,17 @@ abstract class AbstractModule
     abstract public function is_active(): bool;
 
     /**
+     * Register settings for this module.
+     * Called unconditionally on all modules to ensure settings are available.
+     *
+     * @return void
+     */
+    public function register_settings(): void
+    {
+        // Override in child class if needed.
+    }
+
+    /**
      * Initialize the module hooks and functionality.
      *
      * @return void

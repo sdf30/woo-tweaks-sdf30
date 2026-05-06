@@ -29,6 +29,34 @@ class AccountUXModule extends AbstractModule
         return \get_option('woo_tweaks_enhanced_account_ux', 'no') === 'yes';
     }
 
+    public function register_settings(): void
+    {
+        \add_filter('woo_tweaks_core_settings', [$this, 'add_settings']);
+    }
+
+    public function add_settings(array $settings): array
+    {
+        $settings[] = [
+            'title' => \__('Mon Compte & UX', 'woo-tweaks-tools'),
+            'type'  => 'title',
+            'desc'  => \__('Améliorations de l\'expérience utilisateur sur la page Mon Compte.', 'woo-tweaks-tools'),
+            'id'    => 'woo_tweaks_account_ux_section',
+        ];
+        $settings[] = [
+            'title'    => \__('Activer l\'UX Mon Compte', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_enhanced_account_ux',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Améliore le formulaire de détails du compte (ex: champ Date de naissance).', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'type' => 'sectionend',
+            'id'   => 'woo_tweaks_account_ux_section',
+        ];
+
+        return $settings;
+    }
+
     /**
      * Initialize module hooks.
      */

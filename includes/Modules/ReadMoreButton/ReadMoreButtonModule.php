@@ -29,6 +29,49 @@ class ReadMoreButtonModule extends AbstractModule
         return true;
     }
 
+    public function register_settings(): void
+    {
+        \add_filter('woo_tweaks_core_settings', [$this, 'add_settings']);
+    }
+
+    public function add_settings(array $settings): array
+    {
+        $settings[] = [
+            'title' => \__('Read More Button', 'woo-tweaks-tools'),
+            'type'  => 'title',
+            'desc'  => \__('Settings for the Read More button.', 'woo-tweaks-tools'),
+            'id'    => 'woo_tweaks_read_more_section',
+        ];
+        $settings[] = [
+            'title'    => \__('Read More Button Label', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_read_more_label',
+            'type'     => 'text',
+            'default'  => \__('Read More', 'woo-tweaks-tools'),
+            'desc'     => \__('Default label for the additional button (Feat2).', 'woo-tweaks-tools'),
+            'desc_tip' => true,
+        ];
+        $settings[] = [
+            'title'    => \__('Ouvrir dans un nouvel onglet', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_read_more_target_blank',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Appliquer target="_blank" au bouton "En Savoir Plus".', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'title'    => \__('Afficher sur la fiche produit', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_read_more_show_on_single',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Afficher également le bouton sur les pages de produit seul.', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'type' => 'sectionend',
+            'id'   => 'woo_tweaks_read_more_section',
+        ];
+
+        return $settings;
+    }
+
     /**
      * Initialize module.
      */

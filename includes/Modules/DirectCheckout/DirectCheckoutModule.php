@@ -29,6 +29,42 @@ class DirectCheckoutModule extends AbstractModule
         return \get_option('woo_tweaks_direct_checkout') === 'yes';
     }
 
+    public function register_settings(): void
+    {
+        \add_filter('woo_tweaks_core_settings', [$this, 'add_settings']);
+    }
+
+    public function add_settings(array $settings): array
+    {
+        $settings[] = [
+            'title' => \__('Direct Checkout', 'woo-tweaks-tools'),
+            'type'  => 'title',
+            'desc'  => \__('Ajoute un bouton d\'achat direct à côté du bouton d\'ajout au panier.', 'woo-tweaks-tools'),
+            'id'    => 'woo_tweaks_direct_checkout_section',
+        ];
+        $settings[] = [
+            'title'    => \__('Activer Direct Checkout', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_direct_checkout',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Cochez pour activer ce module.', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'title'    => \__('Direct Checkout Label', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_direct_checkout_label',
+            'type'     => 'text',
+            'default'  => \__('Acheter maintenant', 'woo-tweaks-tools'),
+            'desc'     => \__('Texte affiché sur le bouton d\'achat direct.', 'woo-tweaks-tools'),
+            'desc_tip' => true,
+        ];
+        $settings[] = [
+            'type' => 'sectionend',
+            'id'   => 'woo_tweaks_direct_checkout_section',
+        ];
+
+        return $settings;
+    }
+
     /**
      * Initialize module hooks.
      */

@@ -29,6 +29,41 @@ class PromoUrgencyModule extends AbstractModule
         return \get_option('woo_tweaks_promo_urgency', 'no') === 'yes';
     }
 
+    public function register_settings(): void
+    {
+        \add_filter('woo_tweaks_core_settings', [$this, 'add_settings']);
+    }
+
+    public function add_settings(array $settings): array
+    {
+        $settings[] = [
+            'title' => \__('Promo Urgency Badges', 'woo-tweaks-tools'),
+            'type'  => 'title',
+            'desc'  => \__('Affiche le pourcentage de réduction et un compte à rebours de fin de promo.', 'woo-tweaks-tools'),
+            'id'    => 'woo_tweaks_promo_urgency_section',
+        ];
+        $settings[] = [
+            'title'    => \__('Activer Promo Urgency', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_promo_urgency',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Affiche le badge -X% à la place du texte "Promo!".', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'title'    => \__('Afficher la date de fin', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_promo_urgency_show_date',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Affiche le compte à rebours sous le prix (si une date de fin est configurée).', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'type' => 'sectionend',
+            'id'   => 'woo_tweaks_promo_urgency_section',
+        ];
+
+        return $settings;
+    }
+
     /**
      * Initialize module hooks.
      */

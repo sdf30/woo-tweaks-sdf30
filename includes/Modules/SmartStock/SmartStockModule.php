@@ -29,6 +29,50 @@ class SmartStockModule extends AbstractModule
         return \get_option('woo_tweaks_smart_stock_messaging', 'no') === 'yes';
     }
 
+    public function register_settings(): void
+    {
+        \add_filter('woo_tweaks_core_settings', [$this, 'add_settings']);
+    }
+
+    public function add_settings(array $settings): array
+    {
+        $settings[] = [
+            'title' => \__('Smart Stock Messaging', 'woo-tweaks-tools'),
+            'type'  => 'title',
+            'desc'  => \__('Affiche un message d\'urgence personnalisé quand le stock est bas.', 'woo-tweaks-tools'),
+            'id'    => 'woo_tweaks_smart_stock_section',
+        ];
+        $settings[] = [
+            'title'    => \__('Activer Smart Stock', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_smart_stock_messaging',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Cochez pour activer les messages de stock dynamique.', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'title'    => \__('Seuil de déclenchement', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_smart_stock_threshold',
+            'type'     => 'number',
+            'default'  => 10,
+            'desc'     => \__('Quantité en stock à partir de laquelle le message s\'affiche.', 'woo-tweaks-tools'),
+            'desc_tip' => true,
+        ];
+        $settings[] = [
+            'title'    => \__('Message de stock bas', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_smart_stock_message',
+            'type'     => 'text',
+            'default'  => \__('🔥 Plus que {stock} articles en stock !', 'woo-tweaks-tools'),
+            'desc'     => \__('Utilisez {stock} pour afficher la quantité restante.', 'woo-tweaks-tools'),
+            'desc_tip' => true,
+        ];
+        $settings[] = [
+            'type' => 'sectionend',
+            'id'   => 'woo_tweaks_smart_stock_section',
+        ];
+
+        return $settings;
+    }
+
     /**
      * Initialize module hooks.
      */

@@ -29,6 +29,34 @@ class StockStatusModule extends AbstractModule
         return \get_option('woo_tweaks_stock_status_shortcuts', 'no') === 'yes';
     }
 
+    public function register_settings(): void
+    {
+        \add_filter('woo_tweaks_core_settings', [$this, 'add_settings']);
+    }
+
+    public function add_settings(array $settings): array
+    {
+        $settings[] = [
+            'title' => \__('Raccourcis d\'Administration', 'woo-tweaks-tools'),
+            'type'  => 'title',
+            'desc'  => \__('Ajoute des liens d\'action rapide sur les pages listes (Admin).', 'woo-tweaks-tools'),
+            'id'    => 'woo_tweaks_admin_section',
+        ];
+        $settings[] = [
+            'title'    => \__('Raccourcis d\'état du stock', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_stock_status_shortcuts',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Ajoute un lien "Hors Stock" / "En Stock" sous chaque produit.', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'type' => 'sectionend',
+            'id'   => 'woo_tweaks_admin_section',
+        ];
+
+        return $settings;
+    }
+
     /**
      * Initialize module hooks.
      */
