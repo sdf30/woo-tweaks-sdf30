@@ -9,6 +9,7 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
 ### Ajouté
 - Module `Hide Components` : Permet de masquer SKU, Catégories et Produits Apparentés sur les thèmes classiques (Legacy).
 - Module `Bulk Price Manager` : Intégration native dans les "Actions Groupées" de WooCommerce pour modifier les prix massivement (Fixe/Pourcentage, Augmentation/Diminution, Arrondi à .99).
+- Refonte du module `Direct Checkout` : Ajout d'un bouton secondaire "Acheter maintenant" (Legacy & FSE) plutôt qu'une redirection forcée, supportant la validation native des quantités et des variations.
 - Amélioration `Read More Button` :
     - Option pour ouvrir les liens dans un nouvel onglet (`target="_blank"`).
     - Option pour afficher le bouton sur les pages de produit seul (Single Product).

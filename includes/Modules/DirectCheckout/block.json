@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "woo-tweaks/direct-checkout",
+  "title": "Direct Checkout (Woo Tweaks)",
+  "category": "woocommerce",
+  "icon": "cart",
+  "description": "Bouton d'achat immédiat pour rediriger vers la caisse.",
+  "keywords": ["checkout", "buy now", "woo"],
+  "textdomain": "woo-tweaks-tools",
+  "editorScript": "file:./block.js",
+  "render": "file:./render.php"
+}

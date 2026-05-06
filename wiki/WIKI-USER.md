@@ -55,8 +55,10 @@ Modifiez vos prix en masse directement depuis la liste des produits WooCommerce 
 - **Confirmation** : Un message de succès indique le nombre exact de produits mis à jour.
 
 ### 8. Achat Direct (Direct Checkout)
-Accélérez le processus de vente en redirigeant vos clients directement vers la page de commande (Checkout) dès qu'ils ajoutent un produit au panier.
-- **Bénéfice** : Supprime l'étape intermédiaire du panier pour augmenter le taux de conversion.
+Ajoute un bouton secondaire "Acheter maintenant" à côté du bouton "Ajouter au panier".
+- **Bénéfice** : Supprime l'étape intermédiaire du panier pour augmenter le taux de conversion sur des achats immédiats.
+- **Thèmes Legacy** : Le bouton s'ajoute automatiquement.
+- **Thèmes FSE** : Utilisez le bloc "Direct Checkout (Woo Tweaks)" depuis l'éditeur de site pour le positionner où vous le souhaitez.
 
 ---
 

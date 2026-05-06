@@ -269,7 +269,15 @@ class SettingsPage extends \WC_Settings_Page
                 'id'       => 'woo_tweaks_direct_checkout',
                 'type'     => 'checkbox',
                 'default'  => 'no',
-                'desc'     => \__('Rediriger automatiquement vers la page de commande après l\'ajout au panier.', 'woo-tweaks-tools'),
+                'desc'     => \__('Ajoute un bouton d\'achat direct à côté du bouton d\'ajout au panier.', 'woo-tweaks-tools'),
+            ],
+            [
+                'title'    => \__('Direct Checkout Label', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_direct_checkout_label',
+                'type'     => 'text',
+                'default'  => \__('Acheter maintenant', 'woo-tweaks-tools'),
+                'desc'     => \__('Texte affiché sur le bouton d\'achat direct.', 'woo-tweaks-tools'),
+                'desc_tip' => true,
             ],
             [
                 'title' => \__('Hide Components (Thèmes Classiques uniquement)', 'woo-tweaks-tools'),

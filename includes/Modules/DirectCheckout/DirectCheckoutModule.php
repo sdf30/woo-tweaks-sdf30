@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Redirects users directly to the checkout page after adding a product to the cart.
+ * Adds a Direct Checkout ("Acheter maintenant") button to the single product page.
  */
 class DirectCheckoutModule extends AbstractModule
 {
@@ -34,38 +34,92 @@ class DirectCheckoutModule extends AbstractModule
      */
     public function init(): void
     {
-        // Redirect to checkout after add to cart
-        \add_filter('woocommerce_add_to_cart_redirect', [$this, 'redirect_to_checkout']);
+        // 1. Classic Theme Support: Output the button inside the form.
+        if (!\wp_is_block_theme()) {
+            \add_action('woocommerce_after_add_to_cart_button', [$this, 'add_direct_checkout_button']);
+        }
         
-        // Optionally: Change "Add to Cart" text if requested, 
-        // but we already have a CustomLabels module for that.
+        // 2. Redirect to checkout if the form was submitted via the Direct Checkout button.
+        \add_filter('woocommerce_add_to_cart_redirect', [$this, 'redirect_to_checkout'], 99);
         
-        // Disable "Redirect to the cart page after successful addition" setting if active
-        // to avoid double redirects or conflicts.
-        \add_filter('option_woocommerce_cart_redirect_after_add', [$this, 'force_cart_redirect_off']);
+        // 3. FSE Block Support
+        \add_action('init', [$this, 'register_fse_block']);
     }
 
     /**
-     * Redirect to checkout page.
+     * Adds the "Buy Now" submit button (Legacy themes).
+     */
+    public function add_direct_checkout_button(): void
+    {
+        global $product;
+        if (!is_a($product, 'WC_Product')) {
+            return;
+        }
+        
+        // Do not render if the product cannot be purchased
+        if (!$product->is_purchasable() || !$product->is_in_stock()) {
+            return;
+        }
+
+        // Output the button
+        $label = \get_option('woo_tweaks_direct_checkout_label', \__('Acheter maintenant', 'woo-tweaks-tools'));
+        $button_text = \esc_html($label);
+        
+        echo '<button type="submit" name="woo_tweaks_direct_checkout" value="1" class="button alt sdf-validatenow" style="background: none; color: #007b5f; font-weight: 600; border: solid 1px; padding: 10px; margin-left: 10px;">' . $button_text . '</button>';
+    }
+
+    /**
+     * Redirect to checkout page if the direct checkout button was clicked.
      *
      * @param string $url The URL to redirect to.
      * @return string
      */
     public function redirect_to_checkout(string $url): string
     {
-        // If it's a valid checkout URL, return it.
-        return \wc_get_checkout_url();
+        // WooCommerce handles POST internally. If our button name is in the $_REQUEST, we should redirect.
+        if (isset($_REQUEST['woo_tweaks_direct_checkout']) && $_REQUEST['woo_tweaks_direct_checkout'] === '1') {
+            return \wc_get_checkout_url();
+        }
+        
+        return $url;
     }
 
     /**
-     * Force the native WC "Redirect to cart" option to be 'no' 
-     * to let our custom redirect handle it properly.
-     *
-     * @param mixed $value
-     * @return string
+     * Registers the FSE Block for Direct Checkout.
      */
-    public function force_cart_redirect_off($value): string
+    public function register_fse_block(): void
     {
-        return 'no';
+        $dir = \plugin_dir_path(__FILE__);
+        
+        if (file_exists($dir . 'block.json')) {
+            \register_block_type($dir);
+        }
+        
+        \add_action('wp_enqueue_scripts', [$this, 'enqueue_fse_scripts']);
+        \add_action('enqueue_block_editor_assets', [$this, 'enqueue_editor_assets']);
+    }
+    
+    /**
+     * Enqueue assets for FSE block editor.
+     */
+    public function enqueue_editor_assets(): void
+    {
+        $label = \get_option('woo_tweaks_direct_checkout_label', \__('Acheter maintenant', 'woo-tweaks-tools'));
+        \wp_add_inline_script(
+            'wp-blocks',
+            'var wooTweaksDirectCheckoutLabel = "' . \esc_js($label) . '";',
+            'after'
+        );
+    }
+    
+    /**
+     * Enqueue JS for FSE block handling.
+     */
+    public function enqueue_fse_scripts(): void
+    {
+        if (\is_product() && \wp_is_block_theme()) {
+            $script_path = \plugins_url('direct-checkout.js', __FILE__);
+            \wp_enqueue_script('woo-tweaks-direct-checkout', $script_path, ['jquery'], '1.0.0', true);
+        }
     }
 }
