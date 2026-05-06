@@ -354,6 +354,23 @@ class SettingsPage extends \WC_Settings_Page
                 'id'   => 'woo_tweaks_general_section',
             ],
             [
+                'title' => \__('Améliorations UX', 'woo-tweaks-tools'),
+                'type'  => 'title',
+                'desc'  => \__('Optimisez l\'expérience utilisateur sur le frontend.', 'woo-tweaks-tools'),
+                'id'    => 'woo_tweaks_ux_section',
+            ],
+            [
+                'title'    => \__('Enhanced Account UX', 'woo-tweaks-tools'),
+                'id'       => 'woo_tweaks_enhanced_account_ux',
+                'type'     => 'checkbox',
+                'default'  => 'no',
+                'desc'     => \__('Rend les champs Email/Password rétractables et ajoute un champ Anniversaire dans "Mon Compte".', 'woo-tweaks-tools'),
+            ],
+            [
+                'type' => 'sectionend',
+                'id'   => 'woo_tweaks_ux_section',
+            ],
+            [
                 'title' => \__('Gestion Administrative', 'woo-tweaks-tools'),
                 'type'  => 'title',
                 'desc'  => \__('Outils pour accélérer la gestion de votre boutique.', 'woo-tweaks-tools'),
