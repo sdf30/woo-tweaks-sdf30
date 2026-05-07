@@ -85,6 +85,13 @@ if [[ "$push_confirm" =~ ^[YyOo]$ ]]; then
     echo "📡 Déploiement sur GitHub (github)..."
     git push github main && git push github --tags
     
+    echo "🎈 Création de la Release GitHub..."
+    if command -v gh >/dev/null 2>&1; then
+        gh release create "v$NEW_VERSION" "../tweak-tools-sdf30-release.zip" --title "Release v$NEW_VERSION" --notes "Mise à jour vers la version $NEW_VERSION"
+    else
+        echo "⚠️ CLI GitHub (gh) non trouvée. Release manuelle nécessaire."
+    fi
+
     echo "🎉 Push terminé avec succès !"
 else
     echo "✋ Push ignoré. Clôture de la tâche."
