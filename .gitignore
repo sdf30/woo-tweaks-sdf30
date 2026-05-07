@@ -1,6 +1,7 @@
 temp_/
 ba*.md
 BAC*.md
+GE*.md
 vendor/
 dist/
 phpstan.neon

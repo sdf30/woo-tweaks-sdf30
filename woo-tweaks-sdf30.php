@@ -4,8 +4,8 @@
  * Plugin URI:        https://open.sdf30.com
  * Description:       A collection of performance, UI/UX, and administrative utilities for WooCommerce.
  * Version:           1.3.0
- * Author:            Elk @ OPEN-SDF
- * Author URI:        https://sdf30.com
+ * Author:            OPEN-SDF
+ * Author URI:        https://open.sdf30.com
  * Text Domain:       woo-tweaks-tools
  * Domain Path:       /languages
  * Requires at least: 6.0
