@@ -94,26 +94,32 @@ Optimisation des conversions par l'urgence :
 
 ---
 
-## Workflow de Release (CI/CD)
+## Workflow de Release & Déploiement
 
-Le projet utilise un workflow automatisé pour le déploiement vers le répertoire officiel WordPress.org via GitHub Actions.
+Le projet utilise un processus de publication hybride pour s'adapter aux différentes phases de validation par WordPress.org.
 
-### Structure du Dépôt
-- **Dépôt Miroir** : Un miroir GitHub est utilisé pour piloter les GitHub Actions.
-- **Dépôt SVN** : Géré automatiquement par l'action de déploiement.
+### Phase 1 : Validation Initiale (Processus Manuel via Scripts Locaux)
+Pour la toute première soumission du plugin à l'équipe WordPress.org, une archive `.zip` propre et exempte de fichiers de développement doit être fournie.
 
-### Processus de Publication
-1.  **Développement** : Effectuez vos modifications sur les branches de feature ou `develop`.
-2.  **Merge** : Fusionnez vers la branche `main` une fois les tests validés.
-3.  **Versioning** :
-    - Incrémentez la version dans `tweak-tools-sdf30-sdf30.php` (Header + Constante `VERSION`).
-    - Mettez à jour le `Stable tag` dans `readme.txt`.
-    - Ajoutez les entrées dans `CHANGELOG.md`.
-4.  **Déploiement** : Créez et poussez un tag Git (ex: `git tag v1.3.0 && git push origin v1.3.0`).
-5.  **Automatisation** : L'Action `10up/action-wordpress-plugin-deploy` :
-    - Compile les assets Gutenberg (`npm run build`).
-    - Met à jour le répertoire SVN de WordPress.org.
-    - Gère les assets de la page de plugin (si présents dans `.wordpress-org/`).
+1.  **Génération de l'Archive** : Le script `build-zip.sh` exclut automatiquement tous les fichiers liés au dev (dossiers `.git`, `.vscode`, `tests`, règles PHPStan/CodeSniffer, documentation Git, etc.) pour produire une release conforme.
+2.  **Versioning Intelligent** : Le script interactif `release.sh` gère la publication locale.
+    - Il identifie automatiquement le dernier tag Git.
+    - Il auto-calcule la version suivante en respectant une **règle stricte de rang 3** (les versions mineures et patchs ne dépassent jamais 3, ex: après `1.3.3`, on passe à `2.0.0`).
+    - Il met à jour les fichiers PHP et le `readme.txt`.
+3.  **Push Interactif & Double Synchronisation** : À la fin de l'exécution, `release.sh` propose de pousser automatiquement le code et le tag sur les deux dépôts distants : `origin` (GitLab) et `github` (GitHub).
+4.  **En cas d'erreur (Rollback)** : Pour annuler une release, utilisez ces commandes :
+    - Supprimer le tag local : `git tag -d vX.Y.Z`
+    - Supprimer les tags distants : `git push origin --delete vX.Y.Z` et `git push github --delete vX.Y.Z`
+    - Annuler le commit (Attention) : `git reset --hard HEAD~1`
+
+### Phase 2 : Déploiement Continu (CI/CD via GitHub Actions)
+Une fois le plugin approuvé par WordPress.org et le dossier SVN créé, le workflow basculera sur un déploiement continu.
+
+- **Dépôt Miroir** : Le miroir GitHub pilotera les GitHub Actions.
+- **Automatisation** : L'Action `10up/action-wordpress-plugin-deploy` s'enclenchera lors de la création d'un tag.
+  - Elle compilera les éventuels assets (`npm run build`).
+  - Elle mettra à jour le répertoire SVN de WordPress.org en se synchronisant avec le tag Git.
+  - Elle déploiera les images de la page de présentation (dossier `.wordpress-org/`).
 
 ---
 

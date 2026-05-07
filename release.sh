@@ -3,13 +3,40 @@
 # Exit on error
 set -e
 
-if [ -z "$1" ]; then
-    echo "Usage: ./release.sh <version>"
-    echo "Example: ./release.sh 1.3.3"
-    exit 1
+# Get the latest git tag
+LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+CURRENT_VERSION=${LATEST_TAG#v}
+
+# Parse current version into array
+IFS='.' read -r -a parts <<< "$CURRENT_VERSION"
+X=${parts[0]:-0}
+Y=${parts[1]:-0}
+Z=${parts[2]:-0}
+
+# Calculate next version
+Z=$((Z + 1))
+if [ $Z -gt 3 ]; then
+    Z=0
+    Y=$((Y + 1))
+    if [ $Y -gt 3 ]; then
+        Y=0
+        X=$((X + 1))
+    fi
 fi
 
-NEW_VERSION=$1
+SUGGESTED_VERSION="$X.$Y.$Z"
+
+if [ -n "$1" ]; then
+    NEW_VERSION=$1
+else
+    echo "💡 Dernière version trouvée : $CURRENT_VERSION"
+    read -p "👉 Appuyez sur Entrée pour utiliser la version suggérée [$SUGGESTED_VERSION], ou tapez une version manuellement : " input_version
+    if [ -z "$input_version" ]; then
+        NEW_VERSION=$SUGGESTED_VERSION
+    else
+        NEW_VERSION=$input_version
+    fi
+fi
 PLUGIN_FILE="tweak-tools-sdf30.php"
 README_FILE="readme.txt"
 
@@ -49,5 +76,16 @@ echo ""
 echo "✅ Release v$NEW_VERSION is fully ready!"
 echo "--------------------------------------------------"
 echo "L'archive zip est dispo dans le dossier parent."
-echo "Pense à pousser tes changements sur GitHub avec :"
-echo "👉 git push origin main && git push origin --tags"
+
+read -p "🚀 Voulez-vous pousser la release sur GitLab (origin) et GitHub (github) ? (y/n) " push_confirm
+if [[ "$push_confirm" =~ ^[YyOo]$ ]]; then
+    echo "📡 Déploiement sur GitLab (origin)..."
+    git push origin main && git push origin --tags
+    
+    echo "📡 Déploiement sur GitHub (github)..."
+    git push github main && git push github --tags
+    
+    echo "🎉 Push terminé avec succès !"
+else
+    echo "✋ Push ignoré. Clôture de la tâche."
+fi

@@ -1,0 +1,673 @@
+# Copyright (C) 2026 OPEN-SDF
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Tweak Tools for WooCommerce 1.3.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/tweak-tools-"
+"sdf30\n"
+"Last-Translator: \n"
+"Language-Team: French (France)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-05-07T18:55:26+00:00\n"
+"PO-Revision-Date: 2026-05-07 21:07+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Domain: tweak-tools-sdf30\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Loco-Version: 2.8.4; wp-6.9.4; php-8.2.27"
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:132
+msgid "\"Read More\" Label"
+msgstr "Label \"En savoir plus\""
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:125
+msgid "\"Read More\" URL"
+msgstr "URL \"En savoir plus\""
+
+#. translators: 1: Count of products, 2: Operation applied
+#: includes/Modules/BulkPrice/BulkPriceModule.php:361
+#, php-format
+msgid "%1$d products were successfully %2$s."
+msgstr "%1$d produits ont été %2$s avec succès."
+
+#. Description of the plugin
+#: tweak-tools-sdf30.php
+msgid ""
+"A collection of performance, UI/UX, and administrative utilities for "
+"WooCommerce."
+msgstr ""
+"Une collection d'utilitaires de performance, d'UI/UX et d'administration "
+"pour WooCommerce."
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:46
+msgid "Add to Cart Text"
+msgstr "Texte d'ajout au panier"
+
+#: includes/Modules/CustomCss/CustomCssModule.php:42
+msgid ""
+"Add your custom CSS here to style plugin elements without overriding your "
+"global site CSS. <br><br><b>Class Glossary:</b><br>\n"
+"                <code>a.tweak-tools-sdf30s-read-more</code> : The \"Read "
+"More\" button (Feat 2).<br>\n"
+"                <code>.button.alt.tweak-tools-sdf30-validatenow</code> : The "
+"\"Buy now\" button (Direct Checkout).<br>\n"
+"                <code>.stock.wt-smart-stock-active</code> : The dynamic "
+"urgency message.<br>\n"
+"                <code>.wt-account-toggle-btn</code> : Toggle buttons (My "
+"Account).<br>\n"
+"                <code>.wt-retractable-section</code> : Container for hidden "
+"Email/Password fields.<br>\n"
+"                <code>#billing_birth_date_field</code> : Date of birth field."
+"<br>\n"
+"                <code>.wt-toggle-stock</code> : Stock toggle link (Admin "
+"Product List).<br>\n"
+"                <code>.wt-promo-badge</code> : Discount percentage badge.<br>"
+"\n"
+"                <code>.wt-promo-urgency-msg</code> : Promotion end message."
+msgstr ""
+"Ajoutez votre CSS personnalisé ici pour styliser les éléments du plugin sans "
+"écraser le CSS global de votre site. <br><br><b>Glossaire des classes :</b>"
+"<br>\n"
+"                <code>a.tweak-tools-sdf30s-read-more</code> : Le bouton \"En "
+"savoir plus\" (Fct 2).<br>\n"
+"                <code>.button.alt.tweak-tools-sdf30-validatenow</code> : Le "
+"bouton \"Acheter maintenant\" (Achat direct).<br>\n"
+"                <code>.stock.wt-smart-stock-active</code> : Le message "
+"d'urgence dynamique.<br>\n"
+"                <code>.wt-account-toggle-btn</code> : Boutons de bascule "
+"(Mon Compte).<br>\n"
+"                <code>.wt-retractable-section</code> : Conteneur pour les "
+"champs E-mail/Mot de passe masqués.<br>\n"
+"                <code>#billing_birth_date_field</code> : Champ Date de "
+"naissance.<br>\n"
+"                <code>.wt-toggle-stock</code> : Lien de bascule du stock "
+"(Liste produits Admin).<br>\n"
+"                <code>.wt-promo-badge</code> : Badge de pourcentage de "
+"remise.<br>\n"
+"                <code>.wt-promo-urgency-msg</code> : Message de fin de "
+"promotion."
+
+#: includes/Modules/DirectCheckout/DirectCheckoutModule.php:42
+msgid "Adds a direct purchase button next to the add to cart button."
+msgstr "Ajoute un bouton d'achat direct à côté du bouton d'ajout au panier."
+
+#: includes/Modules/StockStatus/StockStatusModule.php:50
+msgid "Adds an \"Out of stock\" / \"In stock\" link under each product."
+msgstr ""
+"Ajoute un lien \"Rupture de stock\" / \"En stock\" sous chaque produit."
+
+#: includes/Modules/StockStatus/StockStatusModule.php:42
+msgid "Adds quick action links on list pages (Admin)."
+msgstr "Ajoute des liens d'action rapide sur les pages de liste (Admin)."
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:51
+msgid "Adjust prices (+/-)"
+msgstr "Ajuster les prix (+/-)"
+
+#: includes/Modules/StockStatus/StockStatusModule.php:40
+msgid "Admin Shortcuts"
+msgstr "Raccourcis Admin"
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:65
+msgid "Also show the button on single product pages."
+msgstr "Afficher également le bouton sur les pages produit uniques."
+
+#: includes/Modules/CustomCss/CustomCssModule.php:40
+msgid "Appearance & Custom CSS"
+msgstr "Apparence & CSS personnalisé"
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:105
+msgid "Apply"
+msgstr "Appliquer"
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:75
+msgid "Apply a price change to selected products."
+msgstr "Appliquer un changement de prix aux produits sélectionnés."
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:58
+msgid "Apply target=\"_blank\" to the Read More button."
+msgstr "Appliquer target=\"_blank\" au bouton En savoir plus."
+
+#: includes/Modules/ReadMoreButton/block.json
+#, fuzzy
+msgctxt "block description"
+msgid ""
+"Displays the 'Read More' button configured in the product data. Only works "
+"inside a Product Template or Query Loop."
+msgstr ""
+"Affiche le bouton 'En savoir plus' configuré dans les données produit. Ne "
+"fonctionne qu'à l'intérieur d'un modèle produit ou d'une boucle de requête."
+
+#: includes/Modules/PromoUrgency/block.json
+msgctxt "block description"
+msgid "Displays the urgency message for active promotions."
+msgstr "Affiche un message d'urgence pour les promo actives."
+
+#: includes/Modules/DirectCheckout/block.json
+msgctxt "block description"
+msgid "Immediate purchase button to redirect to checkout."
+msgstr "Bouton « Achat direct » pour accéder à la page de paiement."
+
+#: includes/Modules/ReadMoreButton/block.json
+msgctxt "block keyword"
+msgid "button"
+msgstr "Bouton"
+
+#: includes/Modules/DirectCheckout/block.json
+msgctxt "block keyword"
+msgid "buy now"
+msgstr "Achat direct"
+
+#: includes/Modules/DirectCheckout/block.json
+msgctxt "block keyword"
+msgid "checkout"
+msgstr "commander"
+
+#: includes/Modules/ReadMoreButton/block.json
+msgctxt "block keyword"
+msgid "external"
+msgstr "externe"
+
+#: includes/Modules/ReadMoreButton/block.json
+msgctxt "block keyword"
+msgid "link"
+msgstr "url"
+
+#: includes/Modules/PromoUrgency/block.json
+msgctxt "block keyword"
+msgid "promo"
+msgstr "promo"
+
+#: includes/Modules/ReadMoreButton/block.json
+msgctxt "block keyword"
+msgid "read more"
+msgstr "en savoir plus"
+
+#: includes/Modules/PromoUrgency/block.json
+msgctxt "block keyword"
+msgid "sales"
+msgstr "ventes"
+
+#: includes/Modules/PromoUrgency/block.json
+msgctxt "block keyword"
+msgid "urgency"
+msgstr "urgence"
+
+#: includes/Modules/DirectCheckout/block.json
+msgctxt "block keyword"
+msgid "woo"
+msgstr "woo"
+
+#: includes/Modules/PromoUrgency/block.json
+#: includes/Modules/ReadMoreButton/block.json
+msgctxt "block keyword"
+msgid "woocommerce"
+msgstr "woocommerce"
+
+#: includes/Modules/DirectCheckout/block.json
+msgctxt "block title"
+msgid "Direct Checkout (Woo Tweaks)"
+msgstr "Achat Direct (Woo Tweaks)"
+
+#: includes/Modules/PromoUrgency/block.json
+msgctxt "block title"
+msgid "Promo Urgency (Woo Tweaks)"
+msgstr "Alerte de Promo (Woo Tweaks)"
+
+#: includes/Modules/ReadMoreButton/block.json
+msgctxt "block title"
+msgid "Read More (Woo Tweaks)"
+msgstr "En savoir plus (Woo Tweaks)"
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:71
+msgid "Bulk Price Adjustment"
+msgstr "Ajustement de prix en masse"
+
+#: includes/Modules/DirectCheckout/DirectCheckoutModule.php:56
+#: includes/Modules/DirectCheckout/DirectCheckoutModule.php:102
+#: includes/Modules/DirectCheckout/DirectCheckoutModule.php:144
+#: includes/Modules/DirectCheckout/render.php:10
+msgid "Buy now"
+msgstr "Acheter maintenant"
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:104
+msgid "Cancel"
+msgstr "Annuler"
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:81
+msgid "Category Prefix"
+msgstr "Préfixe de catégorie"
+
+#: includes/Modules/AccountUX/AccountUXModule.php:126
+msgid "Change password"
+msgstr "Modifier le mot de passe"
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:130
+msgid ""
+"Check this to use native WooCommerce labels for this product (Add to Cart, "
+"Sale, Stock, etc.)."
+msgstr ""
+"Cochez cette case pour utiliser les labels natifs de WooCommerce pour ce "
+"produit (Ajout au panier, Promo, Stock, etc.)."
+
+#: includes/Modules/SmartStock/SmartStockModule.php:50
+msgid "Check to enable dynamic stock messages."
+msgstr "Cochez pour activer les messages de stock dynamiques."
+
+#: includes/Modules/DirectCheckout/DirectCheckoutModule.php:50
+msgid "Check to enable this module."
+msgstr "Cochez pour activer ce module."
+
+#: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:40
+msgid "Checkout Cleanup"
+msgstr "Nettoyage de la commande"
+
+#: includes/Modules/CustomCss/CustomCssModule.php:55
+msgid "CSS Code"
+msgstr "Code CSS"
+
+#: includes/Modules/AccountUX/AccountUXModule.php:86
+msgid "Date of Birth"
+msgstr "Date de naissance"
+
+#: includes/Modules/AccountUX/AccountUXModule.php:87
+msgid "DD/MM/YYYY"
+msgstr "JJ/MM/AAAA"
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:81
+msgid "Decrease (-)"
+msgstr "Diminuer (-)"
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:357
+msgid "decreased"
+msgstr "diminués"
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:50
+msgid "Default label for the additional button (Feat2)."
+msgstr "Label par défaut pour le bouton additionnel (Feat2)."
+
+#: includes/Modules/DirectCheckout/DirectCheckoutModule.php:40
+msgid "Direct Checkout"
+msgstr "Achat direct"
+
+#: includes/Modules/DirectCheckout/DirectCheckoutModule.php:53
+msgid "Direct Checkout Label"
+msgstr "Label de l'achat direct"
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:129
+msgid "Disable Global Custom Labels"
+msgstr "Désactiver les labels globaux personnalisés"
+
+#: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:42
+msgid "Disable unnecessary fields on the checkout page."
+msgstr "Désactiver les champs inutiles sur la page de commande."
+
+#: includes/Modules/HideComponents/HideComponentsModule.php:64
+msgid "Disables the display of suggested products."
+msgstr "Désactive l'affichage des produits suggérés."
+
+#: includes/Modules/SmartStock/SmartStockModule.php:42
+msgid "Displays a custom urgency message when stock is low."
+msgstr "Affiche un message d'urgence personnalisé lorsque le stock est bas."
+
+#: includes/Modules/PromoUrgency/PromoUrgencyModule.php:50
+msgid "Displays the -X% badge instead of the \"Sale!\" text."
+msgstr "Affiche le badge -X% au lieu du texte \"Promo !\"."
+
+#: includes/Modules/PromoUrgency/PromoUrgencyModule.php:57
+msgid "Displays the countdown below the price (if an end date is configured)."
+msgstr ""
+"Affiche le compte à rebours sous le prix (si une date de fin est configurée)."
+
+#: includes/Modules/PromoUrgency/PromoUrgencyModule.php:42
+msgid "Displays the discount percentage and a promo countdown."
+msgstr "Affiche le pourcentage de remise et un compte à rebours promotionnel."
+
+#: includes/Modules/AccountUX/AccountUXModule.php:125
+msgid "Edit email address"
+msgstr "Modifier l'adresse e-mail"
+
+#: includes/Modules/EmptyCartRedirect/EmptyCartRedirectModule.php:40
+#: includes/Modules/EmptyCartRedirect/EmptyCartRedirectModule.php:45
+msgid "Empty Cart Redirect"
+msgstr "Redirection panier vide"
+
+#: includes/Modules/DirectCheckout/DirectCheckoutModule.php:46
+msgid "Enable Direct Checkout"
+msgstr "Activer l'achat direct"
+
+#: includes/Modules/AccountUX/AccountUXModule.php:46
+msgid "Enable My Account UX"
+msgstr "Activer l'UX Mon Compte"
+
+#: includes/Modules/PromoUrgency/PromoUrgencyModule.php:46
+msgid "Enable Promo Urgency"
+msgstr "Activer l'urgence promo"
+
+#: includes/Modules/SmartStock/SmartStockModule.php:46
+msgid "Enable Smart Stock"
+msgstr "Activer le stock intelligent"
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:126
+msgid ""
+"Enter an internal or external link to display a \"Read More\" button on the "
+"archive page."
+msgstr ""
+"Entrez un lien interne ou externe pour afficher un bouton \"En savoir plus\" "
+"sur la page d'archives."
+
+#: includes/Modules/StockStatus/StockStatusModule.php:133
+msgid "Error during update."
+msgstr "Erreur lors de la mise à jour."
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:89
+msgid "Fixed amount (€,$,...)"
+msgstr "Montant fixe (€,$,...)"
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:40
+msgid "Global Custom Labels"
+msgstr "Labels personnalisés globaux"
+
+#: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:53
+msgid "Hide Address 2"
+msgstr "Masquer l'adresse 2"
+
+#: includes/Modules/HideComponents/HideComponentsModule.php:53
+msgid "Hide Categories/Tags"
+msgstr "Masquer les catégories/étiquettes"
+
+#: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:46
+msgid "Hide Company"
+msgstr "Masquer l'entreprise"
+
+#: includes/Modules/HideComponents/HideComponentsModule.php:42
+msgid "Hide default WooCommerce elements on the product page."
+msgstr "Masquer les éléments par défaut de WooCommerce sur la page produit."
+
+#: includes/Modules/HideComponents/HideComponentsModule.php:40
+msgid "Hide elements"
+msgstr "Masquer des éléments"
+
+#: includes/Modules/AccountUX/AccountUXModule.php:127
+msgid "Hide email address"
+msgstr "Masquer l'adresse e-mail"
+
+#: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:67
+msgid "Hide Order Notes"
+msgstr "Masquer les notes de commande"
+
+#: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:60
+msgid "Hide Phone"
+msgstr "Masquer le téléphone"
+
+#: includes/Modules/HideComponents/HideComponentsModule.php:60
+msgid "Hide Related Products"
+msgstr "Masquer les produits apparentés"
+
+#: includes/Modules/HideComponents/HideComponentsModule.php:46
+msgid "Hide SKU"
+msgstr "Masquer le SKU"
+
+#: includes/Modules/HideComponents/HideComponentsModule.php:57
+msgid "Hides categories and tags in product metadata."
+msgstr "Masque les catégories et étiquettes dans les métadonnées du produit."
+
+#: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:71
+msgid "Hides the additional notes field."
+msgstr "Masque le champ des notes additionnelles."
+
+#: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:57
+msgid "Hides the Address 2 field."
+msgstr "Masque le champ Adresse 2."
+
+#: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:50
+msgid "Hides the Company Name field."
+msgstr "Masque le champ Nom de l'entreprise."
+
+#: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:64
+msgid "Hides the Phone field (be careful if you use a shipping carrier)."
+msgstr "Masque le champ téléphone (prudence si vous utilisez un transporteur)."
+
+#: includes/Modules/HideComponents/HideComponentsModule.php:50
+msgid "Hides the product SKU."
+msgstr "Masque le SKU du produit."
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: tweak-tools-sdf30.php
+msgid "https://open.sdf30.com"
+msgstr "https://open.sdf30.com"
+
+#: includes/Modules/AccountUX/AccountUXModule.php:50
+msgid "Improves the account details form (e.g., Date of Birth field)."
+msgstr ""
+"Améliore le formulaire des détails du compte (ex: champ Date de naissance)."
+
+#: includes/Modules/StockStatus/StockStatusModule.php:130
+msgid "In stock"
+msgstr "En stock"
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:80
+msgid "Increase (+)"
+msgstr "Augmenter (+)"
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:357
+msgid "increased"
+msgstr "augmentés"
+
+#: includes/Modules/AccountUX/AccountUXModule.php:128
+msgid "Keep current password"
+msgstr "Conserver le mot de passe actuel"
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:50
+msgid "Leave empty to use WooCommerce default."
+msgstr "Laisser vide pour utiliser le défaut de WooCommerce."
+
+#: includes/Modules/SmartStock/SmartStockModule.php:61
+msgid "Low stock message"
+msgstr "Message de stock bas"
+
+#: includes/Modules/StockStatus/StockStatusModule.php:105
+#: includes/Modules/StockStatus/StockStatusModule.php:134
+msgid "Mark in stock"
+msgstr "Marquer en stock"
+
+#: includes/Modules/StockStatus/StockStatusModule.php:98
+#: includes/Modules/StockStatus/StockStatusModule.php:135
+msgid "Mark out of stock"
+msgstr "Marquer en rupture"
+
+#: includes/Modules/AccountUX/AccountUXModule.php:40
+msgid "My Account & UX"
+msgstr "Mon Compte & UX"
+
+#. translators: %s: number of days
+#: includes/Modules/PromoUrgency/PromoUrgencyModule.php:256
+#, php-format
+msgid "Only %s day left!"
+msgid_plural "Only %s days left!"
+msgstr[0] "Plus que %s jour !"
+msgstr[1] "Plus que %s jours !"
+
+#. translators: %s: number of hours
+#: includes/Modules/PromoUrgency/PromoUrgencyModule.php:259
+#, php-format
+msgid "Only %s hours left!"
+msgstr "Plus que %s heures !"
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:54
+msgid "Open in a new tab"
+msgstr "Ouvrir dans un nouvel onglet"
+
+#. Author of the plugin
+#: tweak-tools-sdf30.php
+msgid "OPEN-SDF"
+msgstr "OPEN-SDF"
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:78
+msgid "Operation"
+msgstr "Opération"
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:67
+#: includes/Modules/StockStatus/StockStatusModule.php:131
+msgid "Out of stock"
+msgstr "Rupture de stock"
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:63
+msgid "Out of Stock Text"
+msgstr "Texte de rupture de stock"
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:86
+msgid "Override the default \"Category:\" text."
+msgstr "Surcharger le texte \"Catégorie:\" par défaut."
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:77
+msgid "Override the default \"SKU:\" text."
+msgstr "Surcharger le texte \"SKU:\" par défaut."
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:133
+msgid "Override the global \"Read More\" label for this product."
+msgstr "Surcharger le label global \"En savoir plus\" pour ce produit."
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:88
+msgid "Percentage (%)"
+msgstr "Pourcentage (%)"
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:221
+msgid "Please enter a valid value."
+msgstr "Veuillez entrer une valeur valide."
+
+#: includes/Modules/PromoUrgency/PromoUrgencyModule.php:40
+msgid "Promo Urgency Badges"
+msgstr "Badges d'urgence promotionnelle"
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:49
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:135
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:179
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:240
+msgid "Read More"
+msgstr "En savoir plus"
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:40
+msgid "Read More Button"
+msgstr "Bouton En savoir plus"
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:46
+msgid "Read More Button Label"
+msgstr "Label du bouton En savoir plus"
+
+#: includes/Modules/EmptyCartRedirect/EmptyCartRedirectModule.php:49
+msgid "Redirect users to the shop page if they access an empty cart page."
+msgstr ""
+"Rediriger les utilisateurs vers la boutique s'ils accèdent à une page de "
+"panier vide."
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:100
+msgid "Round to .99"
+msgstr "Arrondir à .99"
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:54
+msgid "Sale Badge Text"
+msgstr "Texte du badge de promotion"
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:58
+msgid "Sale!"
+msgstr "Promo !"
+
+#: tweak-tools-sdf30.php:88
+msgid "Settings"
+msgstr "Réglages"
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:42
+msgid "Settings for the Read More button."
+msgstr "Réglages pour le bouton En savoir plus."
+
+#: includes/Modules/PromoUrgency/PromoUrgencyModule.php:53
+msgid "Show end date"
+msgstr "Afficher la date de fin"
+
+#: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:61
+msgid "Show on single product page"
+msgstr "Afficher sur la page produit unique"
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:72
+msgid "SKU Prefix"
+msgstr "Préfixe SKU"
+
+#: includes/Modules/SmartStock/SmartStockModule.php:40
+msgid "Smart Stock Messaging"
+msgstr "Messages de stock intelligents"
+
+#: includes/Modules/SmartStock/SmartStockModule.php:57
+msgid "Stock quantity at which the message is displayed."
+msgstr "Quantité de stock à laquelle le message est affiché."
+
+#: includes/Modules/StockStatus/StockStatusModule.php:46
+msgid "Stock status shortcuts"
+msgstr "Raccourcis d'état du stock"
+
+#: includes/Modules/DirectCheckout/DirectCheckoutModule.php:57
+msgid "Text displayed on the direct checkout button."
+msgstr "Texte affiché sur le bouton d'achat direct."
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:68
+msgid "Text for \"Out of stock\" availability."
+msgstr "Texte pour la disponibilité \"Rupture de stock\"."
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:59
+msgid "Text for the \"Sale\" badge (Promo)."
+msgstr "Texte pour le badge \"Promo\"."
+
+#: includes/Modules/CustomLabels/CustomLabelsModule.php:42
+msgid "These labels will apply globally unless overridden per product."
+msgstr ""
+"Ces labels s'appliqueront globalement sauf s'ils sont surchargés par produit."
+
+#: includes/Modules/SmartStock/SmartStockModule.php:53
+msgid "Trigger threshold"
+msgstr "Seuil de déclenchement"
+
+#. Plugin Name of the plugin
+#: tweak-tools-sdf30.php
+msgid "Tweak Tools for WooCommerce"
+msgstr "Outils d'optimisation pour WooCommerce"
+
+#: includes/Core/SettingsPage.php:126 includes/Core/SettingsPage.php:127
+msgid "Tweaks Tools"
+msgstr "Outils Tweaks"
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:86
+msgid "Type"
+msgstr "Type"
+
+#: includes/Modules/StockStatus/StockStatusModule.php:132
+msgid "Updating..."
+msgstr "Mise à jour..."
+
+#: includes/Modules/SmartStock/SmartStockModule.php:65
+msgid "Use {stock} to display the remaining quantity."
+msgstr "Utilisez {stock} pour afficher la quantité restante."
+
+#: includes/Modules/AccountUX/AccountUXModule.php:42
+msgid "User experience improvements on the My Account page."
+msgstr "Améliorations de l'expérience utilisateur sur la page Mon Compte."
+
+#: includes/Modules/BulkPrice/BulkPriceModule.php:94
+msgid "Value"
+msgstr "Valeur"
+
+#: includes/Core/SettingsPage.php:28
+msgid "Woo Tweaks"
+msgstr "Woo Tweaks"
+
+#: tweak-tools-sdf30.php:125
+msgid "Woo Tweaks Tools requires WooCommerce to be installed and active."
+msgstr ""
+"Woo Tweaks Tools nécessite l'installation et l'activation de WooCommerce."
+
+#: includes/Modules/SmartStock/SmartStockModule.php:64
+#: includes/Modules/SmartStock/SmartStockModule.php:112
+msgid "🔥 Only {stock} items left in stock!"
+msgstr "🔥 Plus que {stock} articles en stock !"

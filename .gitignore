@@ -28,3 +28,5 @@ temp_/
 .svn/
 
 GE*.md
+languages/*-backup-*.po~
+
