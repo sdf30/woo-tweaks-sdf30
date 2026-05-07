@@ -37,7 +37,8 @@ echo "📦 Génération du ZIP..."
 ./build-zip.sh
 
 # 7. Push & GitHub Release
-echo "📤 Envoi vers GitHub..."
+echo "📤 Envoi vers GitLab (origin) et GitHub..."
+git push origin main && git push origin --tags
 git push github main && git push github --tags
 
 echo "🎈 Création de la Release GitHub..."
