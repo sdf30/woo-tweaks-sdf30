@@ -94,4 +94,27 @@ Optimisation des conversions par l'urgence :
 
 ---
 
+## Workflow de Release (CI/CD)
+
+Le projet utilise un workflow automatisé pour le déploiement vers le répertoire officiel WordPress.org via GitHub Actions.
+
+### Structure du Dépôt
+- **Dépôt Miroir** : Un miroir GitHub est utilisé pour piloter les GitHub Actions.
+- **Dépôt SVN** : Géré automatiquement par l'action de déploiement.
+
+### Processus de Publication
+1.  **Développement** : Effectuez vos modifications sur les branches de feature ou `develop`.
+2.  **Merge** : Fusionnez vers la branche `main` une fois les tests validés.
+3.  **Versioning** :
+    - Incrémentez la version dans `woo-tweaks-sdf30.php` (Header + Constante `VERSION`).
+    - Mettez à jour le `Stable tag` dans `readme.txt`.
+    - Ajoutez les entrées dans `CHANGELOG.md`.
+4.  **Déploiement** : Créez et poussez un tag Git (ex: `git tag v1.3.0 && git push origin v1.3.0`).
+5.  **Automatisation** : L'Action `10up/action-wordpress-plugin-deploy` :
+    - Compile les assets Gutenberg (`npm run build`).
+    - Met à jour le répertoire SVN de WordPress.org.
+    - Gère les assets de la page de plugin (si présents dans `.wordpress-org/`).
+
+---
+
 *Document de référence pour le maintien des standards de qualité OPEN-SDF.*
