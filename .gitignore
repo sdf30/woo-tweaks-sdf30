@@ -8,3 +8,5 @@ phpstan.neon
 composer.lock
 .DS_Store
 *.zip
+setup-secrets.sh
+.env
