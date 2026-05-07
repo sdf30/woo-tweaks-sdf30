@@ -1,13 +1,17 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "woo-tweaks/direct-checkout",
+  "name": "tweak-tools-sdf30s/direct-checkout",
   "title": "Direct Checkout (Woo Tweaks)",
   "category": "woocommerce",
   "icon": "cart",
   "description": "Bouton d'achat immédiat pour rediriger vers la caisse.",
-  "keywords": ["checkout", "buy now", "woo"],
-  "textdomain": "woo-tweaks-tools",
+  "keywords": [
+    "checkout",
+    "buy now",
+    "woo"
+  ],
+  "textdomain": "tweak-tools-sdf30",
   "editorScript": "file:./block.js",
   "viewScript": "file:./direct-checkout.js",
   "render": "file:./render.php"

@@ -1,47 +1,53 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Configuration
-PLUGIN_FILE="woo-tweaks-sdf30.php"
+# Exit on error
+set -e
+
+if [ -z "$1" ]; then
+    echo "Usage: ./release.sh <version>"
+    echo "Example: ./release.sh 1.3.3"
+    exit 1
+fi
+
+NEW_VERSION=$1
+PLUGIN_FILE="tweak-tools-sdf30.php"
 README_FILE="readme.txt"
-PLUGIN_NAME="woo-tweaks-sdf30"
 
-echo "🚀 Préparation d'une nouvelle release pour ${PLUGIN_NAME}..."
+echo "🚀 Preparing release for version $NEW_VERSION..."
 
-# 1. Récupérer la version actuelle
-CURRENT_VERSION=$(grep -E "^ \* Version:" "$PLUGIN_FILE" | awk '{print $3}')
-echo "📍 Version actuelle : ${CURRENT_VERSION}"
+# 1. Update version in main plugin file
+echo "📝 Updating version in $PLUGIN_FILE..."
+# Update Plugin header (Version: ...)
+sed -i '' "s/Version:           .*/Version:           $NEW_VERSION/" $PLUGIN_FILE
+# Update Plugin class constant
+sed -i '' "s/public const VERSION = '.*';/public const VERSION = '$NEW_VERSION';/" $PLUGIN_FILE
 
-# 2. Calculer la version suggérée (Patch +1)
-IFS='.' read -r major minor patch <<< "$CURRENT_VERSION"
-SUGGESTED_VERSION="$major.$minor.$((patch + 1))"
+# 2. Update version in readme.txt
+echo "📝 Updating version in $README_FILE..."
+sed -i '' "s/Stable tag: .*/Stable tag: $NEW_VERSION/" $README_FILE
 
-# 3. Demander la nouvelle version
-read -p "📝 Entrez la nouvelle version [${SUGGESTED_VERSION}] : " NEW_VERSION
-NEW_VERSION=${NEW_VERSION:-$SUGGESTED_VERSION}
+# 3. Commit the version bump
+echo "📦 Committing changes to Git..."
+git add $PLUGIN_FILE $README_FILE
+# Commit only if there are changes (prevents crash if version was already up-to-date)
+git diff --cached --quiet || git commit -m "🔖 Release v$NEW_VERSION"
 
-echo "⭐ Nouvelle version choisie : ${NEW_VERSION}"
+# 4. Create Git Tag
+echo "🏷️ Tagging as v$NEW_VERSION..."
+# Force recreate tag if it exists, or create new
+git tag -f -a "v$NEW_VERSION" -m "Release v$NEW_VERSION"
 
-# 4. Mettre à jour les fichiers
-echo "📝 Mise à jour des fichiers..."
-sed -i '' "s/Version:           ${CURRENT_VERSION}/Version:           ${NEW_VERSION}/g" "$PLUGIN_FILE"
-sed -i '' "s/Stable tag: ${CURRENT_VERSION}/Stable tag: ${NEW_VERSION}/g" "$README_FILE"
+# 5. Build the zip artifact using our new build-zip.sh
+echo "🗜️ Generating release archive..."
+if [ -f "./build-zip.sh" ]; then
+    bash ./build-zip.sh
+else
+    echo "⚠️ build-zip.sh not found. Skipping zip generation."
+fi
 
-# 5. Git Commit & Tag
-echo "💾 Git commit et tag..."
-git add "$PLUGIN_FILE" "$README_FILE"
-git commit -m "UPDATE: Bump version to ${NEW_VERSION}"
-git tag -a "v${NEW_VERSION}" -m "Release v${NEW_VERSION}"
-
-# 6. Build ZIP
-echo "📦 Génération du ZIP..."
-./build-zip.sh
-
-# 7. Push & GitHub Release
-echo "📤 Envoi vers GitLab (origin) et GitHub..."
-git push origin main && git push origin --tags
-git push github main && git push github --tags
-
-echo "🎈 Création de la Release GitHub..."
-gh release create "v${NEW_VERSION}" "${PLUGIN_NAME}.zip" --title "Release v${NEW_VERSION}" --notes "Mise à jour vers la version ${NEW_VERSION}"
-
-echo "✅ Release ${NEW_VERSION} terminée avec succès !"
+echo ""
+echo "✅ Release v$NEW_VERSION is fully ready!"
+echo "--------------------------------------------------"
+echo "L'archive zip est dispo dans le dossier parent."
+echo "Pense à pousser tes changements sur GitHub avec :"
+echo "👉 git push origin main && git push origin --tags"

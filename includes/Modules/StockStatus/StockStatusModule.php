@@ -37,17 +37,17 @@ class StockStatusModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Raccourcis d\'Administration', 'woo-tweaks-tools'),
+            'title' => \__('Raccourcis d\'Administration', 'tweak-tools-sdf30'),
             'type'  => 'title',
-            'desc'  => \__('Ajoute des liens d\'action rapide sur les pages listes (Admin).', 'woo-tweaks-tools'),
+            'desc'  => \__('Ajoute des liens d\'action rapide sur les pages listes (Admin).', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_admin_section',
         ];
         $settings[] = [
-            'title'    => \__('Raccourcis d\'état du stock', 'woo-tweaks-tools'),
+            'title'    => \__('Raccourcis d\'état du stock', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_stock_status_shortcuts',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Ajoute un lien "Hors Stock" / "En Stock" sous chaque produit.', 'woo-tweaks-tools'),
+            'desc'     => \__('Ajoute un lien "Hors Stock" / "En Stock" sous chaque produit.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'type' => 'sectionend',
@@ -95,14 +95,14 @@ class StockStatusModule extends AbstractModule
                 '<a href="#" class="wt-toggle-stock" data-id="%d" data-status="outofstock" data-nonce="%s" style="color: #d63638; font-weight: 600;">%s</a>',
                 $post->ID,
                 $nonce,
-                \__('Marquer Hors Stock', 'woo-tweaks-tools')
+                \__('Marquer Hors Stock', 'tweak-tools-sdf30')
             );
         } else {
             $actions['wt_in_stock'] = \sprintf(
                 '<a href="#" class="wt-toggle-stock" data-id="%d" data-status="instock" data-nonce="%s" style="color: #007b5f; font-weight: 600;">%s</a>',
                 $post->ID,
                 $nonce,
-                \__('Remettre en Stock', 'woo-tweaks-tools')
+                \__('Remettre en Stock', 'tweak-tools-sdf30')
             );
         }
 
@@ -117,27 +117,27 @@ class StockStatusModule extends AbstractModule
         $screen = \get_current_screen();
         if ($screen && $screen->id === 'edit-product') {
             \wp_enqueue_script(
-                'woo-tweaks-stock-status',
+                'tweak-tools-sdf30s-stock-status',
                 \plugins_url('stock-status.js', __FILE__),
                 ['jquery'],
                 '1.0.0',
                 true
             );
 
-            \wp_localize_script('woo-tweaks-stock-status', 'wtStockData', [
+            \wp_localize_script('tweak-tools-sdf30s-stock-status', 'wtStockData', [
                 'ajax_url' => \admin_url('admin-ajax.php'),
                 'i18n'     => [
-                    'in_stock'     => \__('En Stock', 'woo-tweaks-tools'),
-                    'out_of_stock' => \__('Hors Stock', 'woo-tweaks-tools'),
-                    'updating'     => \__('Mise à jour...', 'woo-tweaks-tools'),
-                    'error'        => \__('Erreur lors de la mise à jour.', 'woo-tweaks-tools'),
-                    'mark_in'      => \__('Remettre en Stock', 'woo-tweaks-tools'),
-                    'mark_out'     => \__('Marquer Hors Stock', 'woo-tweaks-tools'),
+                    'in_stock'     => \__('En Stock', 'tweak-tools-sdf30'),
+                    'out_of_stock' => \__('Hors Stock', 'tweak-tools-sdf30'),
+                    'updating'     => \__('Mise à jour...', 'tweak-tools-sdf30'),
+                    'error'        => \__('Erreur lors de la mise à jour.', 'tweak-tools-sdf30'),
+                    'mark_in'      => \__('Remettre en Stock', 'tweak-tools-sdf30'),
+                    'mark_out'     => \__('Marquer Hors Stock', 'tweak-tools-sdf30'),
                 ]
             ]);
 
             \wp_enqueue_style(
-                'woo-tweaks-stock-status',
+                'tweak-tools-sdf30s-stock-status',
                 \plugins_url('stock-status.css', __FILE__),
                 [],
                 '1.0.0'
@@ -150,9 +150,12 @@ class StockStatusModule extends AbstractModule
      */
     public function handle_ajax_toggle_stock(): void
     {
-        $product_id = isset($_POST['product_id']) ? (int) $_POST['product_id'] : 0;
-        $new_status = isset($_POST['status']) ? \sanitize_text_field($_POST['status']) : '';
-        $nonce      = isset($_POST['nonce']) ? \sanitize_text_field($_POST['nonce']) : '';
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
+        $product_id = isset($_POST['product_id']) ? \absint(\wp_unslash($_POST['product_id'])) : 0;
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
+        $new_status = isset($_POST['status']) ? \sanitize_text_field(\wp_unslash($_POST['status'])) : '';
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
+        $nonce      = isset($_POST['nonce']) ? \sanitize_text_field(\wp_unslash($_POST['nonce'])) : '';
 
         if (!\wp_verify_nonce($nonce, 'woo_tweaks_stock_nonce_' . $product_id)) {
             \wp_send_json_error(['message' => 'Invalid nonce.']);

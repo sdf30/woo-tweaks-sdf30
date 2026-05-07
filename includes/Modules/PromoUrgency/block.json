@@ -1,12 +1,18 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
-    "name": "woo-tweaks/promo-urgency",
+    "name": "tweak-tools-sdf30s/promo-urgency",
     "title": "Promo Urgency (Woo Tweaks)",
     "category": "woocommerce",
     "description": "Affiche le message d'urgence pour les promotions en cours.",
-    "keywords": [ "promo", "urgency", "sales", "woocommerce", "antigravity" ],
-    "textdomain": "woo-tweaks-tools",
+    "keywords": [
+        "promo",
+        "urgency",
+        "sales",
+        "woocommerce",
+        "antigravity"
+    ],
+    "textdomain": "tweak-tools-sdf30",
     "icon": "clock",
     "usesContext": [
         "postId",
@@ -14,6 +20,9 @@
     ],
     "supports": {
         "html": false,
-        "align": [ "wide", "full" ]
+        "align": [
+            "wide",
+            "full"
+        ]
     }
 }

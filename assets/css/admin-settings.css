@@ -1,27 +1,27 @@
-.woo-tweaks-layout {
+.tweak-tools-sdf30s-layout {
     display: grid;
     grid-template-columns: 1fr 400px;
     gap: 30px;
     align-items: start;
     margin-top: 20px;
 }
-.woo-tweaks-sidebar {
+.tweak-tools-sdf30s-sidebar {
     background: #fff;
     padding: 20px;
     border: 1px solid #c3c4c7;
     border-radius: 4px;
     box-shadow: 0 1px 1px rgba(0,0,0,.04);
 }
-.woo-tweaks-sidebar h2 {
+.tweak-tools-sdf30s-sidebar h2 {
     margin-top: 0;
 }
-.woo-tweaks-sidebar table.form-table {
+.tweak-tools-sdf30s-sidebar table.form-table {
     width: 100%;
 }
-.woo-tweaks-sidebar table.form-table th {
+.tweak-tools-sdf30s-sidebar table.form-table th {
     display: none;
 }
-.woo-tweaks-sidebar table.form-table td {
+.tweak-tools-sdf30s-sidebar table.form-table td {
     padding: 0;
     width: 100%;
 }

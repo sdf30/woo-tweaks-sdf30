@@ -1,11 +1,11 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
-    "name": "woo-tweaks-tools/read-more-button",
+    "name": "tweak-tools-sdf30/read-more-button",
     "version": "1.0.0",
     "title": "Read More (Woo Tweaks)",
     "category": "woocommerce",
-    "textdomain": "woo-tweaks-tools",
+    "textdomain": "tweak-tools-sdf30",
     "icon": "external",
     "description": "Displays the 'Read More' button configured in the product data. Only works inside a Product Template or Query Loop.",
     "usesContext": [

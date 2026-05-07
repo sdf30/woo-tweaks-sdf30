@@ -37,22 +37,22 @@ class CustomCssModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Apparence & Custom CSS', 'woo-tweaks-tools'),
+            'title' => \__('Apparence & Custom CSS', 'tweak-tools-sdf30'),
             'type'  => 'title',
             'desc'  => \__('Ajoutez votre CSS personnalisé ici pour styliser les éléments du plugin sans surcharger le CSS global de votre site. <br><br><b>Glossaire des classes :</b><br>
-                <code>a.woo-tweaks-read-more</code> : Le bouton "Read More" (Feat 2).<br>
-                <code>.button.alt.woo-tweak-validatenow</code> : Le bouton "Acheter maintenant" (Direct Checkout).<br>
+                <code>a.tweak-tools-sdf30s-read-more</code> : Le bouton "Read More" (Feat 2).<br>
+                <code>.button.alt.tweak-tools-sdf30-validatenow</code> : Le bouton "Acheter maintenant" (Direct Checkout).<br>
                 <code>.stock.wt-smart-stock-active</code> : Le message d\'urgence dynamique.<br>
                 <code>.wt-account-toggle-btn</code> : Les boutons de toggle (Mon Compte).<br>
                 <code>.wt-retractable-section</code> : Le conteneur des champs Email/Password rétractés.<br>
                 <code>#billing_birth_date_field</code> : Le champ Date de naissance.<br>
                 <code>.wt-toggle-stock</code> : Le lien de bascule de stock (Admin Product List).<br>
                 <code>.wt-promo-badge</code> : Le badge de pourcentage de remise.<br>
-                <code>.wt-promo-urgency-msg</code> : Le message de fin de promotion.', 'woo-tweaks-tools'),
+                <code>.wt-promo-urgency-msg</code> : Le message de fin de promotion.', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_custom_css_section',
         ];
         $settings[] = [
-            'title'    => \__('Code CSS', 'woo-tweaks-tools'),
+            'title'    => \__('Code CSS', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_custom_css',
             'type'     => 'textarea',
             'default'  => '',
@@ -91,7 +91,8 @@ class CustomCssModule extends AbstractModule
         $sanitized_css = \wp_strip_all_tags($custom_css);
 
         echo "\n<!-- Woo Tweaks Custom CSS -->\n";
-        echo "<style id=\"woo-tweaks-custom-css\">\n";
+        echo "<style id=\"tweak-tools-sdf30s-custom-css\">\n";
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo $sanitized_css;
         echo "\n</style>\n<!-- /Woo Tweaks Custom CSS -->\n";
     }

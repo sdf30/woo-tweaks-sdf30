@@ -37,31 +37,31 @@ class HideComponentsModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Masquer des éléments', 'woo-tweaks-tools'),
+            'title' => \__('Masquer des éléments', 'tweak-tools-sdf30'),
             'type'  => 'title',
-            'desc'  => \__('Masquer certains éléments par défaut de WooCommerce sur la page produit.', 'woo-tweaks-tools'),
+            'desc'  => \__('Masquer certains éléments par défaut de WooCommerce sur la page produit.', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_hide_components_section',
         ];
         $settings[] = [
-            'title'    => \__('Masquer le SKU (UGS)', 'woo-tweaks-tools'),
+            'title'    => \__('Masquer le SKU (UGS)', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_hide_sku',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Cache la référence du produit.', 'woo-tweaks-tools'),
+            'desc'     => \__('Cache la référence du produit.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
-            'title'    => \__('Masquer les Catégories/Étiquettes', 'woo-tweaks-tools'),
+            'title'    => \__('Masquer les Catégories/Étiquettes', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_hide_categories',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Cache les catégories et mots-clés dans les métadonnées du produit.', 'woo-tweaks-tools'),
+            'desc'     => \__('Cache les catégories et mots-clés dans les métadonnées du produit.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
-            'title'    => \__('Masquer les Produits Apparentés', 'woo-tweaks-tools'),
+            'title'    => \__('Masquer les Produits Apparentés', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_hide_related_products',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Désactive l\'affichage des produits suggérés.', 'woo-tweaks-tools'),
+            'desc'     => \__('Désactive l\'affichage des produits suggérés.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'type' => 'sectionend',
@@ -125,7 +125,8 @@ class HideComponentsModule extends AbstractModule
         }
 
         if (!empty($css)) {
-            echo '<style id="woo-tweaks-hide-components">' . "\n" . \wp_strip_all_tags($css) . "\n" . '</style>' . "\n";
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo '<style id="tweak-tools-sdf30s-hide-components">' . "\n" . \wp_strip_all_tags($css) . "\n" . '</style>' . "\n";
         }
     }
 }

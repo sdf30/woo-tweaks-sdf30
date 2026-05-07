@@ -1,5 +1,5 @@
 {
-    "name": "sdf30/woo-tweaks",
+    "name": "sdf30/tweak-tools-sdf30",
     "description": "WooCommerce Tweaks Plugin",
     "require": {
         "php": ">=8.1"

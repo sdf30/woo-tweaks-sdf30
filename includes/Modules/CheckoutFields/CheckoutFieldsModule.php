@@ -37,38 +37,38 @@ class CheckoutFieldsModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Nettoyage du Checkout', 'woo-tweaks-tools'),
+            'title' => \__('Nettoyage du Checkout', 'tweak-tools-sdf30'),
             'type'  => 'title',
-            'desc'  => \__('Désactiver certains champs inutiles sur la page de commande.', 'woo-tweaks-tools'),
+            'desc'  => \__('Désactiver certains champs inutiles sur la page de commande.', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_checkout_section',
         ];
         $settings[] = [
-            'title'    => \__('Masquer Société', 'woo-tweaks-tools'),
+            'title'    => \__('Masquer Société', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_hide_billing_company',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Cache le champ Nom de l\'entreprise.', 'woo-tweaks-tools'),
+            'desc'     => \__('Cache le champ Nom de l\'entreprise.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
-            'title'    => \__('Masquer Adresse 2', 'woo-tweaks-tools'),
+            'title'    => \__('Masquer Adresse 2', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_hide_billing_address_2',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Cache le champ d\'adresse complémentaire.', 'woo-tweaks-tools'),
+            'desc'     => \__('Cache le champ d\'adresse complémentaire.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
-            'title'    => \__('Masquer Téléphone', 'woo-tweaks-tools'),
+            'title'    => \__('Masquer Téléphone', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_hide_billing_phone',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Cache le champ Téléphone (attention si vous livrez via transporteur).', 'woo-tweaks-tools'),
+            'desc'     => \__('Cache le champ Téléphone (attention si vous livrez via transporteur).', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
-            'title'    => \__('Masquer Notes de Commande', 'woo-tweaks-tools'),
+            'title'    => \__('Masquer Notes de Commande', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_hide_order_notes',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Cache le champ de notes additionnelles.', 'woo-tweaks-tools'),
+            'desc'     => \__('Cache le champ de notes additionnelles.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'type' => 'sectionend',

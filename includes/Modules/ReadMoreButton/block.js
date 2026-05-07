@@ -11,13 +11,13 @@
         return;
     }
 
-    registerBlockType('woo-tweaks-tools/read-more-button', {
+    registerBlockType('tweak-tools-sdf30/read-more-button', {
         title: 'Read More (Woo Tweaks)',
         icon: 'external',
         category: 'woocommerce',
         edit: function (props) {
             return el(ServerSideRender, {
-                block: 'woo-tweaks-tools/read-more-button',
+                block: 'tweak-tools-sdf30/read-more-button',
                 attributes: props.attributes,
             });
         },

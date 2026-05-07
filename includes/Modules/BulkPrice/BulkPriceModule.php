@@ -48,7 +48,7 @@ class BulkPriceModule extends AbstractModule
      */
     public function add_bulk_action(array $bulk_actions): array
     {
-        $bulk_actions['woo_tweaks_adjust_prices'] = \__('Ajuster les prix (+/-)', 'woo-tweaks-tools');
+        $bulk_actions['woo_tweaks_adjust_prices'] = \__('Ajuster les prix (+/-)', 'tweak-tools-sdf30');
         return $bulk_actions;
     }
 
@@ -57,6 +57,7 @@ class BulkPriceModule extends AbstractModule
      */
     public function inject_modal_and_js(): void
     {
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
         global $post_type;
         if ($post_type !== 'product') {
             return;
@@ -64,50 +65,50 @@ class BulkPriceModule extends AbstractModule
 
         ?>
         <!-- Woo Tweaks Bulk Price Modal -->
-        <div id="woo-tweaks-bulk-modal" class="woo-tweaks-modal" style="display:none;">
-            <div class="woo-tweaks-modal-content">
-                <div class="woo-tweaks-modal-header">
-                    <h3><?php \_e('Ajustement des prix groupé', 'woo-tweaks-tools'); ?></h3>
-                    <span class="woo-tweaks-modal-close">&times;</span>
+        <div id="tweak-tools-sdf30s-bulk-modal" class="tweak-tools-sdf30s-modal" style="display:none;">
+            <div class="tweak-tools-sdf30s-modal-content">
+                <div class="tweak-tools-sdf30s-modal-header">
+                    <h3><?php \esc_html_e('Ajustement des prix groupé', 'tweak-tools-sdf30'); ?></h3>
+                    <span class="tweak-tools-sdf30s-modal-close">&times;</span>
                 </div>
-                <div class="woo-tweaks-modal-body">
-                    <p class="desc"><?php \_e('Appliquez une modification de prix aux produits sélectionnés.', 'woo-tweaks-tools'); ?></p>
+                <div class="tweak-tools-sdf30s-modal-body">
+                    <p class="desc"><?php \esc_html_e('Appliquez une modification de prix aux produits sélectionnés.', 'tweak-tools-sdf30'); ?></p>
                     
-                    <div class="woo-tweaks-field-group">
-                        <label><?php \_e('Opération', 'woo-tweaks-tools'); ?></label>
+                    <div class="tweak-tools-sdf30s-field-group">
+                        <label><?php \esc_html_e('Opération', 'tweak-tools-sdf30'); ?></label>
                         <select id="wt-bulk-op">
-                            <option value="increase"><?php \_e('Augmenter (+)', 'woo-tweaks-tools'); ?></option>
-                            <option value="decrease"><?php \_e('Diminuer (-)', 'woo-tweaks-tools'); ?></option>
+                            <option value="increase"><?php \esc_html_e('Augmenter (+)', 'tweak-tools-sdf30'); ?></option>
+                            <option value="decrease"><?php \esc_html_e('Diminuer (-)', 'tweak-tools-sdf30'); ?></option>
                         </select>
                     </div>
 
-                    <div class="woo-tweaks-field-group">
-                        <label><?php \_e('Type', 'woo-tweaks-tools'); ?></label>
+                    <div class="tweak-tools-sdf30s-field-group">
+                        <label><?php \esc_html_e('Type', 'tweak-tools-sdf30'); ?></label>
                         <select id="wt-bulk-type">
-                            <option value="percent"><?php \_e('Pourcentage (%)', 'woo-tweaks-tools'); ?></option>
-                            <option value="fixed"><?php \_e('Montant fixe (€,$,...)', 'woo-tweaks-tools'); ?></option>
+                            <option value="percent"><?php \esc_html_e('Pourcentage (%)', 'tweak-tools-sdf30'); ?></option>
+                            <option value="fixed"><?php \esc_html_e('Montant fixe (€,$,...)', 'tweak-tools-sdf30'); ?></option>
                         </select>
                     </div>
 
-                    <div class="woo-tweaks-field-group">
-                        <label><?php \_e('Valeur', 'woo-tweaks-tools'); ?></label>
+                    <div class="tweak-tools-sdf30s-field-group">
+                        <label><?php \esc_html_e('Valeur', 'tweak-tools-sdf30'); ?></label>
                         <input type="number" id="wt-bulk-value" step="0.01" min="0" placeholder="0.00">
                     </div>
 
-                    <div class="woo-tweaks-field-group checkbox-group">
+                    <div class="tweak-tools-sdf30s-field-group checkbox-group">
                         <input type="checkbox" id="wt-bulk-round" value="1">
-                        <label for="wt-bulk-round"><?php \_e('Arrondir à .99', 'woo-tweaks-tools'); ?></label>
+                        <label for="wt-bulk-round"><?php \esc_html_e('Arrondir à .99', 'tweak-tools-sdf30'); ?></label>
                     </div>
                 </div>
-                <div class="woo-tweaks-modal-footer">
-                    <button type="button" class="button" id="wt-bulk-cancel"><?php \_e('Annuler', 'woo-tweaks-tools'); ?></button>
-                    <button type="button" class="button button-primary" id="wt-bulk-apply"><?php \_e('Appliquer', 'woo-tweaks-tools'); ?></button>
+                <div class="tweak-tools-sdf30s-modal-footer">
+                    <button type="button" class="button" id="wt-bulk-cancel"><?php \esc_html_e('Annuler', 'tweak-tools-sdf30'); ?></button>
+                    <button type="button" class="button button-primary" id="wt-bulk-apply"><?php \esc_html_e('Appliquer', 'tweak-tools-sdf30'); ?></button>
                 </div>
             </div>
         </div>
 
         <style>
-            .woo-tweaks-modal {
+            .tweak-tools-sdf30s-modal {
                 position: fixed;
                 z-index: 100000;
                 left: 0;
@@ -120,7 +121,7 @@ class BulkPriceModule extends AbstractModule
                 align-items: center;
                 justify-content: center;
             }
-            .woo-tweaks-modal-content {
+            .tweak-tools-sdf30s-modal-content {
                 background: #fff;
                 width: 400px;
                 border-radius: 8px;
@@ -132,7 +133,7 @@ class BulkPriceModule extends AbstractModule
                 from { opacity: 0; transform: translateY(-20px); }
                 to { opacity: 1; transform: translateY(0); }
             }
-            .woo-tweaks-modal-header {
+            .tweak-tools-sdf30s-modal-header {
                 padding: 15px 20px;
                 background: #1d2327;
                 color: #fff;
@@ -140,35 +141,35 @@ class BulkPriceModule extends AbstractModule
                 justify-content: space-between;
                 align-items: center;
             }
-            .woo-tweaks-modal-header h3 {
+            .tweak-tools-sdf30s-modal-header h3 {
                 margin: 0;
                 color: #fff;
                 font-size: 16px;
             }
-            .woo-tweaks-modal-close {
+            .tweak-tools-sdf30s-modal-close {
                 cursor: pointer;
                 font-size: 24px;
                 line-height: 1;
             }
-            .woo-tweaks-modal-body {
+            .tweak-tools-sdf30s-modal-body {
                 padding: 20px;
             }
-            .woo-tweaks-modal-body .desc {
+            .tweak-tools-sdf30s-modal-body .desc {
                 margin-top: 0;
                 color: #646970;
                 font-style: italic;
                 margin-bottom: 20px;
             }
-            .woo-tweaks-field-group {
+            .tweak-tools-sdf30s-field-group {
                 margin-bottom: 15px;
             }
-            .woo-tweaks-field-group label {
+            .tweak-tools-sdf30s-field-group label {
                 display: block;
                 font-weight: 600;
                 margin-bottom: 5px;
             }
-            .woo-tweaks-field-group select,
-            .woo-tweaks-field-group input[type="number"] {
+            .tweak-tools-sdf30s-field-group select,
+            .tweak-tools-sdf30s-field-group input[type="number"] {
                 width: 100%;
             }
             .checkbox-group {
@@ -179,7 +180,7 @@ class BulkPriceModule extends AbstractModule
             .checkbox-group label {
                 margin-bottom: 0;
             }
-            .woo-tweaks-modal-footer {
+            .tweak-tools-sdf30s-modal-footer {
                 padding: 15px 20px;
                 background: #f6f7f7;
                 text-align: right;
@@ -189,7 +190,7 @@ class BulkPriceModule extends AbstractModule
 
         <script>
         jQuery(document).ready(function($) {
-            var $modal = $('#woo-tweaks-bulk-modal');
+            var $modal = $('#tweak-tools-sdf30s-bulk-modal');
             var $form = $('#posts-filter');
 
             // Intercept form submission
@@ -209,7 +210,7 @@ class BulkPriceModule extends AbstractModule
             });
 
             // Close modal
-            $('.woo-tweaks-modal-close, #wt-bulk-cancel').on('click', function() {
+            $('.tweak-tools-sdf30s-modal-close, #wt-bulk-cancel').on('click', function() {
                 $modal.hide();
             });
 
@@ -217,7 +218,7 @@ class BulkPriceModule extends AbstractModule
             $('#wt-bulk-apply').on('click', function() {
                 var val = $('#wt-bulk-value').val();
                 if (!val || val <= 0) {
-                    alert('<?php \_e('Veuillez saisir une valeur valide.', 'woo-tweaks-tools'); ?>');
+                    alert('<?php \esc_html_e('Veuillez saisir une valeur valide.', 'tweak-tools-sdf30'); ?>');
                     return;
                 }
 
@@ -273,10 +274,14 @@ class BulkPriceModule extends AbstractModule
             return $redirect_to;
         }
 
-        $op    = isset($_REQUEST['wt_op']) ? sanitize_text_field($_REQUEST['wt_op']) : 'increase';
-        $type  = isset($_REQUEST['wt_type']) ? sanitize_text_field($_REQUEST['wt_type']) : 'percent';
-        $val   = isset($_REQUEST['wt_val']) ? (float) $_REQUEST['wt_val'] : 0;
-        $round = isset($_REQUEST['wt_round']) && $_REQUEST['wt_round'] == 1;
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        $op    = isset($_REQUEST['wt_op']) ? sanitize_text_field(\wp_unslash($_REQUEST['wt_op'])) : 'increase';
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        $type  = isset($_REQUEST['wt_type']) ? sanitize_text_field(\wp_unslash($_REQUEST['wt_type'])) : 'percent';
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        $val   = isset($_REQUEST['wt_val']) ? (float) \sanitize_text_field(\wp_unslash($_REQUEST['wt_val'])) : 0;
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        $round = isset($_REQUEST['wt_round']) && \sanitize_text_field(\wp_unslash($_REQUEST['wt_round'])) == 1;
 
         if ($val <= 0) {
             return $redirect_to;
@@ -344,12 +349,16 @@ class BulkPriceModule extends AbstractModule
      */
     public function display_bulk_action_notices(): void
     {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         if (isset($_GET['wt_bulk_updated'])) {
-            $count = (int) $_GET['wt_bulk_updated'];
-            $op = isset($_GET['wt_bulk_op']) && $_GET['wt_bulk_op'] === 'increase' ? \__('augmentés', 'woo-tweaks-tools') : \__('diminués', 'woo-tweaks-tools');
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            $count = (int) \sanitize_text_field(\wp_unslash($_GET['wt_bulk_updated']));
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            $op = isset($_GET['wt_bulk_op']) && \sanitize_text_field(\wp_unslash($_GET['wt_bulk_op'])) === 'increase' ? \__('augmentés', 'tweak-tools-sdf30') : \__('diminués', 'tweak-tools-sdf30');
             
             $message = \sprintf(
-                \__('%d produits ont été %s avec succès.', 'woo-tweaks-tools'),
+                /* translators: 1: Count of products, 2: Operation applied */
+                \__('%1$d produits ont été %2$s avec succès.', 'tweak-tools-sdf30'),
                 $count,
                 $op
             );

@@ -1,5 +1,5 @@
 jQuery(function($) {
-    $(document).on('click', '.woo-tweaks-fse-direct-checkout', function(e) {
+    $(document).on('click', '.tweak-tools-sdf30s-fse-direct-checkout', function(e) {
         e.preventDefault();
         
         var $btn = $(this);

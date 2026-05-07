@@ -1,15 +1,17 @@
 <?php
 /**
- * Plugin Name:       Woo Tweaks Tools (by OPEN-SDF)
+ * Plugin Name:       Tweak Tools for WooCommerce
  * Plugin URI:        https://open.sdf30.com
  * Description:       A collection of performance, UI/UX, and administrative utilities for WooCommerce.
  * Version:           1.3.2
  * Author:            OPEN-SDF
  * Author URI:        https://open.sdf30.com
- * Text Domain:       woo-tweaks-tools
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       tweak-tools-sdf30
  * Domain Path:       /languages
  * Requires at least: 6.0
- * Requires PHP:      8.0
+ * Requires PHP:      8.1
  *
  * @package WooTweaksTools
  */
@@ -83,7 +85,7 @@ final class Plugin
     public function add_plugin_action_links(array $links): array
     {
         $settings_url = \admin_url('admin.php?page=wc-settings&tab=woo_tweaks_tools');
-        $settings_link = \sprintf('<a href="%s">%s</a>', \esc_url($settings_url), \__('Settings', 'woo-tweaks-tools'));
+        $settings_link = \sprintf('<a href="%s">%s</a>', \esc_url($settings_url), \__('Settings', 'tweak-tools-sdf30'));
         \array_unshift($links, $settings_link);
         return $links;
     }
@@ -93,8 +95,9 @@ final class Plugin
      */
     public function load_textdomain(): void
     {
+        // phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound
         \load_plugin_textdomain(
-            'woo-tweaks-tools',
+            'tweak-tools-sdf30',
             false,
             \dirname(\plugin_basename(__FILE__)) . '/languages'
         );
@@ -119,7 +122,7 @@ final class Plugin
     public function woocommerce_missing_notice(): void
     {
         $class = 'notice notice-error';
-        $message = \__('Woo Tweaks Tools requires WooCommerce to be installed and active.', 'woo-tweaks-tools');
+        $message = \__('Woo Tweaks Tools requires WooCommerce to be installed and active.', 'tweak-tools-sdf30');
         \printf('<div class="%1$s"><p>%2$s</p></div>', \esc_attr($class), \esc_html($message));
     }
 

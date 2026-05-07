@@ -37,32 +37,32 @@ class ReadMoreButtonModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Read More Button', 'woo-tweaks-tools'),
+            'title' => \__('Read More Button', 'tweak-tools-sdf30'),
             'type'  => 'title',
-            'desc'  => \__('Settings for the Read More button.', 'woo-tweaks-tools'),
+            'desc'  => \__('Settings for the Read More button.', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_read_more_section',
         ];
         $settings[] = [
-            'title'    => \__('Read More Button Label', 'woo-tweaks-tools'),
+            'title'    => \__('Read More Button Label', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_read_more_label',
             'type'     => 'text',
-            'default'  => \__('Read More', 'woo-tweaks-tools'),
-            'desc'     => \__('Default label for the additional button (Feat2).', 'woo-tweaks-tools'),
+            'default'  => \__('Read More', 'tweak-tools-sdf30'),
+            'desc'     => \__('Default label for the additional button (Feat2).', 'tweak-tools-sdf30'),
             'desc_tip' => true,
         ];
         $settings[] = [
-            'title'    => \__('Ouvrir dans un nouvel onglet', 'woo-tweaks-tools'),
+            'title'    => \__('Ouvrir dans un nouvel onglet', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_read_more_target_blank',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Appliquer target="_blank" au bouton "En Savoir Plus".', 'woo-tweaks-tools'),
+            'desc'     => \__('Appliquer target="_blank" au bouton "En Savoir Plus".', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
-            'title'    => \__('Afficher sur la fiche produit', 'woo-tweaks-tools'),
+            'title'    => \__('Afficher sur la fiche produit', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_read_more_show_on_single',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Afficher également le bouton sur les pages de produit seul.', 'woo-tweaks-tools'),
+            'desc'     => \__('Afficher également le bouton sur les pages de produit seul.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'type' => 'sectionend',
@@ -106,7 +106,7 @@ class ReadMoreButtonModule extends AbstractModule
         $script_url  = \plugin_dir_url(\dirname(\dirname(__DIR__))) . $script_path;
 
         \wp_enqueue_script(
-            'woo-tweaks-read-more-block-editor',
+            'tweak-tools-sdf30s-read-more-block-editor',
             $script_url,
             ['wp-blocks', 'wp-element', 'wp-server-side-render', 'wp-editor'],
             '1.0.0',
@@ -122,17 +122,17 @@ class ReadMoreButtonModule extends AbstractModule
         echo '<div class="options_group">';
         \woocommerce_wp_text_input([
             'id'          => '_woo_tweaks_read_more_url',
-            'label'       => \__('"Read More" URL', 'woo-tweaks-tools'),
-            'description' => \__('Enter an internal or external link to display a "Read More" button on the archive page.', 'woo-tweaks-tools'),
+            'label'       => \__('"Read More" URL', 'tweak-tools-sdf30'),
+            'description' => \__('Enter an internal or external link to display a "Read More" button on the archive page.', 'tweak-tools-sdf30'),
             'desc_tip'    => true,
             'placeholder' => 'https://...',
         ]);
         \woocommerce_wp_text_input([
             'id'          => '_woo_tweaks_read_more_label',
-            'label'       => \__('"Read More" Label', 'woo-tweaks-tools'),
-            'description' => \__('Override the global "Read More" label for this product.', 'woo-tweaks-tools'),
+            'label'       => \__('"Read More" Label', 'tweak-tools-sdf30'),
+            'description' => \__('Override the global "Read More" label for this product.', 'tweak-tools-sdf30'),
             'desc_tip'    => true,
-            'placeholder' => \__('Read More', 'woo-tweaks-tools'),
+            'placeholder' => \__('Read More', 'tweak-tools-sdf30'),
         ]);
         echo '</div>';
     }
@@ -144,9 +144,11 @@ class ReadMoreButtonModule extends AbstractModule
      */
     public function save_product_options(int $post_id): void
     {
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
         $url = isset($_POST['_woo_tweaks_read_more_url']) ? \sanitize_url(\wp_unslash($_POST['_woo_tweaks_read_more_url'])) : '';
         \update_post_meta($post_id, '_woo_tweaks_read_more_url', $url);
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
         $label = isset($_POST['_woo_tweaks_read_more_label']) ? \sanitize_text_field(\wp_unslash($_POST['_woo_tweaks_read_more_label'])) : '';
         \update_post_meta($post_id, '_woo_tweaks_read_more_label', $label);
     }
@@ -174,7 +176,7 @@ class ReadMoreButtonModule extends AbstractModule
 
         // 3. Absolute fallback.
         if (empty($label)) {
-            $label = \__('Read More', 'woo-tweaks-tools');
+            $label = \__('Read More', 'tweak-tools-sdf30');
         }
         
         
@@ -186,7 +188,7 @@ class ReadMoreButtonModule extends AbstractModule
 
         // Return standard WooCommerce button HTML
         return \sprintf(
-            '<a href="%s" class="button alt wp-element-button woo-tweaks-read-more" style="margin-right: 5px;"%s>%s</a>',
+            '<a href="%s" class="button alt wp-element-button tweak-tools-sdf30s-read-more" style="margin-right: 5px;"%s>%s</a>',
             \esc_url($url),
             $target,
             \esc_html($label)
@@ -198,12 +200,13 @@ class ReadMoreButtonModule extends AbstractModule
      */
     public function display_legacy_button(): void
     {
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
         global $product;
         if (!$product) {
             return;
         }
 
-        echo self::get_button_html($product->get_id());
+        echo \wp_kses_post(self::get_button_html($product->get_id()));
     }
 
     /**
@@ -234,7 +237,7 @@ class ReadMoreButtonModule extends AbstractModule
         if (empty($html) && defined('REST_REQUEST') && REST_REQUEST) {
             $label = \get_option('woo_tweaks_read_more_label', '');
             if (empty($label)) {
-                $label = \__('Read More', 'woo-tweaks-tools');
+                $label = \__('Read More', 'tweak-tools-sdf30');
             }
             
             // 4. Target Blank.
@@ -244,7 +247,7 @@ class ReadMoreButtonModule extends AbstractModule
             }
             
             return \sprintf(
-                '<a href="#" class="button alt wp-element-button woo-tweaks-read-more" style="margin-right: 5px; opacity: 0.5;"%s>%s</a>',
+                '<a href="#" class="button alt wp-element-button tweak-tools-sdf30s-read-more" style="margin-right: 5px; opacity: 0.5;"%s>%s</a>',
                 $target,
                 \esc_html($label)
             );

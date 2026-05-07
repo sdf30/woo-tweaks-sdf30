@@ -5,7 +5,7 @@ Ce document est destiné aux développeurs souhaitant comprendre l'architecture 
 ## Architecture Globale
 
 Le plugin suit une architecture Orientée Objet (OOP) et modulaire :
-- **Point d'entrée** : `woo-tweaks-sdf30.php` (Définition des constantes, chargement de l'autoloader et initialisation du plugin).
+- **Point d'entrée** : `tweak-tools-sdf30-sdf30.php` (Définition des constantes, chargement de l'autoloader et initialisation du plugin).
 - **Core** : Dossier `includes/Core/`. Contient l'infrastructure centrale.
   - `ModuleManager.php` : Registre central qui charge et active les modules.
   - `SettingsPage.php` : Gère l'affichage natif HTML/CSS en 2 colonnes (Grid) de la page de configuration, l'intégration de CodeMirror et la sauvegarde des options. Agit comme un conteneur pour les réglages décentralisés.
@@ -106,7 +106,7 @@ Le projet utilise un workflow automatisé pour le déploiement vers le répertoi
 1.  **Développement** : Effectuez vos modifications sur les branches de feature ou `develop`.
 2.  **Merge** : Fusionnez vers la branche `main` une fois les tests validés.
 3.  **Versioning** :
-    - Incrémentez la version dans `woo-tweaks-sdf30.php` (Header + Constante `VERSION`).
+    - Incrémentez la version dans `tweak-tools-sdf30-sdf30.php` (Header + Constante `VERSION`).
     - Mettez à jour le `Stable tag` dans `readme.txt`.
     - Ajoutez les entrées dans `CHANGELOG.md`.
 4.  **Déploiement** : Créez et poussez un tag Git (ex: `git tag v1.3.0 && git push origin v1.3.0`).

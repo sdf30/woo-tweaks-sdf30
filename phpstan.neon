@@ -1,0 +1,14 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+    level: 5
+    paths:
+        - includes
+        - tweak-tools-sdf30.php
+    excludePaths:
+        - vendor
+        - temp_
+    scanFiles:
+        - index.php
+        - vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php

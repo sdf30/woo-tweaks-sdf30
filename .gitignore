@@ -26,3 +26,5 @@ temp_/
 
 # WP.org SVN
 .svn/
+
+GE*.md

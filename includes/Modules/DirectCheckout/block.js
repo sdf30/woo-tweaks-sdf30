@@ -3,7 +3,7 @@
     var el = wp.element.createElement;
     var useBlockProps = wp.blockEditor ? wp.blockEditor.useBlockProps : wp.editor.useBlockProps;
 
-    registerBlockType( 'woo-tweaks/direct-checkout', {
+    registerBlockType( 'tweak-tools-sdf30s/direct-checkout', {
         edit: function() {
             var blockProps = useBlockProps();
             var buttonLabel = window.wooTweaksDirectCheckoutLabel || 'Acheter maintenant';

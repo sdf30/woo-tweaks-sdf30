@@ -11,13 +11,13 @@
         return;
     }
 
-    registerBlockType('woo-tweaks/promo-urgency', {
+    registerBlockType('tweak-tools-sdf30s/promo-urgency', {
         title: 'Promo Urgency (Woo Tweaks)',
         icon: 'clock',
         category: 'woocommerce',
         edit: function (props) {
             return el(ServerSideRender, {
-                block: 'woo-tweaks/promo-urgency',
+                block: 'tweak-tools-sdf30s/promo-urgency',
                 attributes: props.attributes,
             });
         },

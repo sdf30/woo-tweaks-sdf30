@@ -19,7 +19,7 @@
     <!-- Allow for plugin specific text-domain -->
     <rule ref="WordPress.WP.I18n">
         <properties>
-            <property name="text_domain" type="array" value="woo-tweaks-sdf30" />
+            <property name="text_domain" type="array" value="tweak-tools-sdf30" />
         </properties>
     </rule>
 

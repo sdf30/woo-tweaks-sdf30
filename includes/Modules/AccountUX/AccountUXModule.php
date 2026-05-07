@@ -37,17 +37,17 @@ class AccountUXModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Mon Compte & UX', 'woo-tweaks-tools'),
+            'title' => \__('Mon Compte & UX', 'tweak-tools-sdf30'),
             'type'  => 'title',
-            'desc'  => \__('Améliorations de l\'expérience utilisateur sur la page Mon Compte.', 'woo-tweaks-tools'),
+            'desc'  => \__('Améliorations de l\'expérience utilisateur sur la page Mon Compte.', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_account_ux_section',
         ];
         $settings[] = [
-            'title'    => \__('Activer l\'UX Mon Compte', 'woo-tweaks-tools'),
+            'title'    => \__('Activer l\'UX Mon Compte', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_enhanced_account_ux',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Améliore le formulaire de détails du compte (ex: champ Date de naissance).', 'woo-tweaks-tools'),
+            'desc'     => \__('Améliore le formulaire de détails du compte (ex: champ Date de naissance).', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'type' => 'sectionend',
@@ -83,8 +83,8 @@ class AccountUXModule extends AbstractModule
         \woocommerce_form_field('billing_birth_date', [
             'type'        => 'date',
             'class'       => ['form-row-wide'],
-            'label'       => \__('Date de naissance', 'woo-tweaks-tools'),
-            'placeholder' => \__('JJ/MM/AAAA', 'woo-tweaks-tools'),
+            'label'       => \__('Date de naissance', 'tweak-tools-sdf30'),
+            'placeholder' => \__('JJ/MM/AAAA', 'tweak-tools-sdf30'),
             'required'    => false,
         ], $birthday);
     }
@@ -96,9 +96,11 @@ class AccountUXModule extends AbstractModule
      */
     public function save_birthday_field(int $user_id): void
     {
+        // phpcs:disable WordPress.Security.NonceVerification.Missing
         if (isset($_POST['billing_birth_date'])) {
-            \update_user_meta($user_id, 'billing_birth_date', \sanitize_text_field($_POST['billing_birth_date']));
+            \update_user_meta($user_id, 'billing_birth_date', \sanitize_text_field(\wp_unslash($_POST['billing_birth_date'])));
         }
+        // phpcs:enable WordPress.Security.NonceVerification.Missing
     }
 
     /**
@@ -111,24 +113,24 @@ class AccountUXModule extends AbstractModule
         }
 
         \wp_enqueue_script(
-            'woo-tweaks-account-ux',
+            'tweak-tools-sdf30s-account-ux',
             \plugins_url('account-ux.js', __FILE__),
             ['jquery'],
             '1.0.0',
             true
         );
 
-        \wp_localize_script('woo-tweaks-account-ux', 'wtAccountData', [
+        \wp_localize_script('tweak-tools-sdf30s-account-ux', 'wtAccountData', [
             'i18n' => [
-                'edit_email'    => \__('Modifier l\'adresse e-mail', 'woo-tweaks-tools'),
-                'change_pass'   => \__('Changer le mot de passe', 'woo-tweaks-tools'),
-                'hide_email'    => \__('Masquer l\'adresse e-mail', 'woo-tweaks-tools'),
-                'hide_pass'     => \__('Garder le mot de passe actuel', 'woo-tweaks-tools'),
+                'edit_email'    => \__('Modifier l\'adresse e-mail', 'tweak-tools-sdf30'),
+                'change_pass'   => \__('Changer le mot de passe', 'tweak-tools-sdf30'),
+                'hide_email'    => \__('Masquer l\'adresse e-mail', 'tweak-tools-sdf30'),
+                'hide_pass'     => \__('Garder le mot de passe actuel', 'tweak-tools-sdf30'),
             ]
         ]);
 
         \wp_enqueue_style(
-            'woo-tweaks-account-ux',
+            'tweak-tools-sdf30s-account-ux',
             \plugins_url('account-ux.css', __FILE__),
             [],
             '1.0.0'

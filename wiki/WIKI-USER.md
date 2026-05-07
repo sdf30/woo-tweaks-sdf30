@@ -32,7 +32,7 @@ Allège le formulaire de commande en masquant les champs non essentiels.
 ### 5. Styles Personnalisés (Custom CSS Engine)
 Une interface dédiée à droite de vos réglages vous permet d'ajouter du code CSS personnalisé.
 - Pratique pour surcharger le design d'un module sans toucher aux fichiers du thème.
-- Un mini-glossaire des classes est inclus sous l'éditeur pour vous guider (ex: `a.woo-tweaks-read-more`).
+- Un mini-glossaire des classes est inclus sous l'éditeur pour vous guider (ex: `a.tweak-tools-sdf30s-read-more`).
 
 ### 6. Masquage des Éléments (Hide Components)
 Masquez sélectivement le SKU, les catégories ou les produits apparentés sur les thèmes classiques.

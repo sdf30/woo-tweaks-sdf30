@@ -1,34 +1,35 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Nom du plugin
-PLUGIN_NAME="woo-tweaks-sdf30"
-ZIP_FILE="${PLUGIN_NAME}.zip"
+# Exit on error
+set -e
 
-echo "📦 Préparation du build pour ${PLUGIN_NAME}..."
+PLUGIN_SLUG="tweak-tools-sdf30"
+RELEASE_DIR="../"
+ZIP_NAME="${PLUGIN_SLUG}-release.zip"
+TARGET_ZIP="${RELEASE_DIR}${ZIP_NAME}"
 
-# Supprimer l'ancien zip s'il existe
-if [ -f "$ZIP_FILE" ]; then
-    rm "$ZIP_FILE"
-fi
+echo "🚀 Building release zip for $PLUGIN_SLUG..."
 
-# Créer un dossier temporaire pour le build
-BUILD_DIR="dist_temp"
-mkdir -p "$BUILD_DIR/$PLUGIN_NAME"
+# Remove old zip if exists
+rm -f "$TARGET_ZIP"
 
-echo "📂 Copie des fichiers..."
+# Create zip excluding development files
+zip -r "$TARGET_ZIP" . \
+    -x "*.git*" \
+    -x "*.DS_Store" \
+    -x "phpcs.xml" \
+    -x "phpstan.neon" \
+    -x "wiki/*" \
+    -x "composer.json" \
+    -x "composer.lock" \
+    -x ".wordpress-org/*" \
+    -x "README.md" \
+    -x "CHANGELOG.md" \
+    -x "vendor/*" \
+    -x ".vscode/*" \
+    -x "temp_/*" \
+    -x "scripts/*" \
+    -x "build-zip.sh" \
+    -x "release.sh"
 
-# Copier les fichiers nécessaires (on exclut les fichiers de dev)
-rsync -rc --exclude-from=.gitignore --exclude=".git" --exclude=".github" --exclude=".env" --exclude="*.sh" --exclude="composer.json" --exclude="composer.lock" --exclude="phpcs.xml" --exclude="phpstan.neon" --exclude="wiki" --exclude="GEMINI.md" --exclude=".wordpress-org" --exclude="dist_temp" ./ "$BUILD_DIR/$PLUGIN_NAME/"
-
-echo "🤐 Compression..."
-
-# Créer le zip
-cd "$BUILD_DIR"
-zip -r "../$ZIP_FILE" "$PLUGIN_NAME" > /dev/null
-cd ..
-
-# Nettoyer
-rm -rf "$BUILD_DIR"
-
-echo "✅ Build terminé : ${ZIP_FILE}"
-echo "🚀 Tu peux maintenant soumettre ce fichier sur : https://wordpress.org/plugins/add/"
+echo "✅ Build complete: $TARGET_ZIP"

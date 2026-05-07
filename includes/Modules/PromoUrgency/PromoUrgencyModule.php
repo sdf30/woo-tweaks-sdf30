@@ -37,24 +37,24 @@ class PromoUrgencyModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Promo Urgency Badges', 'woo-tweaks-tools'),
+            'title' => \__('Promo Urgency Badges', 'tweak-tools-sdf30'),
             'type'  => 'title',
-            'desc'  => \__('Affiche le pourcentage de réduction et un compte à rebours de fin de promo.', 'woo-tweaks-tools'),
+            'desc'  => \__('Affiche le pourcentage de réduction et un compte à rebours de fin de promo.', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_promo_urgency_section',
         ];
         $settings[] = [
-            'title'    => \__('Activer Promo Urgency', 'woo-tweaks-tools'),
+            'title'    => \__('Activer Promo Urgency', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_promo_urgency',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Affiche le badge -X% à la place du texte "Promo!".', 'woo-tweaks-tools'),
+            'desc'     => \__('Affiche le badge -X% à la place du texte "Promo!".', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
-            'title'    => \__('Afficher la date de fin', 'woo-tweaks-tools'),
+            'title'    => \__('Afficher la date de fin', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_promo_urgency_show_date',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Affiche le compte à rebours sous le prix (si une date de fin est configurée).', 'woo-tweaks-tools'),
+            'desc'     => \__('Affiche le compte à rebours sous le prix (si une date de fin est configurée).', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'type' => 'sectionend',
@@ -108,9 +108,11 @@ class PromoUrgencyModule extends AbstractModule
      */
     public function render_fse_block(array $attributes, string $content, \WP_Block $block): string
     {
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
         global $product;
 
         if (!$product && isset($block->context['postId'])) {
+            // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
             $product = \wc_get_product($block->context['postId']);
         }
 
@@ -128,7 +130,7 @@ class PromoUrgencyModule extends AbstractModule
     {
         // CSS
         \wp_enqueue_style(
-            'woo-tweaks-promo-urgency-editor',
+            'tweak-tools-sdf30s-promo-urgency-editor',
             \plugin_dir_url(\dirname(\dirname(\dirname(__FILE__)))) . 'assets/css/index.css',
             [],
             \WooTweaksTools\Plugin::VERSION
@@ -139,7 +141,7 @@ class PromoUrgencyModule extends AbstractModule
         $script_url  = \plugin_dir_url(\dirname(\dirname(\dirname(__FILE__)))) . $script_path;
 
         \wp_enqueue_script(
-            'woo-tweaks-promo-urgency-block-editor',
+            'tweak-tools-sdf30s-promo-urgency-block-editor',
             $script_url,
             ['wp-blocks', 'wp-element', 'wp-server-side-render', 'wp-editor'],
             \WooTweaksTools\Plugin::VERSION,
@@ -154,7 +156,7 @@ class PromoUrgencyModule extends AbstractModule
     {
         if (\is_product() || \is_shop() || \is_product_category()) {
             \wp_enqueue_style(
-                'woo-tweaks-promo-urgency',
+                'tweak-tools-sdf30s-promo-urgency',
                 \plugins_url('promo-urgency.css', __FILE__),
                 [],
                 '1.3.0'
@@ -214,12 +216,13 @@ class PromoUrgencyModule extends AbstractModule
      */
     public function display_sale_expiry_message(): void
     {
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
         global $product;
         if (!$product) {
             return;
         }
 
-        echo $this->get_urgency_message_html($product);
+        echo \wp_kses_post($this->get_urgency_message_html($product));
     }
 
     /**
@@ -249,9 +252,11 @@ class PromoUrgencyModule extends AbstractModule
 
         $message = '';
         if ($days > 0) {
-            $message = \sprintf(\_n('Plus que %s jour restant !', 'Plus que %s jours restants !', (int) $days, 'woo-tweaks-tools'), $days);
+            /* translators: %s: number of days */
+            $message = \sprintf(\_n('Plus que %s jour restant !', 'Plus que %s jours restants !', (int) $days, 'tweak-tools-sdf30'), $days);
         } else {
-            $message = \sprintf(\__('Plus que %s heures restantes !', 'woo-tweaks-tools'), $hours);
+            /* translators: %s: number of hours */
+            $message = \sprintf(\__('Plus que %s heures restantes !', 'tweak-tools-sdf30'), $hours);
         }
 
         return \sprintf(

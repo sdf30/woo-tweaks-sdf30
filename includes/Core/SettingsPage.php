@@ -25,7 +25,7 @@ class SettingsPage extends \WC_Settings_Page
     public function __construct()
     {
         $this->id    = 'woo_tweaks_tools';
-        $this->label = \__('Woo Tweaks', 'woo-tweaks-tools');
+        $this->label = \__('Woo Tweaks', 'tweak-tools-sdf30');
 
         \add_filter('woocommerce_settings_tabs_array', [$this, 'add_settings_page'], 20);
         \add_action('woocommerce_settings_' . $this->id, [$this, 'output']);
@@ -47,17 +47,19 @@ class SettingsPage extends \WC_Settings_Page
     public function enqueue_code_editor(string $hook): void
     {
         // Only load on WooCommerce settings page.
-        if (!isset($_GET['page']) || $_GET['page'] !== 'wc-settings') {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        if (!isset($_GET['page']) || \sanitize_text_field(\wp_unslash($_GET['page'])) !== 'wc-settings') {
             return;
         }
 
         // Only load on our specific tab.
-        if (!isset($_GET['tab']) || $_GET['tab'] !== $this->id) {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        if (!isset($_GET['tab']) || \sanitize_text_field(\wp_unslash($_GET['tab'])) !== $this->id) {
             return;
         }
 
         \wp_enqueue_style(
-            'woo-tweaks-admin-settings',
+            'tweak-tools-sdf30s-admin-settings',
             plugin_dir_url(dirname(__DIR__)) . 'assets/css/admin-settings.css',
             [],
             filemtime(plugin_dir_path(dirname(__DIR__)) . 'assets/css/admin-settings.css')
@@ -70,7 +72,7 @@ class SettingsPage extends \WC_Settings_Page
         }
 
         \wp_enqueue_script(
-            'woo-tweaks-admin-settings',
+            'tweak-tools-sdf30s-admin-settings',
             plugin_dir_url(dirname(__DIR__)) . 'assets/js/admin-settings.js',
             ['jquery'],
             filemtime(plugin_dir_path(dirname(__DIR__)) . 'assets/js/admin-settings.js'),
@@ -78,7 +80,7 @@ class SettingsPage extends \WC_Settings_Page
         );
 
         \wp_add_inline_script(
-            'woo-tweaks-admin-settings',
+            'tweak-tools-sdf30s-admin-settings',
             'var wooTweaksCodeMirror = ' . \wp_json_encode($settings) . ';',
             'before'
         );
@@ -121,8 +123,8 @@ class SettingsPage extends \WC_Settings_Page
     {
         \add_submenu_page(
             'woocommerce',
-            \__('Tweaks Tools', 'woo-tweaks-tools'),
-            \__('Tweaks Tools', 'woo-tweaks-tools'),
+            \__('Tweaks Tools', 'tweak-tools-sdf30'),
+            \__('Tweaks Tools', 'tweak-tools-sdf30'),
             'manage_woocommerce',
             'admin.php?page=wc-settings&tab=' . $this->id,
             null,
@@ -137,6 +139,7 @@ class SettingsPage extends \WC_Settings_Page
      */
     public function get_settings(): array
     {
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
         return \apply_filters('woo_tweaks_tools_settings', \apply_filters('woo_tweaks_core_settings', []));
     }
 }

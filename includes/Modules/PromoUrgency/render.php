@@ -14,6 +14,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 global $product;
 
 // If we're in the editor and no product is set, try to get a dummy or recent one.
@@ -29,4 +30,6 @@ if (!$product) {
 }
 
 $module = new PromoUrgencyModule();
-echo $module->get_urgency_message_html($product);
+// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+echo \wp_kses_post($module->get_urgency_message_html($product));
+// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound

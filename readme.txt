@@ -1,6 +1,6 @@
-=== Woo Tweaks Tools ===
+=== Tweak Tools for WooCommerce ===
 Contributors: open-sdf
-Tags: woocommerce, checkout, price, urgent, ux, stock
+Tags: woocommerce, checkout, price, ux, stock
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -12,7 +12,7 @@ A modular collection of performance, UI/UX, and administrative utilities to supe
 
 == Description ==
 
-Woo Tweaks Tools (by OPEN-SDF) is a premium-grade utility suite designed to fill the gaps in standard WooCommerce installations. Instead of dozens of small plugins, get one lightweight, modular solution.
+Tweak Tools for WooCommerce (by OPEN-SDF) is a premium-grade utility suite designed to fill the gaps in standard WooCommerce installations. Instead of dozens of small plugins, get one lightweight, modular solution.
 
 **Key Modules:**
 *   **Promo Urgency Badges**: Boost conversions with scarcity messaging on sales items. Supports FSE and Classic hooks.
@@ -35,7 +35,7 @@ Woo Tweaks Tools (by OPEN-SDF) is a premium-grade utility suite designed to fill
 Yes! We have dedicated Gutenberg blocks for Promo Urgency and Direct Checkout that you can use in your single product templates.
 
 = Is it translation ready? =
-Absolutely. The plugin is fully localized using the `woo-tweaks-tools` text domain.
+Absolutely. The plugin is fully localized using the `tweak-tools-sdf30` text domain.
 
 == Screenshots ==
 
