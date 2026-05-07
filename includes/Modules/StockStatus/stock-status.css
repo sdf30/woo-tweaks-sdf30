@@ -1,0 +1,23 @@
+/**
+ * Stock Status Shortcuts - Admin Styles
+ */
+.wt-toggle-stock {
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.wt-toggle-stock:hover {
+    text-decoration: underline;
+}
+
+/* Optional: Add a small dot animation or similar if needed */
+@keyframes wt-blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.wt-toggle-stock.updating {
+    animation: wt-blink 1s infinite;
+}

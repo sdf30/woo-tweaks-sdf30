@@ -29,6 +29,55 @@ class CheckoutFieldsModule extends AbstractModule
         return true; // Active to listen for specific options.
     }
 
+    public function register_settings(): void
+    {
+        \add_filter('woo_tweaks_core_settings', [$this, 'add_settings']);
+    }
+
+    public function add_settings(array $settings): array
+    {
+        $settings[] = [
+            'title' => \__('Nettoyage du Checkout', 'woo-tweaks-tools'),
+            'type'  => 'title',
+            'desc'  => \__('Désactiver certains champs inutiles sur la page de commande.', 'woo-tweaks-tools'),
+            'id'    => 'woo_tweaks_checkout_section',
+        ];
+        $settings[] = [
+            'title'    => \__('Masquer Société', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_hide_billing_company',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Cache le champ Nom de l\'entreprise.', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'title'    => \__('Masquer Adresse 2', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_hide_billing_address_2',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Cache le champ d\'adresse complémentaire.', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'title'    => \__('Masquer Téléphone', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_hide_billing_phone',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Cache le champ Téléphone (attention si vous livrez via transporteur).', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'title'    => \__('Masquer Notes de Commande', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_hide_order_notes',
+            'type'     => 'checkbox',
+            'default'  => 'no',
+            'desc'     => \__('Cache le champ de notes additionnelles.', 'woo-tweaks-tools'),
+        ];
+        $settings[] = [
+            'type' => 'sectionend',
+            'id'   => 'woo_tweaks_checkout_section',
+        ];
+
+        return $settings;
+    }
+
     /**
      * Initialize module.
      */

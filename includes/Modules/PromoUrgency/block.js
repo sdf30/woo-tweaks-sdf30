@@ -11,13 +11,13 @@
         return;
     }
 
-    registerBlockType('woo-tweaks-tools/read-more-button', {
-        title: 'Read More (Woo Tweaks)',
-        icon: 'external',
+    registerBlockType('woo-tweaks/promo-urgency', {
+        title: 'Promo Urgency (Woo Tweaks)',
+        icon: 'clock',
         category: 'woocommerce',
         edit: function (props) {
             return el(ServerSideRender, {
-                block: 'woo-tweaks-tools/read-more-button',
+                block: 'woo-tweaks/promo-urgency',
                 attributes: props.attributes,
             });
         },

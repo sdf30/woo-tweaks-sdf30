@@ -63,6 +63,29 @@ Ajoute un bouton secondaire "Acheter maintenant" à côté du bouton "Ajouter au
     - Utilisez le bloc "Direct Checkout (Woo Tweaks)" depuis l'éditeur de site.
     - Fonctionne aussi bien sur la **fiche produit** que dans les **archives** (Boutique/Catégories) grâce à une détection automatique de l'article concerné.
 
+### 9. Statut du Stock (Stock Status Shortcuts)
+Gérez l'état de vos stocks en un clic directement depuis la liste des produits WooCommerce.
+- **Accès** : Liste des produits (Tableau de bord admin).
+- **Fonctionnement** : Des pastilles interactives remplacent le texte statique de la colonne "Stock". Cliquez sur une pastille pour basculer instantanément l'état entre "En Stock" et "Hors Stock" via AJAX (sans rechargement de page).
+
+### 10. Messages d'Urgence (Smart Stock Messaging)
+Affichez des messages persuasifs dynamiques sur vos fiches produits pour encourager l'achat immédiat.
+- **Seuil d'alerte** : Configurez le nombre d'articles restants (ex: 15) en dessous duquel le message doit apparaître.
+- **Modèle Personnalisable** : Utilisez le code `{stock}` dans votre message pour afficher la quantité réelle (ex: "🔥 Plus que {stock} articles en stock !").
+- **Design Premium** : Le message bénéficie d'une animation "pulse" discrète et d'un style moderne pour attirer l'attention sans être intrusif.
+
+### 11. Optimisation Compte Client (Enhanced Account UX)
+Améliorez l'expérience utilisateur sur la page "Mon Compte > Détails du compte".
+- **Interface Épurée** : Les champs de modification de l'e-mail et du mot de passe sont masqués derrière des boutons d'action. Cela réduit la longueur de la page.
+- **Champ Anniversaire** : Ajout automatique d'un champ "Date de naissance" permettant de collecter cette information précieuse pour vos campagnes marketing futures.
+
+### 12. Promo Urgency Badges
+Activez cette option pour booster vos ventes :
+- **Badge de remise** : Affiche automatiquement le pourcentage de réduction (ex: -20%) à côté du prix.
+- **Date de fin** : Affiche un message d'urgence si une date de fin de promotion est définie ("L'offre se termine dans X jours...").
+- **Support FSE** : Un bloc "Promo Urgency (Woo Tweaks)" est disponible pour placer le message d'urgence n'importe où dans vos templates de produits.
+- **Design Premium** : Des badges stylisés et des messages avec animations fluides pour maximiser les conversions.
+
 ---
 
 *Ce document est mis à jour à chaque nouvelle fonctionnalité ajoutée au plugin.*

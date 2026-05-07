@@ -51,6 +51,10 @@ class ModuleManager
             \WooTweaksTools\Modules\HideComponents\HideComponentsModule::class,
             \WooTweaksTools\Modules\BulkPrice\BulkPriceModule::class,
             \WooTweaksTools\Modules\DirectCheckout\DirectCheckoutModule::class,
+            \WooTweaksTools\Modules\StockStatus\StockStatusModule::class,
+            \WooTweaksTools\Modules\SmartStock\SmartStockModule::class,
+            \WooTweaksTools\Modules\AccountUX\AccountUXModule::class,
+            \WooTweaksTools\Modules\PromoUrgency\PromoUrgencyModule::class,
         ];
 
         foreach ($module_classes as $module_class) {
@@ -66,6 +70,8 @@ class ModuleManager
     private function init_modules(): void
     {
         foreach ($this->modules as $module) {
+            $module->register_settings();
+            
             if ($module->is_active()) {
                 $module->init();
             }

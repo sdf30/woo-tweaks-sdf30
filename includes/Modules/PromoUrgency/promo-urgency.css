@@ -1,0 +1,57 @@
+/**
+ * Promo Urgency Styles
+ */
+
+/* Discount Badge */
+.wt-promo-badge {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wt-promo-badge:hover {
+    transform: scale(1.1) rotate(-2deg);
+    background: #d63638; /* Switches to red on hover for more impact */
+}
+
+/* Urgency Message under price */
+.wt-promo-urgency-msg {
+    margin: 15px 0;
+    padding: 12px 16px;
+    background: #fff9eb;
+    border: 1px solid #ffe6a5;
+    border-radius: 10px;
+    color: #856404;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(255, 230, 165, 0.2);
+    animation: wt-fade-in 0.5s ease-out;
+}
+
+.wt-promo-urgency-msg .wt-icon {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+@keyframes wt-fade-in {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Specific adjustment for price container if needed */
+.price .wt-promo-badge {
+    position: relative;
+    top: -2px;
+}

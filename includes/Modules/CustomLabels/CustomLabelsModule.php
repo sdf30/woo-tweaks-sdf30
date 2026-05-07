@@ -29,6 +29,71 @@ class CustomLabelsModule extends AbstractModule
         return true; // We can add a setting to disable the module entirely later.
     }
 
+    public function register_settings(): void
+    {
+        \add_filter('woo_tweaks_core_settings', [$this, 'add_settings']);
+    }
+
+    public function add_settings(array $settings): array
+    {
+        $settings[] = [
+            'title' => \__('Global Custom Labels', 'woo-tweaks-tools'),
+            'type'  => 'title',
+            'desc'  => \__('These labels will apply globally unless overridden per product.', 'woo-tweaks-tools'),
+            'id'    => 'woo_tweaks_labels_section',
+        ];
+        $settings[] = [
+            'title'    => \__('Add to Cart Text', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_add_to_cart_text',
+            'type'     => 'text',
+            'default'  => '',
+            'desc'     => \__('Leave empty to use WooCommerce default.', 'woo-tweaks-tools'),
+            'desc_tip' => true,
+        ];
+        $settings[] = [
+            'title'    => \__('Sale Badge Text', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_sale_badge_text',
+            'type'     => 'text',
+            'default'  => '',
+            'placeholder' => \__('Sale!', 'woocommerce'),
+            'desc'     => \__('Text for the "Sale" badge (Promo).', 'woo-tweaks-tools'),
+            'desc_tip' => true,
+        ];
+        $settings[] = [
+            'title'    => \__('Out of Stock Text', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_out_of_stock_text',
+            'type'     => 'text',
+            'default'  => '',
+            'placeholder' => \__('Out of stock', 'woocommerce'),
+            'desc'     => \__('Text for "Out of stock" availability.', 'woo-tweaks-tools'),
+            'desc_tip' => true,
+        ];
+        $settings[] = [
+            'title'    => \__('SKU Prefix', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_sku_label',
+            'type'     => 'text',
+            'default'  => '',
+            'placeholder' => 'SKU:',
+            'desc'     => \__('Override the default "SKU:" text.', 'woo-tweaks-tools'),
+            'desc_tip' => true,
+        ];
+        $settings[] = [
+            'title'    => \__('Category Prefix', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_category_label',
+            'type'     => 'text',
+            'default'  => '',
+            'placeholder' => 'Category:',
+            'desc'     => \__('Override the default "Category:" text.', 'woo-tweaks-tools'),
+            'desc_tip' => true,
+        ];
+        $settings[] = [
+            'type' => 'sectionend',
+            'id'   => 'woo_tweaks_labels_section',
+        ];
+
+        return $settings;
+    }
+
     /**
      * Initialize module.
      */

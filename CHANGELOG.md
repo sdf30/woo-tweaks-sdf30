@@ -4,6 +4,26 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.3.0] - 2026-05-06
+
+### Ajouté
+- **Promo Urgency Badges** : Affichage automatique du pourcentage de réduction sur les produits en promotion, et ajout d'un message d'urgence basé sur la date de fin de la promo. Intégration hybride (Gutenberg Block pour FSE et hook classique).
+- **Smart Stock Messaging** : Système d'alertes d'urgence sur les fiches produits (ex: "🔥 Plus que X articles !") avec seuil et template personnalisables.
+- **Enhanced Account UX** : 
+    - Champs Email et Mot de passe rétractables par défaut pour une interface "Mon Compte" plus épurée.
+    - Ajout d'un champ natif "Date de naissance" sauvegardé dans le profil utilisateur.
+- **Améliorations UX** : Nouvelle section dédiée dans les réglages pour les optimisations frontend.
+
+### Modifié
+- **Architecture Core** : Décentralisation complète des réglages. Suppression du "God Object" dans `SettingsPage` : chaque module gère désormais l'enregistrement de ses propres options via la méthode `register_settings()`.
+- Optimisation des assets (JS/CSS) chargés conditionnellement selon la page (Produit seul ou Compte).
+- Amélioration de la clarté des labels de toggle dans l'espace client.
+
+## [1.2.1] - 2026-05-06
+### Ajouté
+- **Stock Status Shortcuts** : Ajout d'actions rapides (AJAX) dans la liste des produits pour basculer l'état du stock sans rechargement.
+- **Gestion Administrative** : Nouvelle section dans les réglages pour les outils de productivité backend.
+
 ## [1.2.0] - 2026-05-06
 
 ### Ajouté

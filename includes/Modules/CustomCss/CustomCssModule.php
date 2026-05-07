@@ -29,6 +29,44 @@ class CustomCssModule extends AbstractModule
         return !empty(\get_option('woo_tweaks_custom_css', ''));
     }
 
+    public function register_settings(): void
+    {
+        \add_filter('woo_tweaks_core_settings', [$this, 'add_settings']);
+    }
+
+    public function add_settings(array $settings): array
+    {
+        $settings[] = [
+            'title' => \__('Apparence & Custom CSS', 'woo-tweaks-tools'),
+            'type'  => 'title',
+            'desc'  => \__('Ajoutez votre CSS personnalisé ici pour styliser les éléments du plugin sans surcharger le CSS global de votre site. <br><br><b>Glossaire des classes :</b><br>
+                <code>a.woo-tweaks-read-more</code> : Le bouton "Read More" (Feat 2).<br>
+                <code>.button.alt.woo-tweak-validatenow</code> : Le bouton "Acheter maintenant" (Direct Checkout).<br>
+                <code>.stock.wt-smart-stock-active</code> : Le message d\'urgence dynamique.<br>
+                <code>.wt-account-toggle-btn</code> : Les boutons de toggle (Mon Compte).<br>
+                <code>.wt-retractable-section</code> : Le conteneur des champs Email/Password rétractés.<br>
+                <code>#billing_birth_date_field</code> : Le champ Date de naissance.<br>
+                <code>.wt-toggle-stock</code> : Le lien de bascule de stock (Admin Product List).<br>
+                <code>.wt-promo-badge</code> : Le badge de pourcentage de remise.<br>
+                <code>.wt-promo-urgency-msg</code> : Le message de fin de promotion.', 'woo-tweaks-tools'),
+            'id'    => 'woo_tweaks_custom_css_section',
+        ];
+        $settings[] = [
+            'title'    => \__('Code CSS', 'woo-tweaks-tools'),
+            'id'       => 'woo_tweaks_custom_css',
+            'type'     => 'textarea',
+            'default'  => '',
+            'css'      => 'width: 100%; height: 300px;',
+            'desc_tip' => true,
+        ];
+        $settings[] = [
+            'type' => 'sectionend',
+            'id'   => 'woo_tweaks_custom_css_section',
+        ];
+
+        return $settings;
+    }
+
     /**
      * Initialize module.
      */
