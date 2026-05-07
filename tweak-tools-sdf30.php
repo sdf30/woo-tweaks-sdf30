@@ -3,7 +3,7 @@
  * Plugin Name:       Tweak Tools for WooCommerce
  * Plugin URI:        https://open.sdf30.com
  * Description:       A collection of performance, UI/UX, and administrative utilities for WooCommerce.
- * Version:           1.3.3
+ * Version:           2.0.0
  * Author:            OPEN-SDF
  * Author URI:        https://open.sdf30.com
  * License:           GPL v2 or later
@@ -40,7 +40,7 @@ final class Plugin
     /**
      * Plugin version.
      */
-    public const VERSION = '1.3.3';
+    public const VERSION = '2.0.0';
 
     /**
      * Constructor.
