@@ -37,7 +37,7 @@ class CustomCssModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Apparence & Custom CSS', 'tweak-tools-sdf30'),
+            'title' => \__('Appearance & Custom CSS', 'tweak-tools-sdf30'),
             'type'  => 'title',
             'desc'  => \__('Ajoutez votre CSS personnalisé ici pour styliser les éléments du plugin sans surcharger le CSS global de votre site. <br><br><b>Glossaire des classes :</b><br>
                 <code>a.tweak-tools-sdf30s-read-more</code> : Le bouton "Read More" (Feat 2).<br>

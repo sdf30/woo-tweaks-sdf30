@@ -39,22 +39,22 @@ class PromoUrgencyModule extends AbstractModule
         $settings[] = [
             'title' => \__('Promo Urgency Badges', 'tweak-tools-sdf30'),
             'type'  => 'title',
-            'desc'  => \__('Affiche le pourcentage de réduction et un compte à rebours de fin de promo.', 'tweak-tools-sdf30'),
+            'desc'  => \__('Displays the discount percentage and a promo countdown.', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_promo_urgency_section',
         ];
         $settings[] = [
-            'title'    => \__('Activer Promo Urgency', 'tweak-tools-sdf30'),
+            'title'    => \__('Enable Promo Urgency', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_promo_urgency',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Affiche le badge -X% à la place du texte "Promo!".', 'tweak-tools-sdf30'),
+            'desc'     => \__('Displays the -X% badge instead of the "Sale!" text.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
-            'title'    => \__('Afficher la date de fin', 'tweak-tools-sdf30'),
+            'title'    => \__('Show end date', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_promo_urgency_show_date',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Affiche le compte à rebours sous le prix (si une date de fin est configurée).', 'tweak-tools-sdf30'),
+            'desc'     => \__('Displays the countdown below the price (if an end date is configured).', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'type' => 'sectionend',
@@ -253,10 +253,10 @@ class PromoUrgencyModule extends AbstractModule
         $message = '';
         if ($days > 0) {
             /* translators: %s: number of days */
-            $message = \sprintf(\_n('Plus que %s jour restant !', 'Plus que %s jours restants !', (int) $days, 'tweak-tools-sdf30'), $days);
+            $message = \sprintf(\_n('Only %s day left!', 'Only %s days left!', (int) $days, 'tweak-tools-sdf30'), $days);
         } else {
             /* translators: %s: number of hours */
-            $message = \sprintf(\__('Plus que %s heures restantes !', 'tweak-tools-sdf30'), $hours);
+            $message = \sprintf(\__('Only %s hours left!', 'tweak-tools-sdf30'), $hours);
         }
 
         return \sprintf(

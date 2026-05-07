@@ -37,17 +37,17 @@ class StockStatusModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Raccourcis d\'Administration', 'tweak-tools-sdf30'),
+            'title' => \__('Admin Shortcuts', 'tweak-tools-sdf30'),
             'type'  => 'title',
-            'desc'  => \__('Ajoute des liens d\'action rapide sur les pages listes (Admin).', 'tweak-tools-sdf30'),
+            'desc'  => \__('Adds quick action links on list pages (Admin).', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_admin_section',
         ];
         $settings[] = [
-            'title'    => \__('Raccourcis d\'état du stock', 'tweak-tools-sdf30'),
+            'title'    => \__('Stock status shortcuts', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_stock_status_shortcuts',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Ajoute un lien "Hors Stock" / "En Stock" sous chaque produit.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Adds an "Out of stock" / "In stock" link under each product.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'type' => 'sectionend',
@@ -95,14 +95,14 @@ class StockStatusModule extends AbstractModule
                 '<a href="#" class="wt-toggle-stock" data-id="%d" data-status="outofstock" data-nonce="%s" style="color: #d63638; font-weight: 600;">%s</a>',
                 $post->ID,
                 $nonce,
-                \__('Marquer Hors Stock', 'tweak-tools-sdf30')
+                \__('Mark out of stock', 'tweak-tools-sdf30')
             );
         } else {
             $actions['wt_in_stock'] = \sprintf(
                 '<a href="#" class="wt-toggle-stock" data-id="%d" data-status="instock" data-nonce="%s" style="color: #007b5f; font-weight: 600;">%s</a>',
                 $post->ID,
                 $nonce,
-                \__('Remettre en Stock', 'tweak-tools-sdf30')
+                \__('Mark in stock', 'tweak-tools-sdf30')
             );
         }
 
@@ -127,12 +127,12 @@ class StockStatusModule extends AbstractModule
             \wp_localize_script('tweak-tools-sdf30s-stock-status', 'wtStockData', [
                 'ajax_url' => \admin_url('admin-ajax.php'),
                 'i18n'     => [
-                    'in_stock'     => \__('En Stock', 'tweak-tools-sdf30'),
-                    'out_of_stock' => \__('Hors Stock', 'tweak-tools-sdf30'),
-                    'updating'     => \__('Mise à jour...', 'tweak-tools-sdf30'),
-                    'error'        => \__('Erreur lors de la mise à jour.', 'tweak-tools-sdf30'),
-                    'mark_in'      => \__('Remettre en Stock', 'tweak-tools-sdf30'),
-                    'mark_out'     => \__('Marquer Hors Stock', 'tweak-tools-sdf30'),
+                    'in_stock'     => \__('In stock', 'tweak-tools-sdf30'),
+                    'out_of_stock' => \__('Out of stock', 'tweak-tools-sdf30'),
+                    'updating'     => \__('Updating...', 'tweak-tools-sdf30'),
+                    'error'        => \__('Error during update.', 'tweak-tools-sdf30'),
+                    'mark_in'      => \__('Mark in stock', 'tweak-tools-sdf30'),
+                    'mark_out'     => \__('Mark out of stock', 'tweak-tools-sdf30'),
                 ]
             ]);
 

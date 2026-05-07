@@ -37,12 +37,12 @@ class EmptyCartRedirectModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Redirection Panier Vide', 'tweak-tools-sdf30'),
+            'title' => \__('Empty Cart Redirect', 'tweak-tools-sdf30'),
             'type'  => 'title',
             'id'    => 'woo_tweaks_empty_cart_redirect_section',
         ];
         $settings[] = [
-            'title'    => \__('Redirection Panier Vide', 'tweak-tools-sdf30'),
+            'title'    => \__('Empty Cart Redirect', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_empty_cart_redirect',
             'type'     => 'checkbox',
             'default'  => 'no',

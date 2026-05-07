@@ -37,27 +37,27 @@ class HideComponentsModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Masquer des éléments', 'tweak-tools-sdf30'),
+            'title' => \__('Hide elements', 'tweak-tools-sdf30'),
             'type'  => 'title',
-            'desc'  => \__('Masquer certains éléments par défaut de WooCommerce sur la page produit.', 'tweak-tools-sdf30'),
+            'desc'  => \__('Hide default WooCommerce elements on the product page.', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_hide_components_section',
         ];
         $settings[] = [
-            'title'    => \__('Masquer le SKU (UGS)', 'tweak-tools-sdf30'),
+            'title'    => \__('Hide SKU', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_hide_sku',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Cache la référence du produit.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Hides the product SKU.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
-            'title'    => \__('Masquer les Catégories/Étiquettes', 'tweak-tools-sdf30'),
+            'title'    => \__('Hide Categories/Tags', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_hide_categories',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Cache les catégories et mots-clés dans les métadonnées du produit.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Hides categories and tags in product metadata.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
-            'title'    => \__('Masquer les Produits Apparentés', 'tweak-tools-sdf30'),
+            'title'    => \__('Hide Related Products', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_hide_related_products',
             'type'     => 'checkbox',
             'default'  => 'no',

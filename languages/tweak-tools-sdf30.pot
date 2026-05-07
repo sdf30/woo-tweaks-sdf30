@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-07T18:20:32+00:00\n"
+"POT-Creation-Date: 2026-05-07T18:41:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tweak-tools-sdf30\n"
@@ -45,67 +45,67 @@ msgid "Tweaks Tools"
 msgstr ""
 
 #: includes/Modules/AccountUX/AccountUXModule.php:40
-msgid "Mon Compte & UX"
+msgid "My Account & UX"
 msgstr ""
 
 #: includes/Modules/AccountUX/AccountUXModule.php:42
-msgid "Améliorations de l'expérience utilisateur sur la page Mon Compte."
+msgid "User experience improvements on the My Account page."
 msgstr ""
 
 #: includes/Modules/AccountUX/AccountUXModule.php:46
-msgid "Activer l'UX Mon Compte"
+msgid "Enable My Account UX"
 msgstr ""
 
 #: includes/Modules/AccountUX/AccountUXModule.php:50
-msgid "Améliore le formulaire de détails du compte (ex: champ Date de naissance)."
+msgid "Improves the account details form (e.g., Date of Birth field)."
 msgstr ""
 
 #: includes/Modules/AccountUX/AccountUXModule.php:86
-msgid "Date de naissance"
+msgid "Date of Birth"
 msgstr ""
 
 #: includes/Modules/AccountUX/AccountUXModule.php:87
-msgid "JJ/MM/AAAA"
+msgid "DD/MM/YYYY"
 msgstr ""
 
 #: includes/Modules/AccountUX/AccountUXModule.php:125
-msgid "Modifier l'adresse e-mail"
+msgid "Edit email address"
 msgstr ""
 
 #: includes/Modules/AccountUX/AccountUXModule.php:126
-msgid "Changer le mot de passe"
+msgid "Change password"
 msgstr ""
 
 #: includes/Modules/AccountUX/AccountUXModule.php:127
-msgid "Masquer l'adresse e-mail"
+msgid "Hide email address"
 msgstr ""
 
 #: includes/Modules/AccountUX/AccountUXModule.php:128
-msgid "Garder le mot de passe actuel"
+msgid "Keep current password"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:51
-msgid "Ajuster les prix (+/-)"
+msgid "Adjust prices (+/-)"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:71
-msgid "Ajustement des prix groupé"
+msgid "Bulk Price Adjustment"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:75
-msgid "Appliquez une modification de prix aux produits sélectionnés."
+msgid "Apply a price change to selected products."
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:78
-msgid "Opération"
+msgid "Operation"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:80
-msgid "Augmenter (+)"
+msgid "Increase (+)"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:81
-msgid "Diminuer (-)"
+msgid "Decrease (-)"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:86
@@ -113,57 +113,57 @@ msgid "Type"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:88
-msgid "Pourcentage (%)"
+msgid "Percentage (%)"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:89
-msgid "Montant fixe (€,$,...)"
+msgid "Fixed amount (€,$,...)"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:94
-msgid "Valeur"
+msgid "Value"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:100
-msgid "Arrondir à .99"
+msgid "Round to .99"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:104
-msgid "Annuler"
+msgid "Cancel"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:105
-msgid "Appliquer"
+msgid "Apply"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:221
-msgid "Veuillez saisir une valeur valide."
+msgid "Please enter a valid value."
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:357
-msgid "augmentés"
+msgid "increased"
 msgstr ""
 
 #: includes/Modules/BulkPrice/BulkPriceModule.php:357
-msgid "diminués"
+msgid "decreased"
 msgstr ""
 
 #. translators: 1: Count of products, 2: Operation applied
 #: includes/Modules/BulkPrice/BulkPriceModule.php:361
 #, php-format
-msgid "%1$d produits ont été %2$s avec succès."
+msgid "%1$d products were successfully %2$s."
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:40
-msgid "Nettoyage du Checkout"
+msgid "Checkout Cleanup"
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:42
-msgid "Désactiver certains champs inutiles sur la page de commande."
+msgid "Disable unnecessary fields on the checkout page."
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:46
-msgid "Masquer Société"
+msgid "Hide Company"
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:50
@@ -171,7 +171,7 @@ msgid "Cache le champ Nom de l'entreprise."
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:53
-msgid "Masquer Adresse 2"
+msgid "Hide Address 2"
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:57
@@ -179,23 +179,23 @@ msgid "Cache le champ d'adresse complémentaire."
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:60
-msgid "Masquer Téléphone"
+msgid "Hide Phone"
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:64
-msgid "Cache le champ Téléphone (attention si vous livrez via transporteur)."
+msgid "Hides the Phone field (be careful if you use a shipping carrier)."
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:67
-msgid "Masquer Notes de Commande"
+msgid "Hide Order Notes"
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:71
-msgid "Cache le champ de notes additionnelles."
+msgid "Hides the additional notes field."
 msgstr ""
 
 #: includes/Modules/CustomCss/CustomCssModule.php:40
-msgid "Apparence & Custom CSS"
+msgid "Appearance & Custom CSS"
 msgstr ""
 
 #: includes/Modules/CustomCss/CustomCssModule.php:42
@@ -249,6 +249,7 @@ msgid "Out of Stock Text"
 msgstr ""
 
 #: includes/Modules/CustomLabels/CustomLabelsModule.php:67
+#: includes/Modules/StockStatus/StockStatusModule.php:131
 msgid "Out of stock"
 msgstr ""
 
@@ -285,15 +286,15 @@ msgid "Direct Checkout"
 msgstr ""
 
 #: includes/Modules/DirectCheckout/DirectCheckoutModule.php:42
-msgid "Ajoute un bouton d'achat direct à côté du bouton d'ajout au panier."
+msgid "Adds a direct purchase button next to the add to cart button."
 msgstr ""
 
 #: includes/Modules/DirectCheckout/DirectCheckoutModule.php:46
-msgid "Activer Direct Checkout"
+msgid "Enable Direct Checkout"
 msgstr ""
 
 #: includes/Modules/DirectCheckout/DirectCheckoutModule.php:50
-msgid "Cochez pour activer ce module."
+msgid "Check to enable this module."
 msgstr ""
 
 #: includes/Modules/DirectCheckout/DirectCheckoutModule.php:53
@@ -304,16 +305,16 @@ msgstr ""
 #: includes/Modules/DirectCheckout/DirectCheckoutModule.php:102
 #: includes/Modules/DirectCheckout/DirectCheckoutModule.php:144
 #: includes/Modules/DirectCheckout/render.php:10
-msgid "Acheter maintenant"
+msgid "Buy now"
 msgstr ""
 
 #: includes/Modules/DirectCheckout/DirectCheckoutModule.php:57
-msgid "Texte affiché sur le bouton d'achat direct."
+msgid "Text displayed on the direct checkout button."
 msgstr ""
 
 #: includes/Modules/EmptyCartRedirect/EmptyCartRedirectModule.php:40
 #: includes/Modules/EmptyCartRedirect/EmptyCartRedirectModule.php:45
-msgid "Redirection Panier Vide"
+msgid "Empty Cart Redirect"
 msgstr ""
 
 #: includes/Modules/EmptyCartRedirect/EmptyCartRedirectModule.php:49
@@ -321,31 +322,31 @@ msgid "Redirect users to the shop page if they access an empty cart page."
 msgstr ""
 
 #: includes/Modules/HideComponents/HideComponentsModule.php:40
-msgid "Masquer des éléments"
+msgid "Hide elements"
 msgstr ""
 
 #: includes/Modules/HideComponents/HideComponentsModule.php:42
-msgid "Masquer certains éléments par défaut de WooCommerce sur la page produit."
+msgid "Hide default WooCommerce elements on the product page."
 msgstr ""
 
 #: includes/Modules/HideComponents/HideComponentsModule.php:46
-msgid "Masquer le SKU (UGS)"
+msgid "Hide SKU"
 msgstr ""
 
 #: includes/Modules/HideComponents/HideComponentsModule.php:50
-msgid "Cache la référence du produit."
+msgid "Hides the product SKU."
 msgstr ""
 
 #: includes/Modules/HideComponents/HideComponentsModule.php:53
-msgid "Masquer les Catégories/Étiquettes"
+msgid "Hide Categories/Tags"
 msgstr ""
 
 #: includes/Modules/HideComponents/HideComponentsModule.php:57
-msgid "Cache les catégories et mots-clés dans les métadonnées du produit."
+msgid "Hides categories and tags in product metadata."
 msgstr ""
 
 #: includes/Modules/HideComponents/HideComponentsModule.php:60
-msgid "Masquer les Produits Apparentés"
+msgid "Hide Related Products"
 msgstr ""
 
 #: includes/Modules/HideComponents/HideComponentsModule.php:64
@@ -357,37 +358,37 @@ msgid "Promo Urgency Badges"
 msgstr ""
 
 #: includes/Modules/PromoUrgency/PromoUrgencyModule.php:42
-msgid "Affiche le pourcentage de réduction et un compte à rebours de fin de promo."
+msgid "Displays the discount percentage and a promo countdown."
 msgstr ""
 
 #: includes/Modules/PromoUrgency/PromoUrgencyModule.php:46
-msgid "Activer Promo Urgency"
+msgid "Enable Promo Urgency"
 msgstr ""
 
 #: includes/Modules/PromoUrgency/PromoUrgencyModule.php:50
-msgid "Affiche le badge -X% à la place du texte \"Promo!\"."
+msgid "Displays the -X% badge instead of the \"Sale!\" text."
 msgstr ""
 
 #: includes/Modules/PromoUrgency/PromoUrgencyModule.php:53
-msgid "Afficher la date de fin"
+msgid "Show end date"
 msgstr ""
 
 #: includes/Modules/PromoUrgency/PromoUrgencyModule.php:57
-msgid "Affiche le compte à rebours sous le prix (si une date de fin est configurée)."
+msgid "Displays the countdown below the price (if an end date is configured)."
 msgstr ""
 
 #. translators: %s: number of days
 #: includes/Modules/PromoUrgency/PromoUrgencyModule.php:256
 #, php-format
-msgid "Plus que %s jour restant !"
-msgid_plural "Plus que %s jours restants !"
+msgid "Only %s day left!"
+msgid_plural "Only %s days left!"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: number of hours
 #: includes/Modules/PromoUrgency/PromoUrgencyModule.php:259
 #, php-format
-msgid "Plus que %s heures restantes !"
+msgid "Only %s hours left!"
 msgstr ""
 
 #: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:40
@@ -414,19 +415,19 @@ msgid "Default label for the additional button (Feat2)."
 msgstr ""
 
 #: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:54
-msgid "Ouvrir dans un nouvel onglet"
+msgid "Open in a new tab"
 msgstr ""
 
 #: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:58
-msgid "Appliquer target=\"_blank\" au bouton \"En Savoir Plus\"."
+msgid "Apply target=\"_blank\" to the Read More button."
 msgstr ""
 
 #: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:61
-msgid "Afficher sur la fiche produit"
+msgid "Show on single product page"
 msgstr ""
 
 #: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:65
-msgid "Afficher également le bouton sur les pages de produit seul."
+msgid "Also show the button on single product pages."
 msgstr ""
 
 #: includes/Modules/ReadMoreButton/ReadMoreButtonModule.php:125
@@ -454,15 +455,15 @@ msgid "Affiche un message d'urgence personnalisé quand le stock est bas."
 msgstr ""
 
 #: includes/Modules/SmartStock/SmartStockModule.php:46
-msgid "Activer Smart Stock"
+msgid "Enable Smart Stock"
 msgstr ""
 
 #: includes/Modules/SmartStock/SmartStockModule.php:50
-msgid "Cochez pour activer les messages de stock dynamique."
+msgid "Check to enable dynamic stock messages."
 msgstr ""
 
 #: includes/Modules/SmartStock/SmartStockModule.php:53
-msgid "Seuil de déclenchement"
+msgid "Trigger threshold"
 msgstr ""
 
 #: includes/Modules/SmartStock/SmartStockModule.php:57
@@ -470,58 +471,54 @@ msgid "Quantité en stock à partir de laquelle le message s'affiche."
 msgstr ""
 
 #: includes/Modules/SmartStock/SmartStockModule.php:61
-msgid "Message de stock bas"
+msgid "Low stock message"
 msgstr ""
 
 #: includes/Modules/SmartStock/SmartStockModule.php:64
 #: includes/Modules/SmartStock/SmartStockModule.php:112
-msgid "🔥 Plus que {stock} articles en stock !"
+msgid "🔥 Only {stock} items left in stock!"
 msgstr ""
 
 #: includes/Modules/SmartStock/SmartStockModule.php:65
-msgid "Utilisez {stock} pour afficher la quantité restante."
+msgid "Use {stock} to display the remaining quantity."
 msgstr ""
 
 #: includes/Modules/StockStatus/StockStatusModule.php:40
-msgid "Raccourcis d'Administration"
+msgid "Admin Shortcuts"
 msgstr ""
 
 #: includes/Modules/StockStatus/StockStatusModule.php:42
-msgid "Ajoute des liens d'action rapide sur les pages listes (Admin)."
+msgid "Adds quick action links on list pages (Admin)."
 msgstr ""
 
 #: includes/Modules/StockStatus/StockStatusModule.php:46
-msgid "Raccourcis d'état du stock"
+msgid "Stock status shortcuts"
 msgstr ""
 
 #: includes/Modules/StockStatus/StockStatusModule.php:50
-msgid "Ajoute un lien \"Hors Stock\" / \"En Stock\" sous chaque produit."
+msgid "Adds an \"Out of stock\" / \"In stock\" link under each product."
 msgstr ""
 
 #: includes/Modules/StockStatus/StockStatusModule.php:98
 #: includes/Modules/StockStatus/StockStatusModule.php:135
-msgid "Marquer Hors Stock"
+msgid "Mark out of stock"
 msgstr ""
 
 #: includes/Modules/StockStatus/StockStatusModule.php:105
 #: includes/Modules/StockStatus/StockStatusModule.php:134
-msgid "Remettre en Stock"
+msgid "Mark in stock"
 msgstr ""
 
 #: includes/Modules/StockStatus/StockStatusModule.php:130
-msgid "En Stock"
-msgstr ""
-
-#: includes/Modules/StockStatus/StockStatusModule.php:131
-msgid "Hors Stock"
+msgid "In stock"
 msgstr ""
 
 #: includes/Modules/StockStatus/StockStatusModule.php:132
-msgid "Mise à jour..."
+msgid "Updating..."
 msgstr ""
 
 #: includes/Modules/StockStatus/StockStatusModule.php:133
-msgid "Erreur lors de la mise à jour."
+msgid "Error during update."
 msgstr ""
 
 #: tweak-tools-sdf30.php:88

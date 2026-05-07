@@ -51,18 +51,18 @@ class ReadMoreButtonModule extends AbstractModule
             'desc_tip' => true,
         ];
         $settings[] = [
-            'title'    => \__('Ouvrir dans un nouvel onglet', 'tweak-tools-sdf30'),
+            'title'    => \__('Open in a new tab', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_read_more_target_blank',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Appliquer target="_blank" au bouton "En Savoir Plus".', 'tweak-tools-sdf30'),
+            'desc'     => \__('Apply target="_blank" to the Read More button.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
-            'title'    => \__('Afficher sur la fiche produit', 'tweak-tools-sdf30'),
+            'title'    => \__('Show on single product page', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_read_more_show_on_single',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Afficher également le bouton sur les pages de produit seul.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Also show the button on single product pages.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'type' => 'sectionend',
