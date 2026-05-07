@@ -5,7 +5,7 @@
   "title": "Direct Checkout (Woo Tweaks)",
   "category": "woocommerce",
   "icon": "cart",
-  "description": "Bouton d'achat immédiat pour rediriger vers la caisse.",
+  "description": "Immediate purchase button to redirect to checkout.",
   "keywords": [
     "checkout",
     "buy now",
