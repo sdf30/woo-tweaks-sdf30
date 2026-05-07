@@ -39,20 +39,20 @@ class CustomCssModule extends AbstractModule
         $settings[] = [
             'title' => \__('Appearance & Custom CSS', 'tweak-tools-sdf30'),
             'type'  => 'title',
-            'desc'  => \__('Ajoutez votre CSS personnalisé ici pour styliser les éléments du plugin sans surcharger le CSS global de votre site. <br><br><b>Glossaire des classes :</b><br>
-                <code>a.tweak-tools-sdf30s-read-more</code> : Le bouton "Read More" (Feat 2).<br>
-                <code>.button.alt.tweak-tools-sdf30-validatenow</code> : Le bouton "Acheter maintenant" (Direct Checkout).<br>
-                <code>.stock.wt-smart-stock-active</code> : Le message d\'urgence dynamique.<br>
-                <code>.wt-account-toggle-btn</code> : Les boutons de toggle (Mon Compte).<br>
-                <code>.wt-retractable-section</code> : Le conteneur des champs Email/Password rétractés.<br>
-                <code>#billing_birth_date_field</code> : Le champ Date de naissance.<br>
-                <code>.wt-toggle-stock</code> : Le lien de bascule de stock (Admin Product List).<br>
-                <code>.wt-promo-badge</code> : Le badge de pourcentage de remise.<br>
-                <code>.wt-promo-urgency-msg</code> : Le message de fin de promotion.', 'tweak-tools-sdf30'),
+            'desc'  => \__('Add your custom CSS here to style plugin elements without overriding your global site CSS. <br><br><b>Class Glossary:</b><br>
+                <code>a.tweak-tools-sdf30s-read-more</code> : The "Read More" button (Feat 2).<br>
+                <code>.button.alt.tweak-tools-sdf30-validatenow</code> : The "Buy now" button (Direct Checkout).<br>
+                <code>.stock.wt-smart-stock-active</code> : The dynamic urgency message.<br>
+                <code>.wt-account-toggle-btn</code> : Toggle buttons (My Account).<br>
+                <code>.wt-retractable-section</code> : Container for hidden Email/Password fields.<br>
+                <code>#billing_birth_date_field</code> : Date of birth field.<br>
+                <code>.wt-toggle-stock</code> : Stock toggle link (Admin Product List).<br>
+                <code>.wt-promo-badge</code> : Discount percentage badge.<br>
+                <code>.wt-promo-urgency-msg</code> : Promotion end message.', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_custom_css_section',
         ];
         $settings[] = [
-            'title'    => \__('Code CSS', 'tweak-tools-sdf30'),
+            'title'    => \__('CSS Code', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_custom_css',
             'type'     => 'textarea',
             'default'  => '',

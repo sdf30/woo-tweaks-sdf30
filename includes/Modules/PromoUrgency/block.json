@@ -9,8 +9,7 @@
         "promo",
         "urgency",
         "sales",
-        "woocommerce",
-        "antigravity"
+        "woocommerce"
     ],
     "textdomain": "tweak-tools-sdf30",
     "icon": "clock",

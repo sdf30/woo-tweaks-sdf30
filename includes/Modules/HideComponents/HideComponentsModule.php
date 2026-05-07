@@ -61,7 +61,7 @@ class HideComponentsModule extends AbstractModule
             'id'       => 'woo_tweaks_hide_related_products',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Désactive l\'affichage des produits suggérés.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Disables the display of suggested products.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'type' => 'sectionend',

@@ -39,7 +39,7 @@ class SmartStockModule extends AbstractModule
         $settings[] = [
             'title' => \__('Smart Stock Messaging', 'tweak-tools-sdf30'),
             'type'  => 'title',
-            'desc'  => \__('Affiche un message d\'urgence personnalisé quand le stock est bas.', 'tweak-tools-sdf30'),
+            'desc'  => \__('Displays a custom urgency message when stock is low.', 'tweak-tools-sdf30'),
             'id'    => 'woo_tweaks_smart_stock_section',
         ];
         $settings[] = [
@@ -54,7 +54,7 @@ class SmartStockModule extends AbstractModule
             'id'       => 'woo_tweaks_smart_stock_threshold',
             'type'     => 'number',
             'default'  => 10,
-            'desc'     => \__('Quantité en stock à partir de laquelle le message s\'affiche.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Stock quantity at which the message is displayed.', 'tweak-tools-sdf30'),
             'desc_tip' => true,
         ];
         $settings[] = [

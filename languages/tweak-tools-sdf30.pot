@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-07T18:45:05+00:00\n"
+"POT-Creation-Date: 2026-05-07T18:55:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: tweak-tools-sdf30\n"
@@ -167,7 +167,7 @@ msgid "Hide Company"
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:50
-msgid "Cache le champ Nom de l'entreprise."
+msgid "Hides the Company Name field."
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:53
@@ -175,7 +175,7 @@ msgid "Hide Address 2"
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:57
-msgid "Cache le champ d'adresse complémentaire."
+msgid "Hides the Address 2 field."
 msgstr ""
 
 #: includes/Modules/CheckoutFields/CheckoutFieldsModule.php:60
@@ -200,20 +200,20 @@ msgstr ""
 
 #: includes/Modules/CustomCss/CustomCssModule.php:42
 msgid ""
-"Ajoutez votre CSS personnalisé ici pour styliser les éléments du plugin sans surcharger le CSS global de votre site. <br><br><b>Glossaire des classes :</b><br>\n"
-"                <code>a.tweak-tools-sdf30s-read-more</code> : Le bouton \"Read More\" (Feat 2).<br>\n"
-"                <code>.button.alt.tweak-tools-sdf30-validatenow</code> : Le bouton \"Acheter maintenant\" (Direct Checkout).<br>\n"
-"                <code>.stock.wt-smart-stock-active</code> : Le message d'urgence dynamique.<br>\n"
-"                <code>.wt-account-toggle-btn</code> : Les boutons de toggle (Mon Compte).<br>\n"
-"                <code>.wt-retractable-section</code> : Le conteneur des champs Email/Password rétractés.<br>\n"
-"                <code>#billing_birth_date_field</code> : Le champ Date de naissance.<br>\n"
-"                <code>.wt-toggle-stock</code> : Le lien de bascule de stock (Admin Product List).<br>\n"
-"                <code>.wt-promo-badge</code> : Le badge de pourcentage de remise.<br>\n"
-"                <code>.wt-promo-urgency-msg</code> : Le message de fin de promotion."
+"Add your custom CSS here to style plugin elements without overriding your global site CSS. <br><br><b>Class Glossary:</b><br>\n"
+"                <code>a.tweak-tools-sdf30s-read-more</code> : The \"Read More\" button (Feat 2).<br>\n"
+"                <code>.button.alt.tweak-tools-sdf30-validatenow</code> : The \"Buy now\" button (Direct Checkout).<br>\n"
+"                <code>.stock.wt-smart-stock-active</code> : The dynamic urgency message.<br>\n"
+"                <code>.wt-account-toggle-btn</code> : Toggle buttons (My Account).<br>\n"
+"                <code>.wt-retractable-section</code> : Container for hidden Email/Password fields.<br>\n"
+"                <code>#billing_birth_date_field</code> : Date of birth field.<br>\n"
+"                <code>.wt-toggle-stock</code> : Stock toggle link (Admin Product List).<br>\n"
+"                <code>.wt-promo-badge</code> : Discount percentage badge.<br>\n"
+"                <code>.wt-promo-urgency-msg</code> : Promotion end message."
 msgstr ""
 
 #: includes/Modules/CustomCss/CustomCssModule.php:55
-msgid "Code CSS"
+msgid "CSS Code"
 msgstr ""
 
 #: includes/Modules/CustomLabels/CustomLabelsModule.php:40
@@ -350,7 +350,7 @@ msgid "Hide Related Products"
 msgstr ""
 
 #: includes/Modules/HideComponents/HideComponentsModule.php:64
-msgid "Désactive l'affichage des produits suggérés."
+msgid "Disables the display of suggested products."
 msgstr ""
 
 #: includes/Modules/PromoUrgency/PromoUrgencyModule.php:40
@@ -451,7 +451,7 @@ msgid "Smart Stock Messaging"
 msgstr ""
 
 #: includes/Modules/SmartStock/SmartStockModule.php:42
-msgid "Affiche un message d'urgence personnalisé quand le stock est bas."
+msgid "Displays a custom urgency message when stock is low."
 msgstr ""
 
 #: includes/Modules/SmartStock/SmartStockModule.php:46
@@ -467,7 +467,7 @@ msgid "Trigger threshold"
 msgstr ""
 
 #: includes/Modules/SmartStock/SmartStockModule.php:57
-msgid "Quantité en stock à partir de laquelle le message s'affiche."
+msgid "Stock quantity at which the message is displayed."
 msgstr ""
 
 #: includes/Modules/SmartStock/SmartStockModule.php:61
@@ -583,11 +583,6 @@ msgstr ""
 #: includes/Modules/ReadMoreButton/block.json
 msgctxt "block keyword"
 msgid "woocommerce"
-msgstr ""
-
-#: includes/Modules/PromoUrgency/block.json
-msgctxt "block keyword"
-msgid "antigravity"
 msgstr ""
 
 #: includes/Modules/ReadMoreButton/block.json

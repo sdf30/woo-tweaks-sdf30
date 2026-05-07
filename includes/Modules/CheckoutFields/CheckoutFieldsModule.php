@@ -47,14 +47,14 @@ class CheckoutFieldsModule extends AbstractModule
             'id'       => 'woo_tweaks_hide_billing_company',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Cache le champ Nom de l\'entreprise.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Hides the Company Name field.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'title'    => \__('Hide Address 2', 'tweak-tools-sdf30'),
             'id'       => 'woo_tweaks_hide_billing_address_2',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Cache le champ d\'adresse complémentaire.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Hides the Address 2 field.', 'tweak-tools-sdf30'),
         ];
         $settings[] = [
             'title'    => \__('Hide Phone', 'tweak-tools-sdf30'),
