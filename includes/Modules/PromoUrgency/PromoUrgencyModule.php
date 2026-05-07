@@ -79,7 +79,7 @@ class PromoUrgencyModule extends AbstractModule
         \add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
 
         // Register FSE Block
-        $this->register_fse_block();
+        \add_action('init', [$this, 'register_fse_block']);
     }
 
     /**
