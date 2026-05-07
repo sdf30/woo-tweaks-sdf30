@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Tweak Tools for WooCommerce
- * Plugin URI:        https://open.sdf30.com
+ * Plugin URI:        https://github.com/sdf30/woo-tweaks-sdf30
  * Description:       A collection of performance, UI/UX, and administrative utilities for WooCommerce.
  * Version:           2.0.0
  * Author:            OPEN-SDF
