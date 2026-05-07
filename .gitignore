@@ -1,12 +1,28 @@
-temp_/
-ba*.md
-BAC*.md
-GE*.md
-vendor/
-dist/
-phpstan.neon
-composer.lock
+# OS Generated Files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Dependencies
+vendor/
+node_modules/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build / Temp Files
+temp_/
 *.zip
-setup-secrets.sh
+*.tar.gz
+*.log
 .env
+
+# WP.org SVN
+.svn/
