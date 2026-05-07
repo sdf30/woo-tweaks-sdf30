@@ -25,6 +25,7 @@ zip -r "$TARGET_ZIP" . \
     -x ".wordpress-org/*" \
     -x "README.md" \
     -x "CHANGELOG.md" \
+    -x "CONTRIBUTING.md" \
     -x "vendor/*" \
     -x ".vscode/*" \
     -x "temp_/*" \

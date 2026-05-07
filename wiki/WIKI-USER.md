@@ -88,4 +88,27 @@ Activez cette option pour booster vos ventes :
 
 ---
 
+## 🌍 Traduction
+
+Le plugin est 100% prêt à être traduit (i18n) et est fourni avec un modèle de traduction (`.pot`) situé dans le dossier `languages/`.
+
+### Option 1 : Utiliser Loco Translate (Recommandé pour tous)
+C'est la méthode la plus simple car elle s'effectue directement depuis votre interface d'administration WordPress :
+1. Installez et activez l'extension gratuite **[Loco Translate](https://fr.wordpress.org/plugins/loco-translate/)**.
+2. Dans le menu de gauche, allez dans **Loco Translate > Extensions**.
+3. Cliquez sur **Tweak Tools for WooCommerce**.
+4. Cliquez sur le bouton **Nouvelle langue**, choisissez la langue de destination (ex: Français) et votre emplacement de sauvegarde (choisissez "Personnalisé" ou "Système" pour ne pas perdre la traduction lors des mises à jour du plugin).
+5. Vous pouvez maintenant traduire chaque chaîne de texte directement depuis votre écran.
+
+### Option 2 : Utiliser Poedit (Pour les développeurs)
+Si vous préférez travailler hors-ligne avec un logiciel dédié :
+1. Téléchargez et installez **[Poedit](https://poedit.net/)** sur votre ordinateur.
+2. Naviguez dans les fichiers de votre site web jusqu'à `wp-content/plugins/tweak-tools-sdf30/languages/`.
+3. Ouvrez le fichier `tweak-tools-sdf30.pot` avec Poedit.
+4. Cliquez sur **Créer une nouvelle traduction** en bas de l'écran et sélectionnez la langue souhaitée.
+5. Saisissez vos traductions et enregistrez le fichier (Poedit va générer automatiquement des fichiers `.po` et `.mo`).
+6. Placez ces fichiers dans le dossier `wp-content/languages/plugins/` (en les nommant correctement, par exemple `tweak-tools-sdf30-fr_FR.mo`) pour qu'ils soient reconnus par WordPress.
+
+---
+
 *Ce document est mis à jour à chaque nouvelle fonctionnalité ajoutée au plugin.*
