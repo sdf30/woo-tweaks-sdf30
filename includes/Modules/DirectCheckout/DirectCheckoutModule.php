@@ -37,24 +37,24 @@ class DirectCheckoutModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Direct Checkout', 'tweak-tools-sdf30'),
+            'title' => \__('Direct Checkout', 'tweak-tools-for-woocommerce'),
             'type'  => 'title',
-            'desc'  => \__('Adds a direct purchase button next to the add to cart button.', 'tweak-tools-sdf30'),
+            'desc'  => \__('Adds a direct purchase button next to the add to cart button.', 'tweak-tools-for-woocommerce'),
             'id'    => 'woo_tweaks_direct_checkout_section',
         ];
         $settings[] = [
-            'title'    => \__('Enable Direct Checkout', 'tweak-tools-sdf30'),
+            'title'    => \__('Enable Direct Checkout', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_direct_checkout',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Check to enable this module.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Check to enable this module.', 'tweak-tools-for-woocommerce'),
         ];
         $settings[] = [
-            'title'    => \__('Direct Checkout Label', 'tweak-tools-sdf30'),
+            'title'    => \__('Direct Checkout Label', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_direct_checkout_label',
             'type'     => 'text',
-            'default'  => \__('Buy now', 'tweak-tools-sdf30'),
-            'desc'     => \__('Text displayed on the direct checkout button.', 'tweak-tools-sdf30'),
+            'default'  => \__('Buy now', 'tweak-tools-for-woocommerce'),
+            'desc'     => \__('Text displayed on the direct checkout button.', 'tweak-tools-for-woocommerce'),
             'desc_tip' => true,
         ];
         $settings[] = [
@@ -99,7 +99,7 @@ class DirectCheckoutModule extends AbstractModule
         }
 
         // Output the button
-        $label = \get_option('woo_tweaks_direct_checkout_label', \__('Buy now', 'tweak-tools-sdf30'));
+        $label = \get_option('woo_tweaks_direct_checkout_label', \__('Buy now', 'tweak-tools-for-woocommerce'));
         $button_text = \esc_html($label);
         
         echo '<button type="submit" name="woo_tweaks_direct_checkout" value="1" class="button alt tweak-tools-sdf30-validatenow" style="background: none; color: #007b5f; font-weight: 600; border: solid 1px; padding: 10px; margin-left: 10px;">' . \esc_html($button_text) . '</button>';
@@ -141,7 +141,7 @@ class DirectCheckoutModule extends AbstractModule
      */
     public function enqueue_editor_assets(): void
     {
-        $label = \get_option('woo_tweaks_direct_checkout_label', \__('Buy now', 'tweak-tools-sdf30'));
+        $label = \get_option('woo_tweaks_direct_checkout_label', \__('Buy now', 'tweak-tools-for-woocommerce'));
         \wp_add_inline_script(
             'wp-blocks',
             'var wooTweaksDirectCheckoutLabel = "' . \esc_js($label) . '";',

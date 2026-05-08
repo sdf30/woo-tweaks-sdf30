@@ -37,16 +37,16 @@ class EmptyCartRedirectModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Empty Cart Redirect', 'tweak-tools-sdf30'),
+            'title' => \__('Empty Cart Redirect', 'tweak-tools-for-woocommerce'),
             'type'  => 'title',
             'id'    => 'woo_tweaks_empty_cart_redirect_section',
         ];
         $settings[] = [
-            'title'    => \__('Empty Cart Redirect', 'tweak-tools-sdf30'),
+            'title'    => \__('Empty Cart Redirect', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_empty_cart_redirect',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Redirect users to the shop page if they access an empty cart page.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Redirect users to the shop page if they access an empty cart page.', 'tweak-tools-for-woocommerce'),
             'desc_tip' => true,
         ];
         $settings[] = [

@@ -37,53 +37,53 @@ class CustomLabelsModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Global Custom Labels', 'tweak-tools-sdf30'),
+            'title' => \__('Global Custom Labels', 'tweak-tools-for-woocommerce'),
             'type'  => 'title',
-            'desc'  => \__('These labels will apply globally unless overridden per product.', 'tweak-tools-sdf30'),
+            'desc'  => \__('These labels will apply globally unless overridden per product.', 'tweak-tools-for-woocommerce'),
             'id'    => 'woo_tweaks_labels_section',
         ];
         $settings[] = [
-            'title'    => \__('Add to Cart Text', 'tweak-tools-sdf30'),
+            'title'    => \__('Add to Cart Text', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_add_to_cart_text',
             'type'     => 'text',
             'default'  => '',
-            'desc'     => \__('Leave empty to use WooCommerce default.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Leave empty to use WooCommerce default.', 'tweak-tools-for-woocommerce'),
             'desc_tip' => true,
         ];
         $settings[] = [
-            'title'    => \__('Sale Badge Text', 'tweak-tools-sdf30'),
+            'title'    => \__('Sale Badge Text', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_sale_badge_text',
             'type'     => 'text',
             'default'  => '',
-            'placeholder' => \__('Sale!', 'tweak-tools-sdf30'),
-            'desc'     => \__('Text for the "Sale" badge (Promo).', 'tweak-tools-sdf30'),
+            'placeholder' => \__('Sale!', 'tweak-tools-for-woocommerce'),
+            'desc'     => \__('Text for the "Sale" badge (Promo).', 'tweak-tools-for-woocommerce'),
             'desc_tip' => true,
         ];
         $settings[] = [
-            'title'    => \__('Out of Stock Text', 'tweak-tools-sdf30'),
+            'title'    => \__('Out of Stock Text', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_out_of_stock_text',
             'type'     => 'text',
             'default'  => '',
-            'placeholder' => \__('Out of stock', 'tweak-tools-sdf30'),
-            'desc'     => \__('Text for "Out of stock" availability.', 'tweak-tools-sdf30'),
+            'placeholder' => \__('Out of stock', 'tweak-tools-for-woocommerce'),
+            'desc'     => \__('Text for "Out of stock" availability.', 'tweak-tools-for-woocommerce'),
             'desc_tip' => true,
         ];
         $settings[] = [
-            'title'    => \__('SKU Prefix', 'tweak-tools-sdf30'),
+            'title'    => \__('SKU Prefix', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_sku_label',
             'type'     => 'text',
             'default'  => '',
             'placeholder' => 'SKU:',
-            'desc'     => \__('Override the default "SKU:" text.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Override the default "SKU:" text.', 'tweak-tools-for-woocommerce'),
             'desc_tip' => true,
         ];
         $settings[] = [
-            'title'    => \__('Category Prefix', 'tweak-tools-sdf30'),
+            'title'    => \__('Category Prefix', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_category_label',
             'type'     => 'text',
             'default'  => '',
             'placeholder' => 'Category:',
-            'desc'     => \__('Override the default "Category:" text.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Override the default "Category:" text.', 'tweak-tools-for-woocommerce'),
             'desc_tip' => true,
         ];
         $settings[] = [
@@ -126,8 +126,8 @@ class CustomLabelsModule extends AbstractModule
         echo '<div class="options_group">';
         \woocommerce_wp_checkbox([
             'id'            => '_woo_tweaks_disable_global_label',
-            'label'         => \__('Disable Global Custom Labels', 'tweak-tools-sdf30'),
-            'description'   => \__('Check this to use native WooCommerce labels for this product (Add to Cart, Sale, Stock, etc.).', 'tweak-tools-sdf30'),
+            'label'         => \__('Disable Global Custom Labels', 'tweak-tools-for-woocommerce'),
+            'description'   => \__('Check this to use native WooCommerce labels for this product (Add to Cart, Sale, Stock, etc.).', 'tweak-tools-for-woocommerce'),
             'desc_tip'      => true,
         ]);
         echo '</div>';

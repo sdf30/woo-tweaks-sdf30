@@ -37,32 +37,32 @@ class SmartStockModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Smart Stock Messaging', 'tweak-tools-sdf30'),
+            'title' => \__('Smart Stock Messaging', 'tweak-tools-for-woocommerce'),
             'type'  => 'title',
-            'desc'  => \__('Displays a custom urgency message when stock is low.', 'tweak-tools-sdf30'),
+            'desc'  => \__('Displays a custom urgency message when stock is low.', 'tweak-tools-for-woocommerce'),
             'id'    => 'woo_tweaks_smart_stock_section',
         ];
         $settings[] = [
-            'title'    => \__('Enable Smart Stock', 'tweak-tools-sdf30'),
+            'title'    => \__('Enable Smart Stock', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_smart_stock_messaging',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Check to enable dynamic stock messages.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Check to enable dynamic stock messages.', 'tweak-tools-for-woocommerce'),
         ];
         $settings[] = [
-            'title'    => \__('Trigger threshold', 'tweak-tools-sdf30'),
+            'title'    => \__('Trigger threshold', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_smart_stock_threshold',
             'type'     => 'number',
             'default'  => 10,
-            'desc'     => \__('Stock quantity at which the message is displayed.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Stock quantity at which the message is displayed.', 'tweak-tools-for-woocommerce'),
             'desc_tip' => true,
         ];
         $settings[] = [
-            'title'    => \__('Low stock message', 'tweak-tools-sdf30'),
+            'title'    => \__('Low stock message', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_smart_stock_message',
             'type'     => 'text',
-            'default'  => \__('🔥 Only {stock} items left in stock!', 'tweak-tools-sdf30'),
-            'desc'     => \__('Use {stock} to display the remaining quantity.', 'tweak-tools-sdf30'),
+            'default'  => \__('🔥 Only {stock} items left in stock!', 'tweak-tools-for-woocommerce'),
+            'desc'     => \__('Use {stock} to display the remaining quantity.', 'tweak-tools-for-woocommerce'),
             'desc_tip' => true,
         ];
         $settings[] = [
@@ -109,7 +109,7 @@ class SmartStockModule extends AbstractModule
         $threshold = (int) \get_option('woo_tweaks_smart_stock_threshold', 10);
         
         if ($stock_quantity > 0 && $stock_quantity <= $threshold) {
-            $message_template = \get_option('woo_tweaks_smart_stock_message', \__('🔥 Only {stock} items left in stock!', 'tweak-tools-sdf30'));
+            $message_template = \get_option('woo_tweaks_smart_stock_message', \__('🔥 Only {stock} items left in stock!', 'tweak-tools-for-woocommerce'));
             $final_message = \str_replace('{stock}', (string) $stock_quantity, $message_template);
             
             $availability['availability'] = $final_message;

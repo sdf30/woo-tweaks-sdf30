@@ -48,7 +48,7 @@ class BulkPriceModule extends AbstractModule
      */
     public function add_bulk_action(array $bulk_actions): array
     {
-        $bulk_actions['woo_tweaks_adjust_prices'] = \__('Adjust prices (+/-)', 'tweak-tools-sdf30');
+        $bulk_actions['woo_tweaks_adjust_prices'] = \__('Adjust prices (+/-)', 'tweak-tools-for-woocommerce');
         return $bulk_actions;
     }
 
@@ -68,41 +68,41 @@ class BulkPriceModule extends AbstractModule
         <div id="tweak-tools-sdf30s-bulk-modal" class="tweak-tools-sdf30s-modal" style="display:none;">
             <div class="tweak-tools-sdf30s-modal-content">
                 <div class="tweak-tools-sdf30s-modal-header">
-                    <h3><?php \esc_html_e('Bulk Price Adjustment', 'tweak-tools-sdf30'); ?></h3>
+                    <h3><?php \esc_html_e('Bulk Price Adjustment', 'tweak-tools-for-woocommerce'); ?></h3>
                     <span class="tweak-tools-sdf30s-modal-close">&times;</span>
                 </div>
                 <div class="tweak-tools-sdf30s-modal-body">
-                    <p class="desc"><?php \esc_html_e('Apply a price change to selected products.', 'tweak-tools-sdf30'); ?></p>
+                    <p class="desc"><?php \esc_html_e('Apply a price change to selected products.', 'tweak-tools-for-woocommerce'); ?></p>
                     
                     <div class="tweak-tools-sdf30s-field-group">
-                        <label><?php \esc_html_e('Operation', 'tweak-tools-sdf30'); ?></label>
+                        <label><?php \esc_html_e('Operation', 'tweak-tools-for-woocommerce'); ?></label>
                         <select id="wt-bulk-op">
-                            <option value="increase"><?php \esc_html_e('Increase (+)', 'tweak-tools-sdf30'); ?></option>
-                            <option value="decrease"><?php \esc_html_e('Decrease (-)', 'tweak-tools-sdf30'); ?></option>
+                            <option value="increase"><?php \esc_html_e('Increase (+)', 'tweak-tools-for-woocommerce'); ?></option>
+                            <option value="decrease"><?php \esc_html_e('Decrease (-)', 'tweak-tools-for-woocommerce'); ?></option>
                         </select>
                     </div>
 
                     <div class="tweak-tools-sdf30s-field-group">
-                        <label><?php \esc_html_e('Type', 'tweak-tools-sdf30'); ?></label>
+                        <label><?php \esc_html_e('Type', 'tweak-tools-for-woocommerce'); ?></label>
                         <select id="wt-bulk-type">
-                            <option value="percent"><?php \esc_html_e('Percentage (%)', 'tweak-tools-sdf30'); ?></option>
-                            <option value="fixed"><?php \esc_html_e('Fixed amount (€,$,...)', 'tweak-tools-sdf30'); ?></option>
+                            <option value="percent"><?php \esc_html_e('Percentage (%)', 'tweak-tools-for-woocommerce'); ?></option>
+                            <option value="fixed"><?php \esc_html_e('Fixed amount (€,$,...)', 'tweak-tools-for-woocommerce'); ?></option>
                         </select>
                     </div>
 
                     <div class="tweak-tools-sdf30s-field-group">
-                        <label><?php \esc_html_e('Value', 'tweak-tools-sdf30'); ?></label>
+                        <label><?php \esc_html_e('Value', 'tweak-tools-for-woocommerce'); ?></label>
                         <input type="number" id="wt-bulk-value" step="0.01" min="0" placeholder="0.00">
                     </div>
 
                     <div class="tweak-tools-sdf30s-field-group checkbox-group">
                         <input type="checkbox" id="wt-bulk-round" value="1">
-                        <label for="wt-bulk-round"><?php \esc_html_e('Round to .99', 'tweak-tools-sdf30'); ?></label>
+                        <label for="wt-bulk-round"><?php \esc_html_e('Round to .99', 'tweak-tools-for-woocommerce'); ?></label>
                     </div>
                 </div>
                 <div class="tweak-tools-sdf30s-modal-footer">
-                    <button type="button" class="button" id="wt-bulk-cancel"><?php \esc_html_e('Cancel', 'tweak-tools-sdf30'); ?></button>
-                    <button type="button" class="button button-primary" id="wt-bulk-apply"><?php \esc_html_e('Apply', 'tweak-tools-sdf30'); ?></button>
+                    <button type="button" class="button" id="wt-bulk-cancel"><?php \esc_html_e('Cancel', 'tweak-tools-for-woocommerce'); ?></button>
+                    <button type="button" class="button button-primary" id="wt-bulk-apply"><?php \esc_html_e('Apply', 'tweak-tools-for-woocommerce'); ?></button>
                 </div>
             </div>
         </div>
@@ -218,7 +218,7 @@ class BulkPriceModule extends AbstractModule
             $('#wt-bulk-apply').on('click', function() {
                 var val = $('#wt-bulk-value').val();
                 if (!val || val <= 0) {
-                    alert('<?php \esc_html_e('Please enter a valid value.', 'tweak-tools-sdf30'); ?>');
+                    alert('<?php \esc_html_e('Please enter a valid value.', 'tweak-tools-for-woocommerce'); ?>');
                     return;
                 }
 
@@ -354,11 +354,11 @@ class BulkPriceModule extends AbstractModule
             // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             $count = (int) \sanitize_text_field(\wp_unslash($_GET['wt_bulk_updated']));
             // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-            $op = isset($_GET['wt_bulk_op']) && \sanitize_text_field(\wp_unslash($_GET['wt_bulk_op'])) === 'increase' ? \__('increased', 'tweak-tools-sdf30') : \__('decreased', 'tweak-tools-sdf30');
+            $op = isset($_GET['wt_bulk_op']) && \sanitize_text_field(\wp_unslash($_GET['wt_bulk_op'])) === 'increase' ? \__('increased', 'tweak-tools-for-woocommerce') : \__('decreased', 'tweak-tools-for-woocommerce');
             
             $message = \sprintf(
                 /* translators: 1: Count of products, 2: Operation applied */
-                \__('%1$d products were successfully %2$s.', 'tweak-tools-sdf30'),
+                \__('%1$d products were successfully %2$s.', 'tweak-tools-for-woocommerce'),
                 $count,
                 $op
             );

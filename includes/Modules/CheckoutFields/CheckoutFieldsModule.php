@@ -37,38 +37,38 @@ class CheckoutFieldsModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Checkout Cleanup', 'tweak-tools-sdf30'),
+            'title' => \__('Checkout Cleanup', 'tweak-tools-for-woocommerce'),
             'type'  => 'title',
-            'desc'  => \__('Disable unnecessary fields on the checkout page.', 'tweak-tools-sdf30'),
+            'desc'  => \__('Disable unnecessary fields on the checkout page.', 'tweak-tools-for-woocommerce'),
             'id'    => 'woo_tweaks_checkout_section',
         ];
         $settings[] = [
-            'title'    => \__('Hide Company', 'tweak-tools-sdf30'),
+            'title'    => \__('Hide Company', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_hide_billing_company',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Hides the Company Name field.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Hides the Company Name field.', 'tweak-tools-for-woocommerce'),
         ];
         $settings[] = [
-            'title'    => \__('Hide Address 2', 'tweak-tools-sdf30'),
+            'title'    => \__('Hide Address 2', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_hide_billing_address_2',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Hides the Address 2 field.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Hides the Address 2 field.', 'tweak-tools-for-woocommerce'),
         ];
         $settings[] = [
-            'title'    => \__('Hide Phone', 'tweak-tools-sdf30'),
+            'title'    => \__('Hide Phone', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_hide_billing_phone',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Hides the Phone field (be careful if you use a shipping carrier).', 'tweak-tools-sdf30'),
+            'desc'     => \__('Hides the Phone field (be careful if you use a shipping carrier).', 'tweak-tools-for-woocommerce'),
         ];
         $settings[] = [
-            'title'    => \__('Hide Order Notes', 'tweak-tools-sdf30'),
+            'title'    => \__('Hide Order Notes', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_hide_order_notes',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Hides the additional notes field.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Hides the additional notes field.', 'tweak-tools-for-woocommerce'),
         ];
         $settings[] = [
             'type' => 'sectionend',

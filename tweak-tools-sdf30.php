@@ -3,12 +3,12 @@
  * Plugin Name:       Tweak Tools for WooCommerce
  * Plugin URI:        https://github.com/sdf30/woo-tweaks-sdf30
  * Description:       A collection of performance, UI/UX, and administrative utilities for WooCommerce.
- * Version:           2.0.1
+ * Version:           2.0.2
  * Author:            OPEN-SDF
  * Author URI:        https://open.sdf30.com
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       tweak-tools-sdf30
+ * Text Domain:       tweak-tools-for-woocommerce
  * Domain Path:       /languages
  * Requires at least: 6.0
  * Requires PHP:      8.1
@@ -40,7 +40,7 @@ final class Plugin
     /**
      * Plugin version.
      */
-    public const VERSION = '2.0.1';
+    public const VERSION = '2.0.2';
 
     /**
      * Constructor.
@@ -85,7 +85,7 @@ final class Plugin
     public function add_plugin_action_links(array $links): array
     {
         $settings_url = \admin_url('admin.php?page=wc-settings&tab=woo_tweaks_tools');
-        $settings_link = \sprintf('<a href="%s">%s</a>', \esc_url($settings_url), \__('Settings', 'tweak-tools-sdf30'));
+        $settings_link = \sprintf('<a href="%s">%s</a>', \esc_url($settings_url), \__('Settings', 'tweak-tools-for-woocommerce'));
         \array_unshift($links, $settings_link);
         return $links;
     }
@@ -97,7 +97,7 @@ final class Plugin
     {
         // phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound
         \load_plugin_textdomain(
-            'tweak-tools-sdf30',
+            'tweak-tools-for-woocommerce',
             false,
             \dirname(\plugin_basename(__FILE__)) . '/languages'
         );
@@ -122,7 +122,7 @@ final class Plugin
     public function woocommerce_missing_notice(): void
     {
         $class = 'notice notice-error';
-        $message = \__('Woo Tweaks Tools requires WooCommerce to be installed and active.', 'tweak-tools-sdf30');
+        $message = \__('Woo Tweaks Tools requires WooCommerce to be installed and active.', 'tweak-tools-for-woocommerce');
         \printf('<div class="%1$s"><p>%2$s</p></div>', \esc_attr($class), \esc_html($message));
     }
 

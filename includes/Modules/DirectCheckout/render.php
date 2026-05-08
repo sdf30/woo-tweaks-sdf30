@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 // Render the direct checkout button for FSE
-$label = \get_option('woo_tweaks_direct_checkout_label', \__('Buy now', 'tweak-tools-sdf30'));
+$label = \get_option('woo_tweaks_direct_checkout_label', \__('Buy now', 'tweak-tools-for-woocommerce'));
 $button_text = \esc_html($label);
 global $product;
 $current_product = $product;

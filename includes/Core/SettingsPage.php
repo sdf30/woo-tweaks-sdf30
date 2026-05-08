@@ -25,7 +25,7 @@ class SettingsPage extends \WC_Settings_Page
     public function __construct()
     {
         $this->id    = 'woo_tweaks_tools';
-        $this->label = \__('Woo Tweaks', 'tweak-tools-sdf30');
+        $this->label = \__('Woo Tweaks', 'tweak-tools-for-woocommerce');
 
         \add_filter('woocommerce_settings_tabs_array', [$this, 'add_settings_page'], 20);
         \add_action('woocommerce_settings_' . $this->id, [$this, 'output']);
@@ -123,8 +123,8 @@ class SettingsPage extends \WC_Settings_Page
     {
         \add_submenu_page(
             'woocommerce',
-            \__('Tweaks Tools', 'tweak-tools-sdf30'),
-            \__('Tweaks Tools', 'tweak-tools-sdf30'),
+            \__('Tweaks Tools', 'tweak-tools-for-woocommerce'),
+            \__('Tweaks Tools', 'tweak-tools-for-woocommerce'),
             'manage_woocommerce',
             'admin.php?page=wc-settings&tab=' . $this->id,
             null,

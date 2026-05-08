@@ -37,7 +37,7 @@ class CustomCssModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Appearance & Custom CSS', 'tweak-tools-sdf30'),
+            'title' => \__('Appearance & Custom CSS', 'tweak-tools-for-woocommerce'),
             'type'  => 'title',
             'desc'  => \__('Add your custom CSS here to style plugin elements without overriding your global site CSS. <br><br><b>Class Glossary:</b><br>
                 <code>a.tweak-tools-sdf30s-read-more</code> : The "Read More" button (Feat 2).<br>
@@ -48,11 +48,11 @@ class CustomCssModule extends AbstractModule
                 <code>#billing_birth_date_field</code> : Date of birth field.<br>
                 <code>.wt-toggle-stock</code> : Stock toggle link (Admin Product List).<br>
                 <code>.wt-promo-badge</code> : Discount percentage badge.<br>
-                <code>.wt-promo-urgency-msg</code> : Promotion end message.', 'tweak-tools-sdf30'),
+                <code>.wt-promo-urgency-msg</code> : Promotion end message.', 'tweak-tools-for-woocommerce'),
             'id'    => 'woo_tweaks_custom_css_section',
         ];
         $settings[] = [
-            'title'    => \__('CSS Code', 'tweak-tools-sdf30'),
+            'title'    => \__('CSS Code', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_custom_css',
             'type'     => 'textarea',
             'default'  => '',

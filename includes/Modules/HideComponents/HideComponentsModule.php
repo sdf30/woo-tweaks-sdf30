@@ -37,31 +37,31 @@ class HideComponentsModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('Hide elements', 'tweak-tools-sdf30'),
+            'title' => \__('Hide elements', 'tweak-tools-for-woocommerce'),
             'type'  => 'title',
-            'desc'  => \__('Hide default WooCommerce elements on the product page.', 'tweak-tools-sdf30'),
+            'desc'  => \__('Hide default WooCommerce elements on the product page.', 'tweak-tools-for-woocommerce'),
             'id'    => 'woo_tweaks_hide_components_section',
         ];
         $settings[] = [
-            'title'    => \__('Hide SKU', 'tweak-tools-sdf30'),
+            'title'    => \__('Hide SKU', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_hide_sku',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Hides the product SKU.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Hides the product SKU.', 'tweak-tools-for-woocommerce'),
         ];
         $settings[] = [
-            'title'    => \__('Hide Categories/Tags', 'tweak-tools-sdf30'),
+            'title'    => \__('Hide Categories/Tags', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_hide_categories',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Hides categories and tags in product metadata.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Hides categories and tags in product metadata.', 'tweak-tools-for-woocommerce'),
         ];
         $settings[] = [
-            'title'    => \__('Hide Related Products', 'tweak-tools-sdf30'),
+            'title'    => \__('Hide Related Products', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_hide_related_products',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Disables the display of suggested products.', 'tweak-tools-sdf30'),
+            'desc'     => \__('Disables the display of suggested products.', 'tweak-tools-for-woocommerce'),
         ];
         $settings[] = [
             'type' => 'sectionend',

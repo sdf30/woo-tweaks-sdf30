@@ -37,17 +37,17 @@ class AccountUXModule extends AbstractModule
     public function add_settings(array $settings): array
     {
         $settings[] = [
-            'title' => \__('My Account & UX', 'tweak-tools-sdf30'),
+            'title' => \__('My Account & UX', 'tweak-tools-for-woocommerce'),
             'type'  => 'title',
-            'desc'  => \__('User experience improvements on the My Account page.', 'tweak-tools-sdf30'),
+            'desc'  => \__('User experience improvements on the My Account page.', 'tweak-tools-for-woocommerce'),
             'id'    => 'woo_tweaks_account_ux_section',
         ];
         $settings[] = [
-            'title'    => \__('Enable My Account UX', 'tweak-tools-sdf30'),
+            'title'    => \__('Enable My Account UX', 'tweak-tools-for-woocommerce'),
             'id'       => 'woo_tweaks_enhanced_account_ux',
             'type'     => 'checkbox',
             'default'  => 'no',
-            'desc'     => \__('Improves the account details form (e.g., Date of Birth field).', 'tweak-tools-sdf30'),
+            'desc'     => \__('Improves the account details form (e.g., Date of Birth field).', 'tweak-tools-for-woocommerce'),
         ];
         $settings[] = [
             'type' => 'sectionend',
@@ -83,8 +83,8 @@ class AccountUXModule extends AbstractModule
         \woocommerce_form_field('billing_birth_date', [
             'type'        => 'date',
             'class'       => ['form-row-wide'],
-            'label'       => \__('Date of Birth', 'tweak-tools-sdf30'),
-            'placeholder' => \__('DD/MM/YYYY', 'tweak-tools-sdf30'),
+            'label'       => \__('Date of Birth', 'tweak-tools-for-woocommerce'),
+            'placeholder' => \__('DD/MM/YYYY', 'tweak-tools-for-woocommerce'),
             'required'    => false,
         ], $birthday);
     }
@@ -122,10 +122,10 @@ class AccountUXModule extends AbstractModule
 
         \wp_localize_script('tweak-tools-sdf30s-account-ux', 'wtAccountData', [
             'i18n' => [
-                'edit_email'    => \__('Edit email address', 'tweak-tools-sdf30'),
-                'change_pass'   => \__('Change password', 'tweak-tools-sdf30'),
-                'hide_email'    => \__('Hide email address', 'tweak-tools-sdf30'),
-                'hide_pass'     => \__('Keep current password', 'tweak-tools-sdf30'),
+                'edit_email'    => \__('Edit email address', 'tweak-tools-for-woocommerce'),
+                'change_pass'   => \__('Change password', 'tweak-tools-for-woocommerce'),
+                'hide_email'    => \__('Hide email address', 'tweak-tools-for-woocommerce'),
+                'hide_pass'     => \__('Keep current password', 'tweak-tools-for-woocommerce'),
             ]
         ]);
 
